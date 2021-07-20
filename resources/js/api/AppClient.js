@@ -20,6 +20,13 @@ class AppClient {
                     })
             })
     }
+
+    getUser() {
+        this.client.get('/user')
+            .then(r => {
+                console.log('user', r);
+            })
+    }
 }
 
 export default AppClient

@@ -10,7 +10,12 @@
             <input v-model="state.signin.input.password" type="text" name="password" id="password">
         </div>
 
-        <button type="submit">Sign in</button>
+        <div>
+            <button type="submit">Sign in</button>
+        </div>
+        <div>
+            <a href="#" @click="user">User</a>
+        </div>
     </form>
 </template>
 
@@ -40,6 +45,10 @@ export default {
                 password: this.state.signin.input.password,
             })
         },
+
+        user() {
+            this.client.getUser();
+        }
     },
 }
 </script>
