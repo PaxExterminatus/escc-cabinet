@@ -35,7 +35,10 @@ export default {
 
     methods: {
         submit() {
-            this.client.signIn({})
+            this.client.signIn({
+                login: this.state.signin.input.login,
+                password: this.state.signin.input.password,
+            })
         },
     },
 }

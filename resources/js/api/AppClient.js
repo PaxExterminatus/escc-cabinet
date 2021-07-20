@@ -14,9 +14,9 @@ class AppClient {
         this.client.get('/sanctum/csrf-cookie')
             .then(r => {
                 console.log('sanctum', r)
-                this.client.post('/login', {login, password})
+                this.client.post('/login', {email: login, password})
                     .then(r => {
-                        console.log('login', r);
+                        console.log('login', r.data);
                     })
             })
     }

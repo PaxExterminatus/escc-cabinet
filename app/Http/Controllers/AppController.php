@@ -11,21 +11,23 @@ abstract class AppController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    protected function success(array $data = null, string $message = null, int $code = 200): JsonResponse
+    protected function success(array $data = null, string $message = null, int $code = 200, string $redirect = null): JsonResponse
     {
         return response()->json([
             'status' => 'success',
             'message' => $message,
-            'data' => $data
+            'redirect' => $redirect,
+            'data' => $data,
         ], $code);
     }
 
-    protected function error(array $data = null, string $message = null, int $code = 400): JsonResponse
+    protected function error(array $data = null, string $message = null, int $code = 400, string $redirect = null): JsonResponse
     {
         return response()->json([
             'status' => 'error',
             'message' => $message,
-            'data' => $data
+            'redirect' => $redirect,
+            'data' => $data,
         ], $code);
     }
 }
