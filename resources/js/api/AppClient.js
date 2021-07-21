@@ -22,6 +22,13 @@ class AppClient {
     }
 
     getUser() {
+        this.client.get('/api/user')
+            .then(r => {
+                console.log('user', r);
+            })
+    }
+
+    getUserWeb() {
         this.client.get('/user')
             .then(r => {
                 console.log('user', r);

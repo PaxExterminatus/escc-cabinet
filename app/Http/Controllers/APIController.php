@@ -7,7 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\JsonResponse;
 
-abstract class AppController extends Controller
+abstract class APIController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 

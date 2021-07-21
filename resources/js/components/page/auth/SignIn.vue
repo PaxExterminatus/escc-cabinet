@@ -14,7 +14,10 @@
             <button type="submit">Sign in</button>
         </div>
         <div>
-            <a href="#" @click="user">User</a>
+            <a href="#" @click="user">User API</a>
+        </div>
+        <div>
+            <a href="#" @click="userWeb">User WEB</a>
         </div>
     </form>
 </template>
@@ -48,7 +51,11 @@ export default {
 
         user() {
             this.client.getUser();
-        }
+        },
+
+        userWeb() {
+            this.client.getUserWeb();
+        },
     },
 }
 </script>
