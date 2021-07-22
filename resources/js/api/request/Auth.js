@@ -7,10 +7,6 @@ const endpoint = {
 }
 
 class Auth extends ApplicationRequest {
-    constructor() {
-        super();
-    }
-
     /**
      * @param login
      * @param password
@@ -29,7 +25,7 @@ class Auth extends ApplicationRequest {
         })
     }
 
-    me() {
+    user() {
         this.client.axios.get(endpoint.authUser)
             .then(r => {
                 console.log('user', r);
