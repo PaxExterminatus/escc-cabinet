@@ -1,15 +1,53 @@
-import SignIn from 'page/auth/SignIn'
+import MemberSection from 'cmp/page/member/MemberSection'
+import MemberHomeContent from 'cmp/page/member/MemberHomeContent'
+import AuthSection from 'cmp/page/auth/AuthLoginContent'
+import AuthLoginContent from 'cmp/page/auth/AuthLoginContent'
+import PaySection from 'cmp/page/pay/PaySection'
 
-const routes = [
+export default [
     {
-        path: '/auth/signin',
-        name: 'signin',
-        component: SignIn
-    }
-]
-
-export default routes;
-
-export {
-    routes,
-};
+        path: '/',
+        name: 'home',
+        component: MemberSection,
+        children: [
+            {
+                path: '/',
+                name: 'home',
+                component: MemberHomeContent,
+            },
+            {
+                path: '/courses',
+                name: 'courses',
+                component: () => import(/* webpackChunkName: "chunk.page.member.courses" */ 'cmp/page/member/CoursesContent'),
+            },
+            {
+                path: '/profile',
+                name: 'profile',
+                component: () => import(/* webpackChunkName: "chunk.page.member.profile" */ 'cmp/page/member/ProfileContent'),
+            },
+            {
+                path: '/payment',
+                name: 'payment',
+                component: () => import(/* webpackChunkName: "chunk.page.member.payment" */ 'cmp/page/member/PaymentContent'),
+            },
+        ],
+    },
+    {
+        path: '/auth',
+        name: 'auth',
+        component: AuthSection,
+        children: [
+            {
+                path: '/auth/login',
+                name: 'login',
+                component: AuthLoginContent,
+            }
+        ],
+    },
+    {
+        path: '/pay/:code?/:amount?/:name?/:surname?/:phone?/:email?/',
+        name: 'pay',
+        component: PaySection,
+        props: true,
+    },
+];

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 // Public SPA ----------------------------------------------------------------------------------------------------------
 
 Route::prefix('/auth/')->group(function () {
-    Route::get('signin', SPAController::class)->name('login');
+    Route::get('login', SPAController::class)->name('login');
 });
 
 // Protected SPA -------------------------------------------------------------------------------------------------------
