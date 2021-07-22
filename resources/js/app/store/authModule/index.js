@@ -9,7 +9,7 @@ const mutations = {
      * @param {AuthUserData} user
      * @param {AuthUserData} data
      */
-    setUser ({user}, data) {
+    fillUser ({user}, data) {
         user.name = data.name;
         user.email = data.email;
     },

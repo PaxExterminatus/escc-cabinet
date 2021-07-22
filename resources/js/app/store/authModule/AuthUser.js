@@ -7,7 +7,7 @@ class AuthUser {
     }
 
     fill(user) {
-        store.commit('auth/setUser', user);
+        store.commit('auth/fillUser', user);
     }
 }
 
