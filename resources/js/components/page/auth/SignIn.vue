@@ -16,20 +16,16 @@
         <div>
             <a href="#" @click="user">User API</a>
         </div>
-        <div>
-            <a href="#" @click="userWeb">User WEB</a>
-        </div>
     </form>
 </template>
 
 <script>
-import AppClient from 'api/AppClient'
+import api from 'api'
 
 export default {
 
     data() {
         return {
-            client: AppClient.make(),
             state: {
                 signin: {
                     input: {
@@ -43,18 +39,14 @@ export default {
 
     methods: {
         submit() {
-            this.client.signIn({
+            api.auth.login({
                 login: this.state.signin.input.login,
                 password: this.state.signin.input.password,
             })
         },
 
         user() {
-            this.client.getUser();
-        },
-
-        userWeb() {
-            this.client.getUserWeb();
+            api.auth.me();
         },
     },
 }
