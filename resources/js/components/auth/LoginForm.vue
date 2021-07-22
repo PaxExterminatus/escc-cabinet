@@ -45,10 +45,11 @@ export default {
     methods: {
         login() {
             api.auth.login({
-                login: this.state.signin.input.login,
-                password: this.state.signin.input.password,
+                login: this.input.login,
+                password: this.input.password,
             }).then(r => {
                 this.user.fill(r.data.user);
+                this.$router.push({name: 'home'});
             })
         },
     },

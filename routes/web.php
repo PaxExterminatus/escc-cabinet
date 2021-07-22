@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 // Public SPA ----------------------------------------------------------------------------------------------------------
 
-Route::prefix('/auth/')->group(function () {
+Route::prefix('/auth/')->middleware('guest')->group(function () {
     Route::get('login', SPAController::class)->name('login');
 });
 

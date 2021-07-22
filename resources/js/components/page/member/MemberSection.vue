@@ -1,7 +1,7 @@
 <template>
     <div class="page-section">
         <AppHeader>
-            <TabMenu :model="menu" />
+            <TabMenu :model="headerMenu" />
             <template #right>
                 <Button
                     class="p-button-rounded p-button-info p-button-outlined"
@@ -30,12 +30,12 @@
 </template>
 
 <script>
+import api from 'api'
 import Button from 'primevue/button'
 import TabMenu from 'primevue/tabmenu'
 import TieredMenu from 'primevue/tieredmenu'
 import AppHeader from 'cmp/page/template/AppHeader'
-import api from 'api';
-import { memberHeaderMenu } from 'app/menus'
+import { memberHeaderMenu, memberUserMenu } from 'app/menus'
 
 export default {
     components: {
@@ -47,21 +47,20 @@ export default {
 
     data() {
         return {
-            menu: memberHeaderMenu,
-            userMenu: [
-                {
-                    label:'Выйти',
-                    icon:'pi pi-fw pi-power-off',
-                    command: () => {
-                        api.auth.logout();
-                    },
-                }
-            ],
+            userMenu: memberUserMenu,
+            headerMenu: memberHeaderMenu,
         };
     },
 
     mounted() {
         this.clientGet();
+    },
+
+    computed: {
+        /** @returns {AuthUser} */
+        user() {
+            return this.$store.state.auth.user;
+        }
     },
 
     methods: {
@@ -70,8 +69,8 @@ export default {
         },
 
         clientGet() {
-            api.user.me().then(clientData => {
-                this.$store.state.client.fill(clientData);
+            api.auth.user().then(clientData => {
+                this.user.fill(clientData);
             });
         },
     },

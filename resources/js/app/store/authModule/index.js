@@ -10,8 +10,8 @@ const mutations = {
      * @param {AuthUserData} data
      */
     fillUser ({user}, data) {
-        user.name = data.name;
-        user.email = data.email;
+        console.log('mutations.fillUser', user, data);
+        user.data = data;
     },
 }
 

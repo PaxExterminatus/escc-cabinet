@@ -10,17 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthenticatedSessionController extends ApiController
 {
-    /**
-     * Display the login view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function create()
-    {
-        return view('auth.login');
-    }
-
-    public function store(LoginRequest $request): JsonResponse
+    function store(LoginRequest $request): JsonResponse
     {
         $request->authenticate();
 
@@ -34,13 +24,7 @@ class AuthenticatedSessionController extends ApiController
         );
     }
 
-    /**
-     * Destroy an authenticated session.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function destroy(Request $request)
+    function destroy(Request $request): JsonResponse
     {
         Auth::guard('web')->logout();
 
@@ -48,6 +32,17 @@ class AuthenticatedSessionController extends ApiController
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return $this->success(
+            message: 'You are logout'
+        );
+    }
+
+    function user(Request $request): JsonResponse
+    {
+        return $this->success(
+            data: [
+                'user' => $request->user(),
+            ]
+        );
     }
 }

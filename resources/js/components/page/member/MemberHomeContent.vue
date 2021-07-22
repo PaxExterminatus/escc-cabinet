@@ -6,7 +6,9 @@
             </template>
 
             <template #content>
-                Hello, {{ client.name.hello }}
+                <template v-if="user">
+                    Hello, {{ user.name.hello }}
+                </template>
             </template>
 
             <template #footer>
@@ -34,7 +36,7 @@
             </template>
 
             <template #content>
-                <AccountBalance/>
+<!--                <AccountBalance/>-->
             </template>
 
             <template #footer>
@@ -71,8 +73,8 @@ export default {
     },
 
     computed: {
-        /** @returns {ClientStore} */
-        client() {
+        /** @returns {AuthUser} */
+        user() {
             return this.$store.state.client;
         },
     },

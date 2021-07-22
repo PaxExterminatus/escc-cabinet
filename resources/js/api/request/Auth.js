@@ -1,9 +1,11 @@
 import { ApplicationRequest } from './ApplicationRequest'
+import store from 'app/store'
 
 const endpoint = {
     sanctumCsrf: '/sanctum/csrf-cookie',
     authUser: '/api/user',
-    login: '/login'
+    login: '/login',
+    logout: '/logout',
 }
 
 class Auth extends ApplicationRequest {
@@ -25,10 +27,21 @@ class Auth extends ApplicationRequest {
         })
     }
 
-    user() {
-        this.client.axios.get(endpoint.authUser)
+    logout()
+    {
+        return this.axios.get(this.url(endpoint.logout))
             .then(r => {
-                console.log('user', r);
+                location.reload();
+                return response;
+            });
+    }
+
+    user()
+    {
+        return this.client.axios.get(endpoint.authUser)
+            .then(r => {
+                console.log('user', r.data.user, store.state.auth.user)
+                store.state.auth.user.fill(r.data.user);
             })
     }
 }

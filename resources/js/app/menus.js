@@ -1,3 +1,5 @@
+import api from 'api';
+
 const memberHeaderMenu = [
     {
         label: 'Кабинет',
@@ -6,6 +8,17 @@ const memberHeaderMenu = [
     },
 ];
 
+const memberUserMenu = [
+    {
+        label: 'Выйти',
+        icon: 'pi pi-fw pi-power-off',
+        command: () => {
+            api.auth.logout();
+        },
+    },
+];
+
 export {
     memberHeaderMenu,
+    memberUserMenu,
 }
