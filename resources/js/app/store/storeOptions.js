@@ -1,4 +1,4 @@
-import auth from './modules/auth'
+import auth from './authModule'
 
 const storeOptions = {
     modules: {

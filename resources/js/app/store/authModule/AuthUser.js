@@ -2,8 +2,8 @@ import store from 'app/store'
 
 class AuthUser {
     constructor() {
-        this.name = 'N1';
-        this.email = 'e1';
+        this.name = '';
+        this.email = '';
     }
 
     fill(user) {

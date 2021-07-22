@@ -1,4 +1,4 @@
-import AuthUser from '../states/AuthUser'
+import AuthUser from './AuthUser'
 
 const state = () => ({
     user: new AuthUser,
