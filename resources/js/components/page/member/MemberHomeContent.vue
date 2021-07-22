@@ -6,9 +6,7 @@
             </template>
 
             <template #content>
-                <template v-if="user">
-                    Hello, {{ user.name.hello }}
-                </template>
+                Hello, {{ user.name.hello }}
             </template>
 
             <template #footer>
@@ -75,7 +73,7 @@ export default {
     computed: {
         /** @returns {AuthUser} */
         user() {
-            return this.$store.state.client;
+            return this.$store.state.auth.user;
         },
     },
 }

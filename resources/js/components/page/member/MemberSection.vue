@@ -69,9 +69,7 @@ export default {
         },
 
         clientGet() {
-            api.auth.user().then(clientData => {
-                this.user.fill(clientData);
-            });
+            api.auth.user();
         },
     },
 }
