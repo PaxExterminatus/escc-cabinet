@@ -17,8 +17,7 @@ abstract class APIController extends Controller
             'status' => 'success',
             'message' => $message,
             'redirect' => $redirect,
-            'data' => $data,
-        ], $code);
+        ] + $data, $code);
     }
 
     protected function error(array $data = null, string $message = null, int $code = 400, string $redirect = null): JsonResponse

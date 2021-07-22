@@ -3,6 +3,7 @@ import { ApplicationRequest } from './ApplicationRequest'
 const endpoint = {
     sanctumCsrf: '/sanctum/csrf-cookie',
     authUser: '/api/user',
+    login: '/login'
 }
 
 class Auth extends ApplicationRequest {
@@ -10,16 +11,22 @@ class Auth extends ApplicationRequest {
         super();
     }
 
+    /**
+     * @param login
+     * @param password
+     * @returns {Promise<LoginResponse>}
+     */
     login ({login, password})
     {
-        this.client.axios.get(endpoint.sanctumCsrf)
-            .then(r => {
-                console.log('sanctum', r)
-                this.client.axios.post('/login', {email: login, password})
-                    .then(r => {
-                        console.log('login', r.data);
-                    })
-            })
+        return new Promise((resolve, reject) => {
+            this.client.axios.get(endpoint.sanctumCsrf)
+                .then(() => {
+                    return this.client.axios.post(endpoint.login, {email: login, password})
+                        .then(r => {
+                            resolve(r);
+                        });
+                });
+        })
     }
 
     me() {

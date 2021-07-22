@@ -1,5 +1,6 @@
 <template>
     <form action="#" @submit.prevent="submit">
+        {{user.name}}
         <div>
             <label for="email">Email address</label>
             <input v-model="state.signin.input.login" type="text" name="email" id="email">
@@ -37,11 +38,22 @@ export default {
         };
     },
 
+    computed: {
+        /**
+         * @returns {AuthUser}
+         */
+        user() {
+            return this.$store.state.auth.user;
+        },
+    },
+
     methods: {
         submit() {
             api.auth.login({
                 login: this.state.signin.input.login,
                 password: this.state.signin.input.password,
+            }).then(r => {
+                this.user.fill(r.data.user);
             })
         },
 
