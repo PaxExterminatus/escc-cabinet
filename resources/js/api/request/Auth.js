@@ -29,7 +29,7 @@ class Auth extends ApplicationRequest {
 
     logout()
     {
-        return this.axios.get(this.url(endpoint.logout))
+        return this.client.axios.post(endpoint.logout)
             .then(r => {
                 location.reload();
                 return response;
