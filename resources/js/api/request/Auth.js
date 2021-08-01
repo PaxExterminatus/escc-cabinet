@@ -3,9 +3,9 @@ import store from 'app/store'
 
 const endpoint = {
     sanctumCsrf: '/sanctum/csrf-cookie',
-    authUser: '/api/user',
     login: '/login',
     logout: '/logout',
+    authUser: '/api/user',
 }
 
 class Auth extends ApplicationRequest {
@@ -43,6 +43,10 @@ class Auth extends ApplicationRequest {
                 console.log('user', r.data.user, store.state.auth.user)
                 store.state.auth.user.fill(r.data.user);
             })
+    }
+
+    store() {
+        return store.state.auth;
     }
 }
 

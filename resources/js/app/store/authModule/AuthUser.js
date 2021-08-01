@@ -1,9 +1,12 @@
 import store from 'app/store'
 import {ClientData} from "api/structures";
 
+/**
+ * @implements {AuthUserFace}
+ */
 class AuthUser {
     constructor() {
-        this.data = new ClientData();
+        this.model = new ClientData();
     }
 
     /**

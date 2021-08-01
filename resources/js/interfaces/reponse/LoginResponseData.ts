@@ -1,8 +1,8 @@
-import { AuthUserData } from '../structure/AuthUserData'
+import { AuthUserModel } from '../structure/AuthUserData'
 
 export interface LoginResponseData {
     status: string
     message: string
     redirect: string
-    user: AuthUserData
+    user: AuthUserModel
 }
