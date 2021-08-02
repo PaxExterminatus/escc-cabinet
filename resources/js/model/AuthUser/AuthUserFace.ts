@@ -1,4 +1,4 @@
-import { AuthUserData } from './AuthUserData';
+import AuthUserData from './AuthUserData';
 
 interface AuthUserFace {
 

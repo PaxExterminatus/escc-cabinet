@@ -1,10 +1,7 @@
+export default
+
 interface AuthUserData {
-    name: string;
-    email: string;
-}
-
-export default AuthUserData
-
-export {
-    AuthUserData,
+    id: number
+    name: string
+    email: string
 }
