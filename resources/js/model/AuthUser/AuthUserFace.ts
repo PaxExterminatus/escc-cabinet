@@ -1,8 +1,14 @@
-import AuthUserModel from './AuthUserData';
+import { AuthUserData } from './AuthUserData';
 
-export default interface AuthUserFace {
+interface AuthUserFace {
 
-    model: AuthUserModel
+    data: AuthUserData
 
-    fill(userData: AuthUserModel)
+    fill(userData: AuthUserData)
+}
+
+export default AuthUserFace;
+
+export {
+    AuthUserFace,
 }

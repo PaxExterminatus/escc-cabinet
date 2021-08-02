@@ -6,11 +6,11 @@ const state = () => ({
 
 const mutations = {
     /**
-     * @param {AuthUserData} user
-     * @param {AuthUserData} data
+     * @param {AuthUserStore} user
+     * @param {AuthUserData} authUserData
      */
-    fillUser ({user}, data) {
-        console.log('mutations.fillUser', user, data);
+    fillUser ({user}, authUserData) {
+        user.setAuthUserData(authUserData);
     },
 }
 

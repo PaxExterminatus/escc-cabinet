@@ -6,7 +6,11 @@ import {ClientData} from "api/structures";
  */
 class AuthUserStore {
     constructor() {
-        this.model = new ClientData();
+        this.data = new ClientData();
+    }
+
+    setAuthUserData(authUserData) {
+        this.data = new ClientData(authUserData);
     }
 
     /** @param {AuthUserData} authUserData */
