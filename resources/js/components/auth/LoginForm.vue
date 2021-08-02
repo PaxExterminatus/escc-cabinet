@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import api from 'api'
+import {authUser} from 'model'
 import Button from 'primevue/button'
 import Password from 'primevue/password'
 import InputText from 'primevue/inputtext'
@@ -44,7 +44,7 @@ export default {
 
     methods: {
         login() {
-            api.auth.login({
+            authUser.api.login({
                 login: this.input.login,
                 password: this.input.password,
             }).then(r => {

@@ -4,16 +4,14 @@ import {ClientData} from "api/structures";
 /**
  * @implements {AuthUserFace}
  */
-class AuthUser {
+class AuthUserStore {
     constructor() {
         this.model = new ClientData();
     }
 
-    /**
-     * @param {ClientData} userData
-     */
-    fill(userData) {
-        store.commit('auth/fillUser', userData);
+    /** @param {AuthUserData} authUserData */
+    fill(authUserData) {
+        store.commit('auth/fillUser', authUserData);
     }
 
     /**

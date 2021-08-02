@@ -1,11 +1,13 @@
 import { ApplicationClient } from '../client/ApplicationClient'
 
-class ApplicationRequest {
+class ApplicationAPI {
     constructor() {
         this.client = new ApplicationClient();
     }
 }
 
+export default ApplicationAPI;
+
 export {
-    ApplicationRequest,
+    ApplicationAPI,
 }

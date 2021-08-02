@@ -1,4 +1,4 @@
-import AuthUser from './AuthUser'
+import AuthUser from 'model/AuthUser/AuthUserStore'
 
 const state = () => ({
     user: new AuthUser,

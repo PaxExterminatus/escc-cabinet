@@ -1,4 +1,4 @@
-import AuthUserModel from './AuthUserModel';
+import AuthUserModel from './AuthUserData';
 
 export default interface AuthUserFace {
 

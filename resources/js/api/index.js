@@ -1,4 +1,4 @@
-import Auth from './request/Auth'
+import Auth from '../model/AuthUser/AuthAPI'
 
 const api = {
     auth: new Auth(),

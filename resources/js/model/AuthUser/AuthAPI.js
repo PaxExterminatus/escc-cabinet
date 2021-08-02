@@ -1,4 +1,4 @@
-import { ApplicationRequest } from './ApplicationRequest'
+import ApplicationAPI from 'api/request/ApplicationRequest'
 import store from 'app/store'
 
 const endpoint = {
@@ -8,7 +8,7 @@ const endpoint = {
     authUser: '/api/user',
 }
 
-class Auth extends ApplicationRequest {
+class AuthAPI extends ApplicationAPI {
     /**
      * @param login
      * @param password
@@ -50,8 +50,8 @@ class Auth extends ApplicationRequest {
     }
 }
 
-export default Auth;
+export default AuthAPI;
 
 export {
-    Auth,
+    AuthAPI,
 }
