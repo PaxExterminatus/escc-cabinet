@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {authUser} from 'model'
+import {authUser, CredentialsInput} from 'model'
 import Button from 'primevue/button'
 import Password from 'primevue/password'
 import InputText from 'primevue/inputtext'
@@ -28,10 +28,7 @@ export default {
 
     data() {
         return {
-            input: {
-                login: '',
-                password: '',
-            }
+            input: new CredentialsInput,
         };
     },
 
@@ -44,13 +41,10 @@ export default {
 
     methods: {
         login() {
-            authUser.api.login({
-                login: this.input.login,
-                password: this.input.password,
-            }).then(r => {
-                this.user.fill(r.data.user);
-                this.$router.push({name: 'home'});
-            })
+            authUser.login(this.input)
+                .then(r => {
+                    this.$router.push({name: 'home'});
+                })
         },
     },
 }

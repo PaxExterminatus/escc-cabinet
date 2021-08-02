@@ -1,12 +1,15 @@
 import store from 'app/store'
-import AuthAPI from './AuthAPI';
+import AuthAPI from './AuthAPI'
 
 /**
- * @type {{api: AuthAPI, store: AuthUserStore}}
+ * @type {{
+ *     api: AuthAPI
+ *     store: AuthUserStore
+ * }}
  */
 const privates = {
     api: new AuthAPI(),
-    store: store.state.auth,
+    store: store.state.auth.user,
 }
 
 class AuthUser {

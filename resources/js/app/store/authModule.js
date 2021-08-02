@@ -11,7 +11,6 @@ const mutations = {
      */
     fillUser ({user}, data) {
         console.log('mutations.fillUser', user, data);
-        user.data = data;
     },
 }
 

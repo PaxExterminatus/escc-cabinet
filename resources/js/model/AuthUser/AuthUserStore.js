@@ -43,4 +43,8 @@ class AuthUserStore {
     }
 }
 
-export default AuthUser;
+export default AuthUserStore;
+
+export {
+    AuthUserStore,
+}
