@@ -7,9 +7,9 @@
 <script>
 export default {
     computed: {
-        /** @returns {ClientStore} */
+        /** @returns {AuthUserStore} */
         client() {
-            return this.$store.state.client;
+            return this.$store.state.auth.user;
         },
     },
 }
