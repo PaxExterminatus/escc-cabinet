@@ -14,7 +14,7 @@ export default {
 
     computed: {
         courses() {
-            return this.$store.state.client.courses;
+            return this.$store.state.auth.user.courses;
         },
     },
 }
