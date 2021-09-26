@@ -1,21 +1,21 @@
 <template>
     <div class="balance-cmp">
-        Your account balance <span class="balance" :class="cssBalance">{{ 0 }}</span> BYN
+        Баланс вашего счета <span class="balance" :class="cssBalance">{{ this.client.account.balance }}</span> рублей
     </div>
 </template>
 
 <script>
 export default {
     computed: {
-        /** @returns {ClientStore} */
+        /** @returns {AuthUserStore} */
         client() {
-            //return this.$store.state.client;
+            return this.$store.state.auth.user;
         },
 
         cssBalance() {
             return {
-                //negative: this.client.account.negativeBalance,
-               //positive: this.client.account.positiveBalance,
+                negative: this.client.account.negativeBalance,
+                positive: this.client.account.positiveBalance,
             };
         },
     },

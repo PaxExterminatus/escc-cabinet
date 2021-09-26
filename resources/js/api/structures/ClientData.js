@@ -46,7 +46,7 @@ class ClientName {
 
 class ClientAccount {
     constructor(balance) {
-        this.balance = balance;
+        this.balance = balance || 0;
     }
 
     get positiveBalance() {

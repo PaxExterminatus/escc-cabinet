@@ -2,43 +2,43 @@
     <div class="page-component page-home">
         <Card>
             <template #title>
-                Your Profile
+                Ващ профиль
             </template>
 
             <template #content>
-                Hello, {{ user.name.hello }}
+                Привет, {{ user.name.hello }}
             </template>
 
             <template #footer>
-                <Button class="p-button-sm" label="Open" @click="btnProfileOpen"/>
+                <Button class="p-button-sm" label="Открыть" @click="btnProfileOpen"/>
             </template>
         </Card>
 
         <Card>
             <template #title>
-                Your Courses
+                Ваши курсы
             </template>
 
             <template #content>
-                List of your courses
+                Список ваших курсов
             </template>
 
             <template #footer>
-                <Button class="p-button-sm" label="Open" @click="btnCoursesOpen"/>
+                <Button class="p-button-sm" label="Открыть" @click="btnCoursesOpen"/>
             </template>
         </Card>
 
         <Card>
             <template #title>
-                Your Payments
+                Ваши платежи
             </template>
 
             <template #content>
-<!--                <AccountBalance/>-->
+                <AccountBalance/>
             </template>
 
             <template #footer>
-                <Button class="p-button-sm" label="Open" @click="btnPaymentOpen"/>
+                <Button class="p-button-sm" label="Открыть" @click="btnPaymentOpen"/>
             </template>
         </Card>
     </div>
@@ -66,12 +66,12 @@ export default {
         },
 
         btnPaymentOpen() {
-            this.$router.push('payment');
+            this.$router.push('payments');
         },
     },
 
     computed: {
-        /** @returns {AuthUser} */
+        /** @returns {AuthUserStore} */
         user() {
             return this.$store.state.auth.user;
         },
