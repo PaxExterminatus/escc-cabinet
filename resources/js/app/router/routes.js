@@ -26,8 +26,8 @@ export default [
                 component: () => import(/* webpackChunkName: "chunk.page.member.profile" */ 'cmp/page/member/ProfileContent'),
             },
             {
-                path: '/payment',
-                name: 'payment',
+                path: '/payments',
+                name: 'payments',
                 component: () => import(/* webpackChunkName: "chunk.page.member.payment" */ 'cmp/page/member/PaymentContent'),
             },
         ],

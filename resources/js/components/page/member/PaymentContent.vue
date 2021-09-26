@@ -1,54 +1,27 @@
 <template>
     <div class="page-component page-payment">
-        <Card>
-            <template #title>
-                To make a payment
-            </template>
-
-            <template #content>
-                <div class="important-information">
-                    <header>Внимание!</header>
-                    <main>Ваш платеж будет зачислен и отображен в кабинете студента в течение двух рабочих дней после осуществления.</main>
-                </div>
-
-                <AccountBalance/>
-                <div class="pt-3">
-                    <label for="amount">Payment amount</label>
-                    <InputNumber id="amount" v-model="input.payment.amount" showButtons mode="currency" currency="BYN" />
-                </div>
-            </template>
-
-            <template #footer>
-                <template v-if="goto">
-                    <a :href="goto" target="_blank">
-                        <Button label="Оплатить счет" icon="pi pi-external-link"/>
-                    </a>
-                </template>
-
-                <template v-else>
-                    <Button
-                        label="Создать счет"
-                        icon="pi pi-plus"
-                        :disabled="!input.payment.amount"
-                        :loading="state.loading.pay"
-                        @click="makeBill"
-                    />
-                </template>
-
-            </template>
-        </Card>
+        <div class="app-container">
+            <PayForm
+                :code="input.payment.code"
+                :amount="input.payment.amount"
+                :name="input.payment.name"
+                :surname="input.payment.surname"
+                :email="input.payment.email"
+                :phone="input.payment.phone"
+            />
+        </div>
     </div>
 </template>
 
 <script>
+import api from 'api'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import InputNumber from 'primevue/inputnumber'
 import Dialog from 'primevue/dialog'
 import AccountBalance from 'cmp/data/account/Balance'
-import api from 'api'
-import { PaymentInput } from 'app/entity/payment'
-import { PayStructure } from 'api/structures';
+import { PayStructure } from 'api/structures'
+import { PayForm, PayFormInput } from 'cmp/payment'
 
 export default {
     components: {
@@ -57,12 +30,13 @@ export default {
         AccountBalance,
         InputNumber,
         Dialog,
+        PayForm,
     },
 
     data() {
         return {
             input: {
-                payment: PaymentInput.makeEmpty(),
+                payment: new PayFormInput,
             },
 
             state: {
@@ -90,7 +64,7 @@ export default {
         },
 
         makePayment() {
-            this.input.payment = PaymentInput.makeAccount(this.client.account);
+            //this.input.payment = PaymentInput.makeAccount(this.client.account);
         },
     },
 
@@ -110,7 +84,7 @@ export default {
     computed: {
         /** @returns {ClientStore} */
         client() {
-            return this.$store.state.client;
+            return this.$store.state.auth.user;
         },
     },
 }
