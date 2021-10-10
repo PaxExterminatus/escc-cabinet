@@ -1,5 +1,5 @@
 import store from 'app/store'
-import AuthAPI from './AuthAPI'
+import AuthAPI from './api/AuthAPI'
 
 /**
  * @type {{

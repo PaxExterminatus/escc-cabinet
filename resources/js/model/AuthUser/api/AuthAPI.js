@@ -44,7 +44,7 @@ class AuthAPI extends ApplicationClient {
         return this.client.post(endpoint.logout)
             .then(r => {
                 location.reload();
-                return response;
+                return r;
             });
     }
 

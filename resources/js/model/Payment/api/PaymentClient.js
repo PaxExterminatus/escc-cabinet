@@ -5,7 +5,7 @@ const endpoint = {
     pay: '/pay',
 }
 
-class PaymentAPI extends ApplicationClient {
+class PaymentClient extends ApplicationClient {
 
     constructor() {
         super({
@@ -45,8 +45,8 @@ class PaymentAPI extends ApplicationClient {
     }
 }
 
-export default PaymentAPI
+export default PaymentClient
 
 export {
-    PaymentAPI,
+    PaymentClient,
 }
