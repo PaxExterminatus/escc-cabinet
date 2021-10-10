@@ -1,15 +1,16 @@
 <template>
+    <div class="app-container">
+        <PayForm
+            :code="input.payment.code"
+            :amount="input.payment.amount"
+            :name="input.payment.name"
+            :surname="input.payment.surname"
+            :email="input.payment.email"
+            :phone="input.payment.phone"
+        />
+    </div>
     <div class="page-component page-payment">
-        <div class="app-container">
-            <PayForm
-                :code="input.payment.code"
-                :amount="input.payment.amount"
-                :name="input.payment.name"
-                :surname="input.payment.surname"
-                :email="input.payment.email"
-                :phone="input.payment.phone"
-            />
-        </div>
+        <h1>История операций</h1>
     </div>
 </template>
 

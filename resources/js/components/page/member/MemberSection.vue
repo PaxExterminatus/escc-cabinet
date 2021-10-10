@@ -23,9 +23,7 @@
             <router-view/>
         </main>
 
-        <footer>
-            footer
-        </footer>
+        <AppFooter/>
     </div>
 </template>
 
@@ -36,9 +34,11 @@ import TabMenu from 'primevue/tabmenu'
 import TieredMenu from 'primevue/tieredmenu'
 import AppHeader from 'cmp/page/template/AppHeader'
 import { memberHeaderMenu, memberUserMenu } from 'app/menus'
+import AppFooter from 'page/template/AppFooter';
 
 export default {
     components: {
+        AppFooter,
         AppHeader,
         TabMenu,
         TieredMenu,

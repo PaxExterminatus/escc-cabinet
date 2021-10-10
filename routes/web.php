@@ -10,7 +10,7 @@ Route::prefix('/auth/')->middleware('guest')->group(function () {
     Route::get('login', SPAController::class)->name('login');
 });
 
-Route::get('/pay/{any?}', [SPAController::class, 'entry'])->where('any', '(.*)');
+Route::get('/pay/{any?}', SPAController::class)->where('any', '(.*)');
 
 // Protected SPA -------------------------------------------------------------------------------------------------------
 

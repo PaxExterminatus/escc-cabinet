@@ -1,14 +1,14 @@
 <template>
 <div class="login-form-component">
-    <h1>Sign in to ESCC</h1>
+    <h1>Вход в кабинет</h1>
 
     <div class="login-form">
-        <div>Email address </div>
+        <div>Электронная почта</div>
         <InputText class="p-inputtext-sm" type="text" v-model="input.login"/>
-        <div>Password</div>
+        <div>Пароль</div>
         <Password class="p-inputtext-sm" v-model="input.password"/>
 
-        <Button label="Login" @click="login"/>
+        <Button label="Войти" @click="login"/>
     </div>
 </div>
 </template>
