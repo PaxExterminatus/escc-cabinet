@@ -5,8 +5,6 @@
 
         <div class="pay-title-small">webpay</div>
 
-        <h1 class="pay-title">Платеж</h1>
-
         <span class="p-float-label">
             <InputText id="code" type="text" v-model="input.code" :class="{'p-invalid': codeLabel.error}"/>
             <label for="code">
@@ -68,7 +66,7 @@ import InputNumber from 'primevue/inputnumber'
 import InputMask from 'primevue/inputmask'
 import Button from 'primevue/button'
 import Tooltip from 'primevue/tooltip'
-import { payment } from 'api'
+import api from 'api'
 
 export default {
     components: {
@@ -194,7 +192,7 @@ export default {
         pay() {
             this.state.errors = {};
             this.state.loading.pay = true;
-            payment.pay({
+            api.payment.pay({
                 amount: this.input.amount,
                 code: this.input.code,
                 email: this.input.email,

@@ -3,8 +3,8 @@ import AuthAPI from './AuthAPI'
 
 /**
  * @type {{
- *     api: AuthAPI
- *     store: AuthUserStore
+ *     api: AuthAPI,
+ *     store: AuthUserStore,
  * }}
  */
 const privates = {

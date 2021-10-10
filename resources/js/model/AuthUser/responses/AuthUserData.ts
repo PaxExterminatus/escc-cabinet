@@ -1,6 +1,4 @@
-export default
-
-interface AuthUserData {
+export interface AuthUserData {
     id: number
     name: string
     email: string

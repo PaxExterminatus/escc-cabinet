@@ -1,5 +1,6 @@
 <template>
-    <div class="app-container">
+    <div class="page-component page-payment">
+        <h2>Новый платеж</h2>
         <PayForm
             :code="input.payment.code"
             :amount="input.payment.amount"
@@ -8,9 +9,7 @@
             :email="input.payment.email"
             :phone="input.payment.phone"
         />
-    </div>
-    <div class="page-component page-payment">
-        <h1>История операций</h1>
+        <h2>История операций</h2>
     </div>
 </template>
 

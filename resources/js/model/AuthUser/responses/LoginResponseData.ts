@@ -1,4 +1,4 @@
-import { AuthUserData } from '../AuthUser/AuthUserData'
+import { AuthUserData } from './AuthUserData'
 
 export interface LoginResponseData {
     status: string

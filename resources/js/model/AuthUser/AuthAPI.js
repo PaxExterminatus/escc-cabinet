@@ -1,5 +1,5 @@
-import ApplicationAPI from 'api/request/ApplicationRequest'
 import store from 'app/store'
+import {ApplicationClient} from 'api/client';
 
 const endpoint = {
     sanctumCsrf: '/sanctum/csrf-cookie',
@@ -8,18 +8,30 @@ const endpoint = {
     authUser: '/api/user',
 }
 
-class AuthAPI extends ApplicationAPI {
+class AuthAPI extends ApplicationClient {
+
+    constructor() {
+        super({
+            withCredentials: true,
+            baseURL: 'http://127.0.0.1:8000',
+        });
+    }
+
     /**
-     * @param login
-     * @param password
-     * @returns {Promise<LoginResponse>}
+     * @param {CredentialsInput} credentials
+     * @return Promise<LoginResponse>
      */
-    login ({login, password})
+    login (credentials)
     {
+        const loginData = {
+            email: credentials.login,
+            password: credentials.password,
+        };
+
         return new Promise((resolve, reject) => {
-            this.client.axios.get(endpoint.sanctumCsrf)
+            this.client.get(endpoint.sanctumCsrf)
                 .then(() => {
-                    return this.client.axios.post(endpoint.login, {email: login, password})
+                    return this.client.post(endpoint.login, loginData)
                         .then(r => {
                             resolve(r);
                         });
@@ -29,7 +41,7 @@ class AuthAPI extends ApplicationAPI {
 
     logout()
     {
-        return this.client.axios.post(endpoint.logout)
+        return this.client.post(endpoint.logout)
             .then(r => {
                 location.reload();
                 return response;
@@ -38,7 +50,7 @@ class AuthAPI extends ApplicationAPI {
 
     user()
     {
-        return this.client.axios.get(endpoint.authUser)
+        return this.client.get(endpoint.authUser)
             .then(r => {
                 console.log('user', r.data.user, store.state.auth.user)
                 store.state.auth.user.fill(r.data.user);
