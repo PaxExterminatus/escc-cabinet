@@ -21,12 +21,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/courses', SPAController::class)->name('courses');
     Route::get('/profile', SPAController::class)->name('profile');
     Route::get('/payments', SPAController::class)->name('payments');
-});
 
-Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/api/user', [AuthenticatedSessionController::class, 'user']);
-    Route::post('/api/payment/pay', [PaymentController::class, 'pay']);
+    Route::prefix('/api/')->group(function () {
+        Route::get('user', [AuthenticatedSessionController::class, 'user']);
+        Route::post('payment/pay', [PaymentController::class, 'pay']);
+    });
 });
-
 
 require __DIR__.'/auth.php';
