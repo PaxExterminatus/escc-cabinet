@@ -35,7 +35,7 @@ class PaymentController
         if ($params->code) {
             $payment = Payment::create([
                 'client_id' => $params->code,
-                'code' =>  (int)substr("{$params->code}".microtime(true), 0, 30),
+                'code' =>  (int)substr($params->code.microtime(true), 0, 30),
                 'iname' => $params->name ?? '',
                 'fname' => $params->surname ?? '',
                 'phone' => $params->phone ?? 'none',
@@ -46,7 +46,7 @@ class PaymentController
         elseif ($user) {
             $payment = Payment::create([
                 'user_id' => $user->id,
-                'code' =>  (int)substr("{$user->id}".microtime(true), 0, 30),
+                'code' =>  (int)substr($user->id.microtime(true), 0, 30),
                 'iname' => $user->iname,
                 'fname' => $user->fname,
                 'phone' => $user->phone ?? 'none',

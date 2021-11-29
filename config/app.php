@@ -1,5 +1,7 @@
 <?php
 
+use App\Providers\MD5HashProvider;
+
 return [
     'name' => env('APP_NAME', 'Laravel'),
     'env' => env('APP_ENV', 'production'),
@@ -42,6 +44,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
+
+        MD5HashProvider::class,
     ],
 
     'aliases' => [
