@@ -1,16 +1,14 @@
-import AuthUser from 'model/AuthUser/AuthUserStore'
-
 const state = () => ({
-    user: new AuthUser,
+    user: null,
 });
 
 const mutations = {
     /**
-     * @param {AuthUserStore} user
+     * @param {AuthUserData} store
      * @param {AuthUserData} authUserData
      */
-    fillUser ({user}, authUserData) {
-        user.setAuthUserData(authUserData);
+    setUser (store, authUserData) {
+        store.user = authUserData;
     },
 }
 

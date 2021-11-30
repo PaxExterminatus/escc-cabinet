@@ -1,5 +1,6 @@
 import store from 'app/store'
 import {ApplicationClient} from 'api/client';
+import {Store} from 'app/store/Store';
 
 const endpoint = {
     sanctumCsrf: '/sanctum/csrf-cookie',
@@ -52,8 +53,9 @@ class AuthAPI extends ApplicationClient {
     {
         return this.client.get(endpoint.authUser)
             .then(r => {
-                console.log('user', r.data.user, store.state.auth.user)
-                store.state.auth.user.fill(r.data.user);
+                /** @var {LoginResponse} response */
+                const response = r;
+                Store.setUserMutation(response.data.user);
             })
     }
 

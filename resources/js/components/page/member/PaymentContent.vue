@@ -1,14 +1,7 @@
 <template>
     <div class="page-component page-payment">
         <h2>Новый платеж</h2>
-        <PayForm
-            :code="input.payment.code"
-            :amount="input.payment.amount"
-            :name="input.payment.name"
-            :surname="input.payment.surname"
-            :email="input.payment.email"
-            :phone="input.payment.phone"
-        />
+        <PayForm :input="input.payment"/>
         <h2>История операций</h2>
     </div>
 </template>
@@ -62,27 +55,19 @@ export default {
                     this.state.loading.pay = false;
                 });
         },
-
-        makePayment() {
-            //this.input.payment = PaymentInput.makeAccount(this.client.account);
-        },
-    },
-
-    mounted() {
-        this.makePayment();
     },
 
     watch: {
         client: {
             deep: true,
             handler: function () {
-                this.makePayment();
+                this.input.payment.fillFormAuthUser(this.client);
             },
         }
     },
 
     computed: {
-        /** @returns {ClientStore} */
+        /** @returns {AuthUserData} */
         client() {
             return this.$store.state.auth.user;
         },

@@ -67,6 +67,7 @@ import InputMask from 'primevue/inputmask'
 import Button from 'primevue/button'
 import Tooltip from 'primevue/tooltip'
 import api from 'api'
+import {PayFormInput} from "cmp/payment/index";
 
 export default {
     components: {
@@ -77,29 +78,9 @@ export default {
     },
 
     props: {
-        code: {
-            type: String,
-            default: '',
-        },
-        amount: {
-            type: String,
-            default: '',
-        },
-        name: {
-            type: String,
-            default: '',
-        },
-        surname: {
-            type: String,
-            default: '',
-        },
-        phone: {
-            type: String,
-            default: '',
-        },
-        email: {
-            type: String,
-            default: '',
+        input: {
+            type: Object,
+            default: () => new PayFormInput,
         },
     },
 
@@ -109,15 +90,6 @@ export default {
 
     data() {
         return {
-            input: {
-                code: this.code,
-                amount: this.amount ? Number.parseFloat(this.amount) : 0,
-                email: this.email,
-                phone: this.phone,
-                name: this.capitalize(this.name),
-                surname: this.capitalize(this.surname),
-            },
-
             state: {
                 loading: {
                     pay: false,
