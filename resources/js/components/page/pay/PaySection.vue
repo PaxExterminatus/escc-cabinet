@@ -55,8 +55,8 @@ export default {
             const payFormInput = new PayFormInput;
 
             payFormInput.fillForm({
-                code: this.$route.params.code,
-                amount: Number.parseFloat(this.$route.params.amount),
+                code: this.code,
+                amount: this.amount,
                 name: this.name,
                 surname: this.surname,
                 phone: this.phone,
