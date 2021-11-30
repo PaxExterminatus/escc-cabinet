@@ -4,7 +4,7 @@
 
         <main class="content-main">
             <div class="app-container">
-                <PayForm :code="code" :amount="amount" :name="name" :surname="surname" :email="email" :phone="phone"/>
+                <PayForm :input="payment"/>
             </div>
         </main>
 
@@ -14,7 +14,7 @@
 
 <script>
 import { AppHeader, AppFooter } from 'cmp/page/template';
-import PayForm from 'cmp/payment/PayForm';
+import { PayForm, PayFormInput } from "cmp/payment";
 
 export default {
     components: {
@@ -30,7 +30,7 @@ export default {
         },
         amount: {
             type: String,
-            default: '',
+            default: 0,
         },
         name: {
             type: String,
@@ -49,5 +49,23 @@ export default {
             default: '',
         },
     },
+
+    computed: {
+        payment() {
+            const payFormInput = new PayFormInput;
+
+            payFormInput.fillForm({
+                code: this.$route.params.code,
+                amount: Number.parseFloat(this.$route.params.amount),
+                name: this.name,
+                surname: this.surname,
+                phone: this.phone,
+                email: this.email,
+            });
+
+            return payFormInput;
+        }
+    }
+
 }
 </script>

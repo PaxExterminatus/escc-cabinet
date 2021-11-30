@@ -151,16 +151,6 @@ export default {
     },
 
     methods: {
-        capitalize(s)
-        {
-            try {
-                return s[0].toUpperCase() + s.slice(1).toLowerCase();
-            } catch (e) {
-                return '';
-            }
-
-        },
-
         pay() {
             this.state.errors = {};
             this.state.loading.pay = true;

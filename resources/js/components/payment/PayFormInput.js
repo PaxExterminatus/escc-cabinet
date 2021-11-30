@@ -2,7 +2,7 @@ class PayFormInput {
     code = '';
     name = '';
     surname = '';
-    amount = '';
+    amount = 0;
     email = '';
     phone = '';
 
@@ -14,6 +14,15 @@ class PayFormInput {
         this.email = user.email;
         this.phone = user.phone;
         this.amount = user.amount ? Number.parseFloat(user.amount) : 0
+    }
+
+    fillForm({code, name, surname, email, phone, amount}) {
+        this.code = code || '';
+        this.name = name || '';
+        this.surname = surname || '';
+        this.email = email || '';
+        this.phone = phone || '';
+        this.amount = amount || 0;
     }
 
     capitalize(s)

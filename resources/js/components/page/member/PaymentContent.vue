@@ -1,7 +1,9 @@
 <template>
     <div class="page-component page-payment">
         <h2>Новый платеж</h2>
-        <PayForm :input="input.payment"/>
+        <div class="app-container">
+            <PayForm :input="input.payment"/>
+        </div>
         <h2>История операций</h2>
     </div>
 </template>
@@ -58,17 +60,17 @@ export default {
     },
 
     watch: {
-        client: {
+        user: {
             deep: true,
             handler: function () {
-                this.input.payment.fillFormAuthUser(this.client);
+                this.input.payment.fillFormAuthUser(this.user);
             },
         }
     },
 
     computed: {
         /** @returns {AuthUserData} */
-        client() {
+        user() {
             return this.$store.state.auth.user;
         },
     },
