@@ -5,8 +5,8 @@
                 Ващ профиль
             </template>
 
-            <template #content>
-                Привет, {{ user.name.hello }}
+            <template #content v-if="user.fname">
+                Привет, {{ user.fname }}
             </template>
 
             <template #footer>
@@ -45,6 +45,7 @@
 </template>
 
 <script>
+
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import AccountBalance from 'cmp/data/account/Balance'
@@ -71,7 +72,7 @@ export default {
     },
 
     computed: {
-        /** @returns {AuthUserStore} */
+        /** @returns {AuthUserData} */
         user() {
             return this.$store.state.auth.user;
         },

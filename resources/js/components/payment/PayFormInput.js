@@ -22,7 +22,7 @@ class PayFormInput {
         this.surname = surname || '';
         this.email = email || '';
         this.phone = phone || '';
-        this.amount = amount || 0;
+        this.amount = Number.parseFloat(amount) || 0;
     }
 
     capitalize(s)

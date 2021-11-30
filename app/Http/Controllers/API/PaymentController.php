@@ -64,11 +64,11 @@ class PaymentController
         $bill = new Bill($payment);
         $billResponse = $this->client->makeBill($bill);
 
-        if (!$billResponse->ok())
+        if (!$billResponse || !$billResponse->ok())
         {
             return response()->json([
                 'success' => false,
-                'message' => 'The payment system was unable to process the invoice.'
+                'message' => 'Платежная система не смогла обработать платеж'
             ], 500);
         } else {
             $billData = $billResponse->json();
@@ -82,7 +82,7 @@ class PaymentController
             } else {
                 return response()->json([
                     'success' => false,
-                    'message' => 'The payment system was unable to process the invoice.'
+                    'message' => 'Платежная система не смогла обработать платеж'
                 ], 500);
             }
         }
