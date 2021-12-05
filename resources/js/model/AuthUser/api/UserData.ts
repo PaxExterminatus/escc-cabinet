@@ -1,4 +1,4 @@
-export interface AuthUserData {
+export interface UserData {
     id: number
     email: string
     birthday: string

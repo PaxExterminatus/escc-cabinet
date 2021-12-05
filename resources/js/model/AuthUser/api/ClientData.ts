@@ -1,6 +1,6 @@
 import {ClientCourse} from './ClientCourse';
 
-interface Client
+interface ClientData
 {
     id: number
     name: string
@@ -11,5 +11,5 @@ interface Client
 }
 
 export {
-    Client
+    ClientData
 }

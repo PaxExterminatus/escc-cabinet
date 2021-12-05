@@ -1,6 +1,6 @@
 import {Response} from '../../../api/Response';
-import {AuthUserData} from './AuthUserData';
-import {Client} from './Client';
+import {UserData} from './UserData';
+import {ClientData} from './ClientData';
 
 interface UserResponse extends Response
 {
@@ -9,8 +9,8 @@ interface UserResponse extends Response
 
 interface UserResponseData
 {
-    user: AuthUserData,
-    client: Client,
+    user: UserData,
+    client: ClientData,
 }
 
 export {

@@ -14,7 +14,7 @@ export default {
 
     computed: {
         /**
-         * @returns {Client}
+         * @returns {ClientData}
          */
         client() {
             return this.$store.state.auth.client;

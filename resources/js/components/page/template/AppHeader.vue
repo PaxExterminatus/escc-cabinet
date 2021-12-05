@@ -1,13 +1,13 @@
 <template>
     <header class="app-header-component">
         <Toolbar>
-            <template #left>
+            <template #start>
                 <div class="header-logo">
                     ЕШКО
                 </div>
                 <slot></slot>
             </template>
-            <template #right>
+            <template #end>
                 <slot name="right"></slot>
             </template>
         </Toolbar>

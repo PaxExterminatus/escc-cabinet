@@ -7,7 +7,7 @@
 <script>
 export default {
     computed: {
-        /** @returns {AuthUserData} */
+        /** @returns {UserData} */
         user() {
             return this.$store.state.auth.user;
         },
