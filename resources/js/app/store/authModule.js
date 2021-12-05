@@ -1,7 +1,6 @@
 const state = () => ({
-    user: {},
-    client: {},
-    loaded: false,
+    user: null,
+    client: null,
 });
 
 const mutations = {
@@ -12,8 +11,6 @@ const mutations = {
     setUser (store, userData) {
         store.user = userData.user;
         store.client = userData.client;
-        store.user.amount = 0;
-        store.loaded = true;
     },
 }
 

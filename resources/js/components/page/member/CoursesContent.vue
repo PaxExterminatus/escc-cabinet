@@ -1,6 +1,8 @@
 <template>
     <div class="page-component">
-        <CoursesTable :data="client.courses"/>
+        <template v-if="client">
+            <CoursesTable :data="client.courses"/>
+        </template>
     </div>
 </template>
 

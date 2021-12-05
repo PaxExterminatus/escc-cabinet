@@ -2,11 +2,11 @@
     <div class="page-component page-home">
         <Card>
             <template #title>
-                Ващ профиль
+                Ваш профиль
             </template>
 
-            <template #content v-if="auth.loaded">
-                Привет, {{ auth.user.fname || auth.client.name }}
+            <template #content v-if="auth.user">
+                Привет, {{ auth.user.fname }}
             </template>
 
             <template #footer>
@@ -20,7 +20,7 @@
             </template>
 
             <template #content>
-                <span v-if="auth.loaded">
+                <span v-if="auth.client">
                     Увас {{ auth.client.courses.length }} курсов.
                 </span>
             </template>
@@ -36,7 +36,7 @@
             </template>
 
             <template #content>
-                <span v-if="auth.loaded">
+                <span v-if="auth.client">
                     Баланс вашего счета <AccountBalance/> рублей
                 </span>
             </template>

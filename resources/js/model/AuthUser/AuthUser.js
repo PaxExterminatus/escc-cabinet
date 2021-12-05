@@ -17,18 +17,12 @@ class AuthUser {
                 login: credentials.login,
                 password: credentials.password,
             }).then(r => {
-                console.log(r);
                 /** @var {LoginResponseData} response */
-                const response = r.data;
-                Store.setUserMutation(response.user);
+                const data = r.data;
+                Store.setUserMutation(data.user);
                 resolve(r);
             })
         });
-    }
-
-    /** @return {AuthUserData} */
-    user() {
-        return privates.store;
     }
 }
 

@@ -5,5 +5,4 @@ interface AuthState
 {
     user: UserData
     client: ClientData
-    loaded: boolean
 }
