@@ -1,24 +1,6 @@
 import { LessonData } from 'api/structures/LessonData';
 
-/**
- * @typedef {{
- *     id: number
- *     node_id: number
- *     client_id: number
- *     status_id: number
- *     name: string
- *     status: string
- *     lessons: LessonResponseData[]
- * }} CourseResponseData
- */
-
-/**
- * @property {LessonData[]} lessons
- */
 class CourseData {
-    /**
-     * @param {CourseResponseData} data
-     */
     constructor(data= {}) {
         this.id = data.id ?? null;
         this.name = data.name ?? null;

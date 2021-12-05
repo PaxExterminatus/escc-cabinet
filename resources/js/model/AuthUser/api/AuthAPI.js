@@ -53,9 +53,9 @@ class AuthAPI extends ApplicationClient {
     {
         return this.client.get(endpoint.authUser)
             .then(r => {
-                /** @var {LoginResponse} response */
+                /** @var {UserResponse} response */
                 const response = r;
-                Store.setUserMutation(response.data.user);
+                Store.setUserMutation(response.data);
             })
     }
 

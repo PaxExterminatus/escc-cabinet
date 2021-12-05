@@ -1,16 +1,16 @@
 const state = () => ({
-    user: {
-        amount: 0,
-    },
+    user: {},
+    client: {},
 });
 
 const mutations = {
     /**
-     * @param {{user: AuthUserData}} store
-     * @param {AuthUserData} authUserData
+     * @param {{user: AuthUser}} store
+     * @param {UserResponseData} userData
      */
-    setUser (store, authUserData) {
-        store.user = authUserData;
+    setUser (store, userData) {
+        store.user = userData.user;
+        store.client = userData.client;
         store.user.amount = 0;
     },
 }

@@ -1,6 +1,6 @@
 <template>
     <div class="page-component">
-        <CoursesTable :data="courses"/>
+        <CoursesTable :data="client.courses"/>
     </div>
 </template>
 
@@ -13,8 +13,11 @@ export default {
     },
 
     computed: {
-        courses() {
-            return this.$store.state.auth.user.courses;
+        /**
+         * @returns {Client}
+         */
+        client() {
+            return this.$store.state.auth.client;
         },
     },
 }

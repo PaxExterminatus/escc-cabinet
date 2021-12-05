@@ -29,6 +29,7 @@ import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import CourseStateCell from './cells/CourseStateCell'
 import LessonsTable from 'cmp/data/lessons/LessonsTable'
+import {CourseData} from 'api/structures/CourseData';
 
 export default {
     components: {
@@ -66,9 +67,10 @@ export default {
          * @return {CourseData[]}
          */
         courses() {
-            const active = this.data.filter(course => course.state === 'active');
-            const done = this.data.filter(course => course.state === 'done');
-            const stop = this.data.filter(course => course.state === 'stop');
+            const courses = this.data.map((courseData) => new CourseData(courseData))
+            const active = courses.filter(course => course.state === 'active');
+            const done = courses.filter(course => course.state === 'done');
+            const stop = courses.filter(course => course.state === 'stop');
             return [
                 ...active,
                 ...done,
