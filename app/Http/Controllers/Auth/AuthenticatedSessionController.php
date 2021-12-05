@@ -4,12 +4,22 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
+use App\Repository\Client\ClientRepository;
+use App\Repository\Client\ClientSassRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthenticatedSessionController extends ApiController
 {
+    protected ClientRepository $clients;
+
+    function __construct(ClientRepository $client)
+    {
+        $this->clients = $client;
+    }
+
     function store(LoginRequest $request): JsonResponse
     {
         $request->authenticate();
@@ -39,10 +49,22 @@ class AuthenticatedSessionController extends ApiController
 
     function user(Request $request): JsonResponse
     {
+        /** @var User $user */
+        $user = $request->user();
+
+        $data = [
+            'user' => $user,
+        ];
+
+        $clientCode = (int)$user->code;
+
+        if ($clientCode) {
+            $client = $this->clients->find((int)$user->code);
+            $data['client'] = $client;
+        }
+
         return $this->success(
-            data: [
-                'user' => $request->user(),
-            ]
+            data: $data,
         );
     }
 }
