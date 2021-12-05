@@ -43,7 +43,9 @@ export default {
         login() {
             authUser.login(this.input)
                 .then(r => {
-                    this.$router.push({name: 'home'});
+                    /** @var {LoginResponseData} response */
+                    const response = r.data;
+                    if (response.redirect) this.$router.push(response.redirect);
                 })
         },
     },

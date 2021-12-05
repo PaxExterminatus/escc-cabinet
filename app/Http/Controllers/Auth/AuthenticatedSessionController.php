@@ -20,7 +20,7 @@ class AuthenticatedSessionController extends ApiController
             data: [
                 'user' => Auth::user(),
             ],
-            redirect: route('home')
+            redirect: '/'
         );
     }
 
