@@ -1,17 +1,19 @@
 const state = () => ({
     user: {},
     client: {},
+    loaded: false,
 });
 
 const mutations = {
     /**
-     * @param {{user: AuthUser}} store
+     * @param {AuthState} store
      * @param {UserResponseData} userData
      */
     setUser (store, userData) {
         store.user = userData.user;
         store.client = userData.client;
         store.user.amount = 0;
+        store.loaded = true;
     },
 }
 

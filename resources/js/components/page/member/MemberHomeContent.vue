@@ -5,8 +5,8 @@
                 Ващ профиль
             </template>
 
-            <template #content v-if="user.fname">
-                Привет, {{ user.fname }}
+            <template #content v-if="auth.loaded">
+                Привет, {{ auth.user.fname || auth.client.name }}
             </template>
 
             <template #footer>
@@ -16,11 +16,13 @@
 
         <Card>
             <template #title>
-                Ваши курсы
+                Ваши курсы.
             </template>
 
             <template #content>
-                Список ваших курсов
+                <span v-if="auth.loaded">
+                    Увас {{ auth.client.courses.length }} курсов.
+                </span>
             </template>
 
             <template #footer>
@@ -34,7 +36,9 @@
             </template>
 
             <template #content>
-                <AccountBalance/>
+                <span v-if="auth.loaded">
+                    Баланс вашего счета <AccountBalance/> рублей
+                </span>
             </template>
 
             <template #footer>
@@ -72,9 +76,9 @@ export default {
     },
 
     computed: {
-        /** @returns {UserData} */
-        user() {
-            return this.$store.state.auth.user;
+        /** @returns {AuthState} */
+        auth() {
+            return this.$store.state.auth;
         },
     },
 }

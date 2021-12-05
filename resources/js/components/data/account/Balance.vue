@@ -1,15 +1,15 @@
 <template>
-    <div class="balance-cmp">
-        Баланс вашего счета <span class="balance">{{ this.user.amount }}</span> рублей
-    </div>
+    <span class="balance">
+        {{ client.total_deb }}
+    </span>
 </template>
 
 <script>
 export default {
     computed: {
-        /** @returns {UserData} */
-        user() {
-            return this.$store.state.auth.user;
+        /** @returns {ClientData} */
+        client() {
+            return this.$store.state.auth.client;
         },
     },
 }
