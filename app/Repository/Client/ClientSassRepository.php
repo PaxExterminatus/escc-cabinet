@@ -5,6 +5,7 @@ namespace App\Repository\Client;
 
 use App\Models\Client;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class ClientSassRepository implements ClientRepository
 {
@@ -24,7 +25,8 @@ class ClientSassRepository implements ClientRepository
     {
         $response = Http::get($this->url("client/{$id}"));
         $clientData = $response->json()['client'];
-
+        Log::info($id);
+        Log::info(json_encode($clientData));
         return new Client($clientData);
     }
 }
