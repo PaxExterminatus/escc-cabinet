@@ -2,7 +2,7 @@ import { ApplicationClient } from 'api/client'
 import { PayStructure } from 'api/structures'
 
 const endpoint = {
-    pay: '/pay',
+    pay: '/api/payment/pay',
 }
 
 class PaymentClient extends ApplicationClient {
@@ -10,7 +10,6 @@ class PaymentClient extends ApplicationClient {
     constructor() {
         super({
             withCredentials: true,
-            baseURL: 'http://127.0.0.1:8000/api/payment',
         });
     }
     /**
