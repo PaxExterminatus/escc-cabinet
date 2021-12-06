@@ -16,7 +16,7 @@
 
         <Card>
             <template #title>
-                Ваши курсы.
+                Ваши курсы
             </template>
 
             <template #content>

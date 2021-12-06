@@ -9,13 +9,11 @@
 </template>
 
 <script>
-import api from 'api'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import InputNumber from 'primevue/inputnumber'
 import Dialog from 'primevue/dialog'
 import AccountBalance from 'cmp/data/account/Balance'
-import { PayStructure } from 'api/structures'
 import { PayForm, PayFormInput } from 'cmp/payment'
 
 export default {
@@ -33,42 +31,23 @@ export default {
             input: {
                 payment: new PayFormInput,
             },
-
-            state: {
-                loading: {
-                    pay: false,
-                },
-            },
-
-            payment: PayStructure.makeEmpty(),
-            goto: null,
         };
     },
 
-    methods: {
-        makeBill() {
-            this.state.loading.pay = true;
-            api.payment.pay({amount: this.input.payment.amount})
-                .then(data => {
-                    this.goto = data.goto;
-                    this.payment = data.payment;
-                })
-                .finally(() => {
-                    this.state.loading.pay = false;
-                });
+    watch: {
+        client: {
+            immediate: true,
+            handler () {
+                this.input.payment.fillFormAuthUser(this.$store.state.auth.client, this.$store.state.auth.user);
+            },
         },
     },
 
-    watch: {
-        user: {
-            deep: true,
-            handler: function () {
-                this.input.payment.fillFormAuthUser(this.user);
-            },
-        }
-    },
-
     computed: {
+        /** @returns {ClientData} */
+        client() {
+            return this.$store.state.auth.client;
+        },
         /** @returns {UserData} */
         user() {
             return this.$store.state.auth.user;
