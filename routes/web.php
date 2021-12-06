@@ -14,6 +14,10 @@ Route::prefix('/auth/')->middleware('guest')->group(function () {
 
 Route::get('/pay/{any?}', SPAController::class)->where('any', '(.*)');
 
+Route::prefix('/api/')->group(function () {
+    Route::post('payment/pay', [PaymentController::class, 'pay']);
+});
+
 // Protected SPA -------------------------------------------------------------------------------------------------------
 
 Route::middleware('auth:sanctum')->group(function () {
@@ -24,7 +28,6 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::prefix('/api/')->group(function () {
         Route::get('user', [AuthenticatedSessionController::class, 'user']);
-        Route::post('payment/pay', [PaymentController::class, 'pay']);
     });
 });
 
