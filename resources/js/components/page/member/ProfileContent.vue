@@ -5,12 +5,12 @@
 
             <div class="pay-form">
             <span class="p-float-label">
-                <InputText v-model="user.fname"/>
+                <InputText v-model="user.iname"/>
                 <label>Имя</label>
             </span>
 
                 <span class="p-float-label">
-                <InputText v-model="user.iname"/>
+                <InputText v-model="user.fname"/>
                 <label>Фамилия</label>
             </span>
 

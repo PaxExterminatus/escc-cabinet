@@ -6,7 +6,7 @@
             </template>
 
             <template #content v-if="auth.user">
-                Привет, {{ auth.user.fname }}
+                Привет, {{ auth.user.iname }}
             </template>
 
             <template #footer>
