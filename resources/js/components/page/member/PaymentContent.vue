@@ -34,14 +34,14 @@ export default {
         };
     },
 
-    // watch: {
-    //     client: {
-    //         immediate: true,
-    //         handler () {
-    //             this.input.payment.fillFormAuthUser(this.$store.state.auth.client, this.$store.state.auth.user);
-    //         },
-    //     },
-    // },
+    watch: {
+        client: {
+            immediate: true,
+            handler () {
+                this.input.payment.fillFormAuthUser(this.$store.state.auth.client, this.$store.state.auth.user);
+            },
+        },
+    },
 
     computed: {
         /** @returns {ClientData} */
