@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\ApiController;
+use App\Http\Controllers\APIController;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
 use App\Repository\Client\ClientRepository;
@@ -10,7 +10,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AuthenticatedSessionController extends ApiController
+class AuthenticatedSessionController extends APIController
 {
     protected ClientRepository $clients;
 
