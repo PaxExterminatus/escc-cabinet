@@ -33,5 +33,25 @@ export default {
             },
         };
     },
+
+    // watch: {
+    //     client: {
+    //         immediate: true,
+    //         handler () {
+    //             this.input.payment.fillFormAuthUser(this.$store.state.auth.client, this.$store.state.auth.user);
+    //         },
+    //     },
+    // },
+
+    computed: {
+        /** @returns {ClientData} */
+        client() {
+            return this.$store.state.auth.client;
+        },
+        /** @returns {UserData} */
+        user() {
+            return this.$store.state.auth.user;
+        },
+    },
 }
 </script>
