@@ -6,19 +6,14 @@ class PayFormInput {
     email = '';
     phone = '';
 
-    /**
-     * @param {ClientData} client
-     * @param {UserData} user
-     * */
-    fillFormAuthUser(client, user) {
+    /** @param {AuthUserData} user */
+    fillFormAuthUser(user) {
         this.code = user.code;
-        this.name = this.capitalize(client.name);
-        this.surname = this.capitalize(client.last_name);
+        this.name = this.capitalize(user.iname);
+        this.surname = this.capitalize(user.fname);
         this.email = user.email;
         this.phone = user.phone;
-        if (client.total_deb && client.total_deb < 0) {
-            this.amount = client.total_deb;
-        }
+        this.amount = user.amount ? Number.parseFloat(user.amount) : 0
     }
 
     fillForm({code, name, surname, email, phone, amount}) {
