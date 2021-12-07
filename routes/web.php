@@ -6,8 +6,6 @@ use App\Http\Controllers\SPA\SPAController;
 
 use Illuminate\Support\Facades\Route;
 
-Route::post('/login', [AuthenticatedSessionController::class, 'store']);
-
 // Public SPA ----------------------------------------------------------------------------------------------------------
 
 Route::prefix('/auth/')->middleware('guest')->group(function () {
