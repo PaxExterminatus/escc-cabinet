@@ -3,6 +3,12 @@
         <template v-if="client">
             <h1>{{course.name}}</h1>
         </template>
+
+        <template v-for="lesson in lessons">
+            <div>
+                <h2>{{lesson.name}}</h2>
+            </div>
+        </template>
     </div>
 </template>
 
@@ -13,6 +19,13 @@ export default {
             require: true,
             type: String,
         },
+    },
+
+    methods: {
+        checkUser(callback) {
+            if (!this.client) return null;
+            return callback();
+        }
     },
 
     computed: {
@@ -32,6 +45,11 @@ export default {
                 .find(course => {
                     if (course.node_id === this.courseIdCast) return course;
                 });
+        },
+
+        /** @returns {ClientCourseLesson[]|null} */
+        lessons() {
+            return this.checkUser(() => this.course.lessons)
         },
     },
 }
