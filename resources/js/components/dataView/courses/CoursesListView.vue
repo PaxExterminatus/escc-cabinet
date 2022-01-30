@@ -13,7 +13,11 @@
                     {{slotProps.data.lessons.length}}
                 </template>
             </Column>
-            <Column field="name" header="Название"/>
+            <Column field="name" header="Название">
+                <template #body="slotProps">
+                    <router-link to="course">{{ slotProps.data.name }}</router-link>
+                </template>
+            </Column>
             <Column field="state" header="Статус">
                 <template #body="slotProps">
                     <CourseStateCell :value="slotProps.data.state"/>
@@ -33,7 +37,7 @@ import AccordionTab from 'primevue/accordiontab'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import CourseStateCell from './CourseStatus/CourseStatus'
-import LessonsTable from 'cmp/dataView/lessons/LessonsListView'
+import LessonsTable from 'cmp/dataView/lessons/LessonsListView/LessonsListView'
 import {CourseData} from 'api/structures/CourseData';
 
 export default {
