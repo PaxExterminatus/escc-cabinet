@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="{ name: 'course', params: { course: id }}">
+    <router-link :to="{name: 'course', params: { courseId: id }}">
         <slot></slot>
     </router-link>
 </template>
@@ -13,4 +13,3 @@ export default {
     },
 }
 </script>
-
