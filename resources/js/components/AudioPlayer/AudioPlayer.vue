@@ -1,11 +1,47 @@
 <template>
-    <Dialog
-        class="audio-player"
-        position="topright"
-        :header="title"
-        v-model:visible="display"
-        :style="{height: '100vh', maxHeight: 'calc(100% - 10px)', margin: '5px 0 5px 0'}"
-    >
+    <div class="audio-player">
+
+        <Dialog
+            class="audio-player-dialog-small"
+            position="topright"
+            v-model:visible="displaySmall"
+            :style="{height: '120px', width: '100px', margin: '55px 0 5px 0'}"
+        >
+            <div class="player-buttons">
+                <template v-if="paused">
+                    <i class="btn-ico pi pi-play" @click="play"/>
+                </template>
+                <template v-if="playing">
+                    <i class="btn-ico pi pi-pause" @click="pause"/>
+                </template>
+            </div>
+
+            <div class="player-buttons">
+                <i class="btn-ico small pi pi-list" @click="showListDialog"/>
+            </div>
+
+            <template #header></template>
+        </Dialog>
+
+        <Dialog
+            class="audio-player-dialog-list"
+            position="topright"
+            :header="title"
+            v-model:visible="display"
+            :style="{height: '100vh', maxHeight: 'calc(100% - 10px)', margin: '5px 0 5px 0'}"
+        >
+            <div class="player-buttons">
+                <template v-if="paused">
+                    <i class="btn-ico pi pi-play" @click="play"/>
+                </template>
+                <template v-if="playing">
+                    <i class="btn-ico pi pi-pause" @click="pause"/>
+                </template>
+            </div>
+
+            <List v-model="selected" :options="list" optionLabel="name" @change="select"/>
+        </Dialog>
+
         <audio
             ref="audio"
             hidden
@@ -13,22 +49,11 @@
             style="vertical-align: middle"
             :src="audioSrc"
             type="audio/mp3"
-            @timeupdate="timeupdate"
+            @timeupdate="onTimeupdate"
             @play="onPlay"
             @pause="onPause"
         />
-
-        <div class="player-buttons">
-            <template v-if="paused">
-                <i class="btn-ico pi pi-play" @click="play"/>
-            </template>
-            <template v-if="playing">
-                <i class="btn-ico pi pi-pause" @click="pause"/>
-            </template>
-        </div>
-
-        <List v-model="selected" :options="list" optionLabel="name" @change="select"/>
-    </Dialog>
+    </div>
 </template>
 
 <script>
@@ -60,6 +85,9 @@ export default {
                 this.$store.commit('audio/revers');
             }
         },
+        displaySmall() {
+            return this.audioSrc && !this.display;
+        },
         list() {
             return this.$store.state.audio.list;
         },
@@ -74,6 +102,10 @@ export default {
         },
         play() {
             this.$refs.audio.play();
+        },
+        showListDialog() {
+            this.displaySmall = false;
+            this.display = true;
         },
         pause() {
             this.$refs.audio.pause();
