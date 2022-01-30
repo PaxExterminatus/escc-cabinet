@@ -7,7 +7,7 @@
             @row-expand="onRowExpand"
             @row-collapse="onRowCollapse"
         >
-            <Column :expander="true" headerStyle="width: 3rem"/>
+            <!--<Column :expander="true" headerStyle="width: 3rem"/>-->
 
             <Column field="count" header="Уроков">
                 <template #body="slotProps">

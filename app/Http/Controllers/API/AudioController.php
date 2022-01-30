@@ -4,9 +4,11 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\APIController;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class AudioController  extends APIController
 {
@@ -27,7 +29,10 @@ class AudioController  extends APIController
             if ($file->isFile())
             {
                 $filesData->push([
+                    'course' => $course,
+                    'lesson' => $lesson,
                     'name' => pathinfo($file->getFilename(), PATHINFO_FILENAME),
+                    'extension' => pathinfo($file->getFilename(), PATHINFO_EXTENSION),
                 ]);
             }
         }
@@ -46,5 +51,24 @@ class AudioController  extends APIController
                 message: 'Файлы не найдены',
             );
         }
+    }
+
+    /**
+     * @param string $course
+     * @param string $lesson
+     * @param string $name
+     * @param string $extension
+     * @return BinaryFileResponse
+     */
+    function play(string $course, string $lesson, string $name, string $extension): BinaryFileResponse
+    {
+        $path = Storage::path("audio/$course/$lesson/$name.$extension");
+
+        if (!Storage::exists($path)) $this->error(message: 'File does not exist');
+
+        $response = new BinaryFileResponse($path);
+        BinaryFileResponse::trustXSendfileTypeHeader();
+
+        return $response;
     }
 }

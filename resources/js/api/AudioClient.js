@@ -1,9 +1,8 @@
 import {ApplicationClient} from 'api/client';
 
 const endpoint = {
-    audio: function (course, lesson) {
-        return `/api/audio/${course}/${lesson}`
-    },
+    audio: (course, lesson) => `/api/audio/${course}/${lesson}`,
+    play: '/api/audio/play/',
 }
 
 class AudioClient extends ApplicationClient {
@@ -13,7 +12,7 @@ class AudioClient extends ApplicationClient {
         });
     }
 
-    list({course, lesson})
+    list({course, lesson}) // todo add response type
     {
         course = 'course';
         lesson = 'lesson';
@@ -22,6 +21,16 @@ class AudioClient extends ApplicationClient {
                 const data = response.data;
                 return data.files;
             })
+    }
+
+    /**
+     *
+     * @param data
+     * @returns string
+     */
+    play({course, lesson, name, extension})
+    {
+        return `/api/audio/play/${course}/${lesson}/${name}/${extension}`;
     }
 }
 
