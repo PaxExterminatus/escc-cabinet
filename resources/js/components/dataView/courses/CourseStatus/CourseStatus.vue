@@ -1,5 +1,5 @@
 <template>
-    <span class="course-state-cell-component">
+    <span class="course-status">
         <InlineMessage :severity="severity">{{label}}</InlineMessage>
     </span>
 </template>
