@@ -8,21 +8,27 @@
             @row-collapse="onRowCollapse"
         >
             <Column :expander="true" headerStyle="width: 3rem"/>
+
             <Column field="count" header="Уроков">
                 <template #body="slotProps">
                     {{slotProps.data.lessons.length}}
                 </template>
             </Column>
+
             <Column field="name" header="Название">
                 <template #body="slotProps">
-                    <router-link to="course">{{ slotProps.data.name }}</router-link>
+                    <CourseLink :id="slotProps.data.node_id">
+                        {{ slotProps.data.name }}
+                    </CourseLink>
                 </template>
             </Column>
+
             <Column field="state" header="Статус">
                 <template #body="slotProps">
                     <CourseStateCell :value="slotProps.data.state"/>
                 </template>
             </Column>
+
             <template #expansion="slotProps">
                 <LessonsTable :lessons="slotProps.data.lessons"/>
             </template>
@@ -37,8 +43,10 @@ import AccordionTab from 'primevue/accordiontab'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import CourseStateCell from './CourseStatus/CourseStatus'
+import CourseLink from './CourseLink/CourseLink'
 import LessonsTable from 'cmp/dataView/lessons/LessonsListView/LessonsListView'
 import {CourseData} from 'api/structures/CourseData';
+
 
 export default {
     components: {
@@ -49,6 +57,7 @@ export default {
         Panel,
         CourseStateCell,
         LessonsTable,
+        CourseLink,
     },
     props: {
         data: {

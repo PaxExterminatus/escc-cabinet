@@ -1,15 +1,15 @@
 <template>
     <div class="page-component">
-        CourseContent
+        {{course}}
     </div>
 </template>
 
 <script>
-import CoursesTable from 'cmp/dataView/courses/CoursesListView'
-
 export default {
-    components: {
-        CoursesTable,
+    props: {
+        course: {
+            require: true,
+        },
     },
 
     computed: {

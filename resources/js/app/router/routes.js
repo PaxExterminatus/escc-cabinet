@@ -21,9 +21,10 @@ export default [
                 component: () => import(/* webpackChunkName: "chunk.page.member.courses" */ 'cmp/page/member/CoursesContent'),
             },
             {
-                path: '/course',
+                path: '/course/:course',
                 name: 'course',
                 component: () => import(/* webpackChunkName: "chunk.page.member.courses" */ 'cmp/page/member/CourseContent'),
+                props: true,
             },
             {
                 path: '/profile',
