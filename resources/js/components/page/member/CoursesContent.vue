@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import CoursesTable from 'cmp/data/courses/CoursesTable'
+import CoursesTable from 'cmp/dataView/courses/CoursesListView'
 
 export default {
     components: {
@@ -15,9 +15,7 @@ export default {
     },
 
     computed: {
-        /**
-         * @returns {ClientData}
-         */
+        /** @returns {ClientData} */
         client() {
             return this.$store.state.auth.client;
         },

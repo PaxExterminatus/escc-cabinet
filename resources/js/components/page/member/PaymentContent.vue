@@ -14,7 +14,7 @@ import Card from 'primevue/card'
 import Button from 'primevue/button'
 import InputNumber from 'primevue/inputnumber'
 import Dialog from 'primevue/dialog'
-import AccountBalance from 'cmp/data/account/Balance'
+import AccountBalance from 'cmp/dataView/account/Balance'
 import { PayStructure } from 'api/structures'
 import { PayForm, PayFormInput } from 'cmp/payment'
 

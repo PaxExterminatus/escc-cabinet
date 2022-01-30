@@ -52,7 +52,7 @@
 
 import Card from 'primevue/card'
 import Button from 'primevue/button'
-import AccountBalance from 'cmp/data/account/Balance'
+import AccountBalance from 'cmp/dataView/account/Balance'
 
 export default {
     components: {

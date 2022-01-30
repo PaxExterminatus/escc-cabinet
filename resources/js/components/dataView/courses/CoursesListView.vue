@@ -27,8 +27,8 @@ import Accordion from 'primevue/accordion'
 import AccordionTab from 'primevue/accordiontab'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
-import CourseStateCell from './cells/CourseStateCell'
-import LessonsTable from 'cmp/data/lessons/LessonsTable'
+import CourseStateCell from './CourseStateCell'
+import LessonsTable from 'cmp/dataView/lessons/LessonsTable'
 import {CourseData} from 'api/structures/CourseData';
 
 export default {
