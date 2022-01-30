@@ -10,7 +10,7 @@
 
                 <Column header="Аудио">
                     <template #body="slotProps">
-                        <i class="btn-ico pi pi-play" style="font-size: 2rem"/>
+                        <i @click="getAudio(course, slotProps.data)" class="btn-ico pi pi-play" style="font-size: 2rem"/>
                     </template>
                 </Column>
             </DataTable>
@@ -26,6 +26,7 @@
 import Column from 'primevue/column'
 import Message from 'primevue/message'
 import DataTable from 'primevue/datatable'
+import api from 'api'
 
 export default {
     components: {
@@ -39,10 +40,27 @@ export default {
             type: Array,
             default: () => [],
         },
+        course: {
+            type: Number,
+            default: null,
+        },
     },
 
     methods: {
-        openAudio() {
+        /**
+         * @param {number} course
+         * @param {LessonData} lesson
+         */
+        getAudio(course, lesson) {
+            api.audio.list({course, lesson: lesson.nodeId})
+                .then(files => {
+                    this.$store.commit('audio/show');
+                    this.$store.commit('audio/setList', files);
+                    this.$store.commit('audio/setTitle', lesson.name);
+                })
+        },
+
+        openAudioPlayer() {
 
         }
     },

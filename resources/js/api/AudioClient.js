@@ -13,8 +13,10 @@ class AudioClient extends ApplicationClient {
         });
     }
 
-    audio({course, lesson})
+    list({course, lesson})
     {
+        course = 'course';
+        lesson = 'lesson';
         return this.client.get(endpoint.audio(course, lesson))
             .then(response => {
                 const data = response.data;

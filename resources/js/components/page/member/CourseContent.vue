@@ -5,7 +5,7 @@
         </template>
 
        <template v-if="lessons">
-           <LessonsListView :lessons="lessons"/>
+           <LessonsListView :lessons="lessons" :course="courseIdCast"/>
        </template>
 
 
