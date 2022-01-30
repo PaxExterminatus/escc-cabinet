@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AudioController;
 use App\Http\Controllers\API\PaymentController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SPA\SPAController;
@@ -29,6 +30,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::prefix('/api/')->group(function () {
         Route::get('user', [AuthenticatedSessionController::class, 'user']);
+        Route::get('audio/{course}/{lesson}', [AudioController::class, 'index']);
     });
 });
 
