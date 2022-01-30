@@ -8,8 +8,8 @@
             @row-collapse="onRowCollapse"
         >
             <Column :expander="true" headerStyle="width: 3rem"/>
-            <Column field="name" header="Name"/>
-            <Column field="state" header="State">
+            <Column field="name" header="Название"/>
+            <Column field="state" header="Статус">
                 <template #body="slotProps">
                     <CourseStateCell :value="slotProps.data.state"/>
                 </template>

@@ -1,7 +1,5 @@
 <template>
-    <span class="course-status">
-        <InlineMessage :severity="severity">{{label}}</InlineMessage>
-    </span>
+    <InlineMessage class="course-status" :severity="statusSeverity">{{label}}</InlineMessage>
 </template>
 
 <script>
@@ -21,10 +19,16 @@ export default {
 
     computed: {
         label() {
-            return this.value.toUpperCase();
+            return this.statusText.toUpperCase();
         },
 
-        severity() {
+        statusText() {
+            if (this.value === 'active') return 'Активный';
+            if (this.value === 'done') return 'Завершен';
+            if (this.value === 'stop') return 'Остановлен';
+        },
+
+        statusSeverity() {
             if (this.value === 'active') return 'success';
             if (this.value === 'done') return 'info';
             if (this.value === 'stop') return 'warn';
