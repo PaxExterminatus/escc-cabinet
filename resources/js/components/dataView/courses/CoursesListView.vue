@@ -8,6 +8,11 @@
             @row-collapse="onRowCollapse"
         >
             <Column :expander="true" headerStyle="width: 3rem"/>
+            <Column field="count" header="Уроков">
+                <template #body="slotProps">
+                    {{slotProps.data.lessons.length}}
+                </template>
+            </Column>
             <Column field="name" header="Название"/>
             <Column field="state" header="Статус">
                 <template #body="slotProps">
@@ -28,7 +33,7 @@ import AccordionTab from 'primevue/accordiontab'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import CourseStateCell from './CourseStatus/CourseStatus'
-import LessonsTable from 'cmp/dataView/lessons/LessonsTable'
+import LessonsTable from 'cmp/dataView/lessons/LessonsListView'
 import {CourseData} from 'api/structures/CourseData';
 
 export default {

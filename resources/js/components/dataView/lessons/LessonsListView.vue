@@ -6,7 +6,7 @@
             </DataTable>
         </template>
         <template v-else>
-            <Message :closable="false">No lessons here</Message>
+            <Message :closable="false">Тут нет уроков</Message>
         </template>
     </div>
 </template>
