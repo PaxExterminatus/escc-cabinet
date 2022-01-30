@@ -4,16 +4,22 @@
             <h1>{{course.name}}</h1>
         </template>
 
-        <template v-for="lesson in lessons">
-            <div>
-                <h2>{{lesson.name}}</h2>
-            </div>
-        </template>
+       <template v-if="lessons">
+           <LessonsListView :lessons="lessons"/>
+       </template>
+
+
     </div>
 </template>
 
 <script>
+import LessonsListView from 'cmp/dataView/lessons/LessonsListView/LessonsListView'
+
 export default {
+    components: {
+        LessonsListView,
+    },
+
     props: {
         courseId: {
             require: true,

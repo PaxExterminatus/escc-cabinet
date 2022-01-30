@@ -1,5 +1,5 @@
 import store from 'app/store'
-import AuthAPI from './api/AuthAPI'
+import AuthAPI from 'api/AuthAPI'
 import {Store} from "app/store/Store";
 
 const privates = {

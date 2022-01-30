@@ -35,10 +35,10 @@ class PaymentClient extends ApplicationClient {
         return this.client.post(endpoint.pay, data)
             .then((response) => {
                 /** @type {PayData} */
-                const responseData = response.data;
+                const data = response.data;
                 return {
-                    payment: PayStructure.makeFromResponse(responseData.payment),
-                    goto: responseData.goto,
+                    payment: PayStructure.makeFromResponse(data.payment),
+                    goto: data.goto,
                 };
             })
     }

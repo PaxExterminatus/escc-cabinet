@@ -5,7 +5,13 @@
             <DataTable :value="lessons">
                 <Column field="name" header="Название">
                     <template #body="slotProps">
-                        <a href="#">{{ slotProps.data.name }}</a>
+                        {{ slotProps.data.name }}
+                    </template>
+                </Column>
+
+                <Column header="Аудио">
+                    <template #body="slotProps">
+                        <i class="btn-ico pi pi-play" style="font-size: 2rem"/>
                     </template>
                 </Column>
             </DataTable>

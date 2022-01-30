@@ -30,7 +30,7 @@
             </Column>
 
             <template #expansion="slotProps">
-                <LessonsTable :lessons="slotProps.data.lessons"/>
+                <LessonsListView :lessons="slotProps.data.lessons"/>
             </template>
         </DataTable>
     </div>
@@ -44,9 +44,8 @@ import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import CourseStateCell from './CourseStatus/CourseStatus'
 import CourseLink from './CourseLink/CourseLink'
-import LessonsTable from 'cmp/dataView/lessons/LessonsListView/LessonsListView'
+import LessonsListView from 'cmp/dataView/lessons/LessonsListView/LessonsListView'
 import {CourseData} from 'api/structures/CourseData';
-
 
 export default {
     components: {
@@ -56,7 +55,7 @@ export default {
         Column,
         Panel,
         CourseStateCell,
-        LessonsTable,
+        LessonsListView,
         CourseLink,
     },
     props: {
