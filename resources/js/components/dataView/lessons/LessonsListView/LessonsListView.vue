@@ -1,6 +1,5 @@
 <template>
     <div class="lessons-list-view">
-
         <template v-if="lessons.length">
             <DataTable :value="lessons">
                 <Column field="name" header="Название">
@@ -40,6 +39,12 @@ export default {
             type: Array,
             default: () => [],
         },
+    },
+
+    methods: {
+        openAudio() {
+
+        }
     },
 }
 </script>
