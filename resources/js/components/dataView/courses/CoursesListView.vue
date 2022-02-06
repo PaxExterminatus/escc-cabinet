@@ -23,6 +23,12 @@
                 </template>
             </Column>
 
+            <Column field="materials" header="Учебные материалы">
+                <template #body="slotProps">
+                    <CourseMaterials :course="slotProps.data"/>
+                </template>
+            </Column>
+
             <Column field="state" header="Статус">
                 <template #body="slotProps">
                     <CourseStateCell :value="slotProps.data.state"/>
@@ -45,7 +51,7 @@ import Column from 'primevue/column'
 import CourseStateCell from './CourseStatus/CourseStatus'
 import CourseLink from './CourseLink/CourseLink'
 import LessonsListView from 'cmp/dataView/lessons/LessonsListView/LessonsListView'
-import {CourseData} from 'api/structures/CourseData';
+import CourseMaterials from  'cmp/dataView/courses/CourseMaterials/CourseMaterials'
 
 export default {
     components: {
@@ -57,6 +63,7 @@ export default {
         CourseStateCell,
         LessonsListView,
         CourseLink,
+        CourseMaterials,
     },
     props: {
         data: {
@@ -81,18 +88,10 @@ export default {
     computed: {
         /**
          * Client courses
-         * @return {CourseData[]}
+         * @return {ClientCourse[]}
          */
         courses() {
-            const courses = this.data.map((courseData) => new CourseData(courseData))
-            const active = courses.filter(course => course.state === 'active');
-            const done = courses.filter(course => course.state === 'done');
-            const stop = courses.filter(course => course.state === 'stop');
-            return [
-                ...active,
-                ...done,
-                ...stop,
-            ];
+            return this.$store.state.auth.client.courses;
         },
     },
 }

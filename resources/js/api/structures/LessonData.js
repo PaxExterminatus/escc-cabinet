@@ -17,6 +17,11 @@ class LessonData {
         this.nodeId = data.node_id ?? null;
         this.courseId = data.course_id ?? null;
     }
+
+    getAudioName()
+    {
+        return this.name.match(/\d\d-\d\d/)[0] || '';
+    }
 }
 
 export {

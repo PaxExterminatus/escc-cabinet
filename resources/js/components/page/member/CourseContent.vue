@@ -2,22 +2,25 @@
     <div class="page-component">
         <template v-if="client">
             <h1>{{course.name}}</h1>
+            <div style="margin-bottom: 5px">
+                <CourseMaterials :course="course"/>
+            </div>
         </template>
 
        <template v-if="lessons">
-           <LessonsListView :lessons="lessons" :course="courseIdCast"/>
+           <LessonsListView :lessons="lessons" :course="course"/>
        </template>
-
-
     </div>
 </template>
 
 <script>
 import LessonsListView from 'cmp/dataView/lessons/LessonsListView/LessonsListView'
+import CourseMaterials from  'cmp/dataView/courses/CourseMaterials/CourseMaterials'
 
 export default {
     components: {
         LessonsListView,
+        CourseMaterials,
     },
 
     props: {
@@ -45,7 +48,7 @@ export default {
             return this.$store.state.auth.client;
         },
 
-        /** @returns {ClientCourse} */
+        /** @returns {CourseData} */
         course() {
             return this.client.courses
                 .find(course => {

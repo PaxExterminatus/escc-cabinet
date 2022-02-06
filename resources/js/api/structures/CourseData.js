@@ -1,6 +1,12 @@
 import { LessonData } from 'api/structures/LessonData';
 
 class CourseData {
+    /** @type {undefined|CourseCategory} */
+    audioCategoryData = undefined;
+
+    /**
+     * @param {ClientCourse} data
+     */
     constructor(data= {}) {
         this.id = data.id ?? null;
         this.name = data.name ?? null;
@@ -8,6 +14,7 @@ class CourseData {
         this.status = data.status ?? null;
         this.state = this.statusToState(data.status)
         this.lessons = (data.lessons ?? []).map(lessonResponseData => new LessonData(lessonResponseData))
+        this.categories = data.categories;
     }
 
     statusToState(status) {
@@ -18,6 +25,22 @@ class CourseData {
         if (status === 'refusing') return 'stop';
         if (status === 'not active') return 'stop';
         if (status === 'error') return 'stop';
+    }
+
+    audioCategory()
+    {
+        if (this.audioCategoryData === undefined)
+        {
+            this.categories.every((category) => {
+                if (category.parent_code === 'AUDIO')
+                {
+                    this.audioCategoryData = category;
+                    return false;
+                }
+            })
+        }
+
+        return this.audioCategoryData;
     }
 }
 

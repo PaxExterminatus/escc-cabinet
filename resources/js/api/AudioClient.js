@@ -14,8 +14,6 @@ class AudioClient extends ApplicationClient {
 
     list({course, lesson}) // todo add response type
     {
-        course = 'course';
-        lesson = 'lesson';
         return this.client.get(endpoint.audio(course, lesson))
             .then(response => {
                 const data = response.data;

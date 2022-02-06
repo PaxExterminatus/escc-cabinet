@@ -1,4 +1,5 @@
-import {ClientCourseLesson} from './ClientCourseLesson';
+import {ClientCourseLesson} from './ClientCourseLesson'
+import {CourseCategory} from './CourseCategory'
 
 interface ClientCourse
 {
@@ -9,6 +10,7 @@ interface ClientCourse
     name: string
     status: string
     lessons: ClientCourseLesson[]
+    categories: CourseCategory[]
 }
 
 export {

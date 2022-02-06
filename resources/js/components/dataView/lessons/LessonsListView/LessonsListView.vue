@@ -9,8 +9,8 @@
                 </Column>
 
                 <Column header="Аудио">
-                    <template #body="slotProps">
-                        <i @click="getAudio(course, slotProps.data)" class="btn-ico pi pi-play" style="font-size: 2rem"/>
+                    <template #body="slotProps" v-if="courseData.audioCategory()">
+                        <i @click="getAudio(slotProps.data)" class="btn-ico pi pi-play" style="font-size: 2rem"/>
                     </template>
                 </Column>
             </DataTable>
@@ -41,28 +41,30 @@ export default {
             default: () => [],
         },
         course: {
-            type: Number,
-            default: null,
+            type: Object,
+        },
+    },
+
+    computed: {
+        /** @returns {CourseData} */
+        courseData() {
+            return this.course;
         },
     },
 
     methods: {
-        /**
-         * @param {number} course
-         * @param {LessonData} lesson
-         */
-        getAudio(course, lesson) {
-            api.audio.list({course, lesson: lesson.nodeId})
+        /** @param {LessonData} lessonData */
+        getAudio(lessonData) {
+            const course = this.course.audioCategory()?.code;
+            const lesson = lessonData.getAudioName();
+            console.log('getAudio', lesson)
+            api.audio.list({course, lesson})
                 .then(files => {
                     this.$store.commit('audio/show');
                     this.$store.commit('audio/setList', files);
                     this.$store.commit('audio/setTitle', lesson.name);
                 })
         },
-
-        openAudioPlayer() {
-
-        }
     },
 }
 </script>
