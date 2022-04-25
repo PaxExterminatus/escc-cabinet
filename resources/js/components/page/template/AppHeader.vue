@@ -4,6 +4,9 @@
             <template #start>
                 <div class="header-logo">
                     ЕШКО
+                    <div class="text-xs">
+                        <a href="https://www.eshko.by/cabinet">старый кабинет</a>
+                    </div>
                 </div>
                 <slot></slot>
             </template>
