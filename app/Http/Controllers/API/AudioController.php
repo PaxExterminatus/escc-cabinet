@@ -172,6 +172,7 @@ class AudioController  extends APIController
      * @param string $name
      * @param string $extension
      * @return BinaryFileResponse
+     * @example GET /api/audio/play/AUDIO_ANN/01-02/Урок 01, Дорожка 02/mp3
      */
     function play(string $course, string $lesson, string $name, string $extension): BinaryFileResponse
     {
@@ -189,6 +190,7 @@ class AudioController  extends APIController
      * @param string $course
      * @param string $lesson
      * @return BinaryFileResponse
+     * @example GET /api/audio/download/AUDIO_ANN/01-02
      */
     function download(string $course, string $lesson): BinaryFileResponse
     {
