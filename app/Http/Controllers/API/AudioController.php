@@ -16,6 +16,13 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class AudioController  extends APIController
 {
+    private Filesystem $audioDisk;
+
+    public function __construct()
+    {
+        $this->audioDisk = Storage::disk(DISK_AUDIO);
+    }
+
     // Helpers ---------------------------------------------------------------------------------------------------------
 
     /**
@@ -90,11 +97,15 @@ class AudioController  extends APIController
         ];
     }
 
-    #[ArrayShape([
-        'dir_size' => 'int',
-        'dir_hash' => 'string',
-    ])]
-    protected function makeZip(string $zipPath, string $dirPath): array
+    protected function dirChanged(string $lessonPath, string $cachePath): bool
+    {
+        $dirInfo = $this->eachFiles($lessonPath);
+        $cache = $this->getCache($this->audioDisk, $cachePath);
+
+        return $dirInfo['dir_hash'] !== $cache['dir_hash'];
+    }
+
+    protected function makeZip(string $zipPath, string $dirPath, string $cachePath): void
     {
         $zip = new ZipArchive;
         $zip->open($zipPath, ZipArchive::CREATE);
@@ -104,7 +115,12 @@ class AudioController  extends APIController
         });
         $zip->close();
 
-        return $dirInfo;
+        $zipInfo = [
+            'zip_size' => filesize($zipPath),
+            'zip_hash' => hash_file('md5', $zipPath),
+        ];
+
+        $this->audioDisk->put($cachePath, json_encode($zipInfo + $dirInfo));
     }
 
     // Actions ---------------------------------------------------------------------------------------------------------
@@ -176,7 +192,6 @@ class AudioController  extends APIController
      */
     function download(string $course, string $lesson): BinaryFileResponse
     {
-        $diskAudio = Storage::disk(DISK_AUDIO);
         $courseCode = str($course)->replace('AUDIO_', '')->lower();
         $name = "$courseCode-lesson-$lesson";
 
@@ -187,28 +202,17 @@ class AudioController  extends APIController
 
         $exist = file_exists($zipPath);
 
-        if (!$exist)
+        if ($exist)
         {
-            $dirInfo = $this->makeZip($zipPath, $lessonPath);
+            if ($this->dirChanged($lessonPath, $cachePath))
+            {
+                $this->makeZip($zipPath, $lessonPath, $cachePath);
+            }
         }
         else
         {
-            $dirInfo = $this->eachFiles($lessonPath);
-
-            $cache = $this->getCache($diskAudio, $cachePath);
-
-            if ($dirInfo['dir_hash'] !== $cache['dir_hash'])
-            {
-                $this->makeZip($zipPath, $lessonPath);
-            }
+            $this->makeZip($zipPath, $lessonPath, $cachePath);
         }
-
-        $zipInfo = [
-            'zip_size' => filesize($zipPath),
-            'zip_hash' => hash_file('md5', $zipPath),
-        ];
-
-        $diskAudio->put($cachePath, json_encode($zipInfo + $dirInfo));
 
         return response()->download($zipPath);
     }
