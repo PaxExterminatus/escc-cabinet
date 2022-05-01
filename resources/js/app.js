@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 
 // Libraries -----------------------------------------------------------------------------------------------------------
 import PrimeVue from 'primevue/config'
+import Tooltip from 'primevue/tooltip'
 import ToastService from 'primevue/toastservice'
 import Toast from 'primevue/toast'
 
@@ -21,5 +22,7 @@ app.use(router)
 app.use(store)
 
 app.component('Toast', Toast)
+
+app.directive('tooltip', Tooltip);
 
 app.mount("#app");
