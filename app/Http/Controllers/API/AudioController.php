@@ -26,13 +26,13 @@ class AudioController  extends APIController
 
         foreach ($files as $file)
         {
-            if ($file->isFile())
+            if ($file->isFile() && $file->getExtension() === 'mp3' )
             {
                 $filesData->push([
                     'course' => $course,
                     'lesson' => $lesson,
-                    'name' => pathinfo($file->getFilename(), PATHINFO_FILENAME),
-                    'extension' => pathinfo($file->getFilename(), PATHINFO_EXTENSION),
+                    'name' => $file->getFilenameWithoutExtension(),
+                    'extension' => $file->getExtension(),
                 ]);
             }
         }
