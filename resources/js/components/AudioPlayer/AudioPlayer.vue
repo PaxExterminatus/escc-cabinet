@@ -123,6 +123,7 @@ export default {
             this.display = false;
         },
         closePlayer() {
+            this.playing = false;
             this.paused = true;
             this.audioSrc = null;
             this.displaySmall = false;

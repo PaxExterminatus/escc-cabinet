@@ -6,7 +6,8 @@
             </template>
 
             <template #content v-if="auth.user">
-                Привет, {{ auth.user.iname }}
+                <div>{{ auth.user.iname }} {{ auth.user.fname }}</div>
+                <div>Студенческий номер: <strong>{{ auth.user.code }}</strong></div>
             </template>
 
             <template #footer>
