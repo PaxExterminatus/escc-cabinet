@@ -35,7 +35,7 @@ return [
             'root' => storage_path('app'),
         ],
 
-        'audio' => [
+        DISK_AUDIO => [
             'driver' => 'local',
             'root' => storage_path('app/audio') ,
         ],

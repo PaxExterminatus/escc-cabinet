@@ -1,3 +1,5 @@
 <?php
 
-define("REPOSITORY_USE_DEV", env('REPOSITORY_USE_DEV', false));
+define('REPOSITORY_USE_DEV', env('REPOSITORY_USE_DEV', false));
+
+const DISK_AUDIO = 'audio';

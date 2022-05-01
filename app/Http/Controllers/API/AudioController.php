@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Illuminate\Contracts\Filesystem\Filesystem;
+use JetBrains\PhpStorm\ArrayShape;
 use Symfony\Component\Finder\SplFileInfo;
 use ZipArchive;
 use App\Http\Controllers\APIController;
@@ -41,6 +44,67 @@ class AudioController  extends APIController
     protected function getStorageFiles(string $path): array
     {
         return File::allFiles($path);
+    }
+
+    #[ArrayShape(['dir_size' => 'int', 'dir_hash' => 'string'])]
+    protected function eachFiles(string $path, callable $fn = null): array
+    {
+        $dirSize = 0;
+        $dirFileNames = [];
+
+        $files = $this->getStorageFiles($path);
+        foreach ($files as $file)
+        {
+            if ($file->getExtension() === 'mp3')
+            {
+                if ($fn) $fn($file);
+                $dirSize += $file->getSize();
+                $dirFileNames[] = $file->getFilename();
+            }
+        }
+
+        return [
+            'dir_size' => $dirSize,
+            'dir_hash' => md5(json_encode($dirFileNames)),
+        ];
+    }
+
+    #[ArrayShape([
+        'zip_size' => 'int',
+        'zip_hash' => 'string',
+        'dir_size' => 'int',
+        'dir_hash' => 'string',
+    ])]
+    protected function getCache(Filesystem $disk, string $path): array
+    {
+        if ($disk->exists($path))
+        {
+            return (array)json_decode($disk->get($path));
+        }
+
+        return [
+            'zip_size' => null,
+            'zip_hash' => null,
+            'dir_size' => null,
+            'dir_hash' => null,
+        ];
+    }
+
+    #[ArrayShape([
+        'dir_size' => 'int',
+        'dir_hash' => 'string',
+    ])]
+    protected function makeZip(string $zipPath, string $dirPath): array
+    {
+        $zip = new ZipArchive;
+        $zip->open($zipPath, ZipArchive::CREATE);
+
+        $dirInfo = $this->eachFiles($dirPath, function (SplFileInfo $file) use ($zip) {
+            $zip->addFile($file, $file->getFilename());
+        });
+        $zip->close();
+
+        return $dirInfo;
     }
 
     // Actions ---------------------------------------------------------------------------------------------------------
@@ -105,31 +169,46 @@ class AudioController  extends APIController
         return $response;
     }
 
+    /**
+     * @param string $course
+     * @param string $lesson
+     * @return BinaryFileResponse
+     */
     function download(string $course, string $lesson): BinaryFileResponse
     {
-        $zip = new ZipArchive;
-
-        $courseCode = str_replace('AUDIO_', '', $course);
-        $zipName = $courseCode . '-lesson-' . $lesson . '.zip';
+        $diskAudio = Storage::disk(DISK_AUDIO);
+        $courseCode = str($course)->replace('AUDIO_', '')->lower();
+        $name = "$courseCode-lesson-$lesson";
 
         $coursePath = $this->getPathToCourse($course);
         $lessonPath = $this->getPathToLesson($course, $lesson);
-        $zipPath = "$coursePath/$zipName";
+        $cachePath = "$course/$name.json";
+        $zipPath = "$coursePath/$name.zip";
 
         $exist = file_exists($zipPath);
 
         if (!$exist)
         {
-            $opened = $zip->open($zipPath, ZipArchive::CREATE);
-            if ($opened)
+            $dirInfo = $this->makeZip($zipPath, $lessonPath);
+        }
+        else
+        {
+            $dirInfo = $this->eachFiles($lessonPath);
+
+            $cache = $this->getCache($diskAudio, $cachePath);
+
+            if ($dirInfo['dir_hash'] !== $cache['dir_hash'])
             {
-                $files = $this->getStorageFiles($lessonPath);
-                foreach ($files as $file) {
-                    $zip->addFile($file, $file->getFilename());
-                }
-                $zip->close();
+                $this->makeZip($zipPath, $lessonPath);
             }
         }
+
+        $zipInfo = [
+            'zip_size' => filesize($zipPath),
+            'zip_hash' => hash_file('md5', $zipPath),
+        ];
+
+        $diskAudio->put($cachePath, json_encode($zipInfo + $dirInfo));
 
         return response()->download($zipPath);
     }
