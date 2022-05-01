@@ -30,8 +30,13 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::prefix('/api/')->group(function () {
         Route::get('user', [AuthenticatedSessionController::class, 'user']);
-        Route::get('audio/{course}/{lesson}', [AudioController::class, 'index']);
-        Route::get('audio/play/{course}/{lesson}/{name}/{extension}', [AudioController::class, 'play']);
+
+        Route::controller(AudioController::class)->prefix('audio/')->group(function () {
+            Route::get('{course}/{lesson}', 'index');
+            Route::get('play/{course}/{lesson}/{name}/{extension}', 'play');
+            Route::get('download/{course}/{lesson}', 'download');
+        });
+
     });
 });
 

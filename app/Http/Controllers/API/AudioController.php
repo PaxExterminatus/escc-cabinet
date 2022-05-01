@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
+use Symfony\Component\Finder\SplFileInfo;
+use ZipArchive;
 use App\Http\Controllers\APIController;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -12,6 +13,38 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class AudioController  extends APIController
 {
+    // Helpers ---------------------------------------------------------------------------------------------------------
+
+    /**
+     * @param string $course
+     * @param string $lesson
+     * @return string
+     */
+    protected function getPathToLesson(string $course, string $lesson): string
+    {
+        return Storage::path("audio/$course/$lesson");
+    }
+
+    /**
+     * @param string $course
+     * @return string
+     */
+    protected function getPathToCourse(string $course): string
+    {
+        return Storage::path("audio/$course");
+    }
+
+    /**
+     * @param string $path
+     * @return SplFileInfo[]
+     */
+    protected function getStorageFiles(string $path): array
+    {
+        return File::allFiles($path);
+    }
+
+    // Actions ---------------------------------------------------------------------------------------------------------
+
     /**
      * @param string $course
      * @param string $lesson
@@ -20,8 +53,8 @@ class AudioController  extends APIController
      */
     function index(string $course, string $lesson): JsonResponse
     {
-        $path = Storage::path("audio/$course/$lesson");
-        $files = File::allFiles($path);
+        $path = $this->getPathToLesson($course, $lesson);
+        $files = $this->getStorageFiles($path);
         $filesData = Collection::make();
 
         foreach ($files as $file)
@@ -70,5 +103,34 @@ class AudioController  extends APIController
         BinaryFileResponse::trustXSendfileTypeHeader();
 
         return $response;
+    }
+
+    function download(string $course, string $lesson): BinaryFileResponse
+    {
+        $zip = new ZipArchive;
+
+        $courseCode = str_replace('AUDIO_', '', $course);
+        $zipName = $courseCode . '-lesson-' . $lesson . '.zip';
+
+        $coursePath = $this->getPathToCourse($course);
+        $lessonPath = $this->getPathToLesson($course, $lesson);
+        $zipPath = "$coursePath/$zipName";
+
+        $exist = file_exists($zipPath);
+
+        if (!$exist)
+        {
+            $opened = $zip->open($zipPath, ZipArchive::CREATE);
+            if ($opened)
+            {
+                $files = $this->getStorageFiles($lessonPath);
+                foreach ($files as $file) {
+                    $zip->addFile($file, $file->getFilename());
+                }
+                $zip->close();
+            }
+        }
+
+        return response()->download($zipPath);
     }
 }

@@ -11,7 +11,8 @@
         "laravel/framework": "^9.10.1",
         "laravel/sanctum": "^2.15.1",
         "laravel/tinker": "^2.7.2",
-        "laravel/ui": "^3.4.5"
+        "laravel/ui": "^3.4.5",
+        "ext-zip": "*"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^1.0",

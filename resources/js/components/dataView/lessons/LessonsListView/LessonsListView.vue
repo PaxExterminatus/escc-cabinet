@@ -10,7 +10,10 @@
 
                 <Column header="Аудио">
                     <template #body="slotProps" v-if="courseData.audioCategory()">
-                        <i @click="getAudio(slotProps.data)" class="btn-ico pi pi-play" style="font-size: 2rem"/>
+                        <SplitButton icon="pi pi-play" class="p-button-secondary p-button-text" :model="audioBtnMenu">
+                            <i @click="getAudio(slotProps.data)" class="btn-ico pi pi-play" style="font-size: 2rem"/>
+                        </SplitButton>
+
                     </template>
                 </Column>
             </DataTable>
@@ -27,12 +30,28 @@ import Column from 'primevue/column'
 import Message from 'primevue/message'
 import DataTable from 'primevue/datatable'
 import api from 'api'
+import SplitButton from 'primevue/splitbutton'
 
 export default {
     components: {
         Column,
         Message,
         DataTable,
+        SplitButton,
+    },
+
+    data () {
+        return {
+            audioBtnMenu: [
+                {
+                    label: 'Скачать аудио',
+                    icon: 'pi pi-download',
+                    command: () => {
+                        console.log('dsfsdf');
+                    }
+                },
+            ],
+        };
     },
 
     props: {
