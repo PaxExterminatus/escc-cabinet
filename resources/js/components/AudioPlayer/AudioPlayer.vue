@@ -22,6 +22,9 @@
                 </template>
 
                 <template #end>
+<!--                    <a href="">-->
+<!--                        <i class="btn-ico small pi pi-download" v-tooltip.left="'Скачать'"/>-->
+<!--                    </a>-->
                     <i class="btn-ico small pi pi-window-minimize" @click="showCompactPlayer" v-tooltip.left="'Компактный'"/>
                     <i class="btn-ico small pi pi-power-off" @click="closePlayer" v-tooltip.left="'Закрыть'"/>
                 </template>
@@ -104,6 +107,7 @@ export default {
     methods: {
         /** @param {{name: string, course: number, lesson: number, extension: string}} value */ // todo add TS interface
         select({value}) {
+            console.log(value.course, value.lesson);
             this.audioSrc = api.audio.play(value);
         },
         play() {
@@ -119,6 +123,7 @@ export default {
             this.display = false;
         },
         closePlayer() {
+            this.paused = true;
             this.audioSrc = null;
             this.displaySmall = false;
             this.display = false;
@@ -130,7 +135,7 @@ export default {
         },
         /** @param {HTMLMediaElement} event */
         onTimeupdate(event) {
-            console.log(event)
+
         },
         onPlay() {
             this.playing = true;

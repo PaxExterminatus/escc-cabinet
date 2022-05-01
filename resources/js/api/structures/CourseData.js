@@ -13,8 +13,8 @@ class CourseData {
         this.node_id = data.node_id ?? null;
         this.status = data.status ?? null;
         this.state = this.statusToState(data.status)
-        this.lessons = (data.lessons ?? []).map(lessonResponseData => new LessonData(lessonResponseData))
         this.categories = data.categories;
+        this.lessons = (data.lessons ?? []).map(lessonResponseData => new LessonData(lessonResponseData, this.audioCategory()?.code))
     }
 
     statusToState(status) {

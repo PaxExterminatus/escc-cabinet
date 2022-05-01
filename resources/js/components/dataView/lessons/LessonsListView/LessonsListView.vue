@@ -10,10 +10,11 @@
 
                 <Column header="Аудио">
                     <template #body="slotProps" v-if="courseData.audioCategory()">
-                        <SplitButton icon="pi pi-play" class="p-button-secondary p-button-text" :model="audioBtnMenu">
+                        <SplitButton icon="pi pi-play" class="p-button-secondary p-button-text"
+                            :model="slotProps.data.audioMenu"
+                        >
                             <i @click="getAudio(slotProps.data)" class="btn-ico pi pi-play" style="font-size: 2rem"/>
                         </SplitButton>
-
                     </template>
                 </Column>
             </DataTable>
@@ -46,9 +47,7 @@ export default {
                 {
                     label: 'Скачать аудио',
                     icon: 'pi pi-download',
-                    command: () => {
-                        console.log('dsfsdf');
-                    }
+                    url: '/api/audio/download/AUDIO_ANN/01-02',
                 },
             ],
         };
@@ -76,7 +75,7 @@ export default {
         getAudio(lessonData) {
             const course = this.course.audioCategory()?.code;
             const lesson = lessonData.getAudioName();
-            console.log('getAudio', lesson)
+
             api.audio.list({course, lesson})
                 .then(files => {
                     this.$store.commit('audio/show');
