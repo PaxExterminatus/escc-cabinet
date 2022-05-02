@@ -1,10 +1,14 @@
 <template>
     <span class="course-materials">
         <template v-if="clientCourse.audioCategory()">
-            <InlineMessage class="course-materials-tag" severity="success">Аудио</InlineMessage>
+            <InlineMessage class="course-materials-tag" severity="success">
+                <span class="align-v-center-gap"><i class="pi pi-play"></i> Аудио</span>
+            </InlineMessage>
         </template>
         <template v-if="clientCourse.videoCategory">
-            <InlineMessage class="course-materials-tag" severity="success">Видео</InlineMessage>
+            <InlineMessage class="course-materials-tag" severity="success">
+                <span class="align-v-center-gap"><i class="pi pi-video"></i> Видео</span>
+            </InlineMessage>
         </template>
     </span>
 </template>
