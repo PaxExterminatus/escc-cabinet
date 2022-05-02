@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\AudioController;
 use App\Http\Controllers\API\PaymentController;
+use App\Http\Controllers\API\VideoController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SPA\SPAController;
 
@@ -37,6 +38,10 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::get('download/{course}/{lesson}', 'download');
         });
 
+        Route::controller(VideoController::class)->prefix('video/')->group(function () {
+            Route::get('{course}', 'index');
+            Route::get('play/course/{course}/name/{name}', 'play')->name('play_course_video_by_name');
+        });
     });
 });
 

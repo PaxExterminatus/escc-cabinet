@@ -2,56 +2,21 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Contracts\Filesystem\FileNotFoundException;
-use Illuminate\Contracts\Filesystem\Filesystem;
+use ZipArchive;
 use JetBrains\PhpStorm\ArrayShape;
 use Symfony\Component\Finder\SplFileInfo;
-use ZipArchive;
-use App\Http\Controllers\APIController;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use App\Http\Controllers\MediaController;
 
-class AudioController  extends APIController
+class AudioController extends MediaController
 {
-    private Filesystem $audioDisk;
-
-    public function __construct()
-    {
-        $this->audioDisk = Storage::disk(DISK_AUDIO);
-    }
+    protected string $disk = DISK_AUDIO;
 
     // Helpers ---------------------------------------------------------------------------------------------------------
-
-    /**
-     * @param string $course
-     * @param string $lesson
-     * @return string
-     */
-    protected function getPathToLesson(string $course, string $lesson): string
-    {
-        return Storage::path("audio/$course/$lesson");
-    }
-
-    /**
-     * @param string $course
-     * @return string
-     */
-    protected function getPathToCourse(string $course): string
-    {
-        return Storage::path("audio/$course");
-    }
-
-    /**
-     * @param string $path
-     * @return SplFileInfo[]
-     */
-    protected function getStorageFiles(string $path): array
-    {
-        return File::allFiles($path);
-    }
 
     #[ArrayShape(['dir_size' => 'int', 'dir_hash' => 'string'])]
     protected function eachFiles(string $path, callable $fn = null): array
@@ -59,7 +24,7 @@ class AudioController  extends APIController
         $dirSize = 0;
         $dirFileNames = [];
 
-        $files = $this->getStorageFiles($path);
+        $files = $this->storageFiles($path);
         foreach ($files as $file)
         {
             if ($file->getExtension() === 'mp3')
@@ -100,7 +65,7 @@ class AudioController  extends APIController
     protected function dirChanged(string $lessonPath, string $cachePath): bool
     {
         $dirInfo = $this->eachFiles($lessonPath);
-        $cache = $this->getCache($this->audioDisk, $cachePath);
+        $cache = $this->getCache($this->filesystem, $cachePath);
 
         return $dirInfo['dir_hash'] !== $cache['dir_hash'];
     }
@@ -120,7 +85,7 @@ class AudioController  extends APIController
             'zip_hash' => hash_file('md5', $zipPath),
         ];
 
-        $this->audioDisk->put($cachePath, json_encode($zipInfo + $dirInfo));
+        $this->filesystem->put($cachePath, json_encode($zipInfo + $dirInfo));
     }
 
     // Actions ---------------------------------------------------------------------------------------------------------
@@ -134,36 +99,14 @@ class AudioController  extends APIController
     function index(string $course, string $lesson): JsonResponse
     {
         $path = $this->getPathToLesson($course, $lesson);
-        $files = $this->getStorageFiles($path);
-        $filesData = Collection::make();
 
-        foreach ($files as $file)
-        {
-            if ($file->isFile() && $file->getExtension() === 'mp3' )
-            {
-                $filesData->push([
-                    'course' => $course,
-                    'lesson' => $lesson,
-                    'name' => $file->getFilenameWithoutExtension(),
-                    'extension' => $file->getExtension(),
-                ]);
-            }
-        }
+        $filesInfo = $this->storageFilesInfo(
+            $this->storageFiles($path),
+            ['course' => $course, 'lesson' => $lesson],
+            'mp3',
+        );
 
-        if (count($files))
-        {
-            return $this->success(
-                data: [
-                    'files' => $filesData,
-                ],
-            );
-        }
-        else
-        {
-            return $this->error(
-                message: 'Файлы не найдены',
-            );
-        }
+        return $this->responseFilesInfo($filesInfo);
     }
 
     /**

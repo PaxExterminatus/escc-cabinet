@@ -2,10 +2,11 @@ import {ApplicationClient} from 'api/client';
 
 const endpoint = {
     audio: (course, lesson) => `/api/audio/${course}/${lesson}`,
-    play: '/api/audio/play/',
+    play: (course, lesson, name, extension) => `/api/audio/play/${course}/${lesson}/${name}/${extension}`,
 }
 
-class AudioClient extends ApplicationClient {
+class AudioClient extends ApplicationClient
+{
     constructor() {
         super({
             withCredentials: true,
@@ -22,13 +23,12 @@ class AudioClient extends ApplicationClient {
     }
 
     /**
-     *
      * @param data
      * @returns string
      */
     play({course, lesson, name, extension})
     {
-        return `/api/audio/play/${course}/${lesson}/${name}/${extension}`;
+        return endpoint.play(course, lesson, name, extension);
     }
 }
 

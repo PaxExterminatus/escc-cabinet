@@ -40,6 +40,11 @@ return [
             'root' => storage_path('app/audio') ,
         ],
 
+        DISK_VIDEO => [
+            'driver' => 'local',
+            'root' => storage_path('app/video') ,
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

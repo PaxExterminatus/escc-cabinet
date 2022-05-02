@@ -3,14 +3,25 @@
         <template v-if="client">
             <h1>{{course.name}}</h1>
 
-            <template v-if="course.videoCategory">
-                <Panel class="mt-2">
+            <template v-if="course.videoCategory && videos">
+                <Panel class="panel-with-table">
                     <template #header>
                         <h2 class="align-v-center-gap">
                             <i class="pi pi-video"/> Видео
                         </h2>
                     </template>
-                    Content
+
+                    <DataTable :value="videos">
+                        <Column field="name" header="Название">
+                            <template #body="slotProps">
+                                <Button class="p-button-secondary p-button-text" icon="pi pi-play"
+                                        :label="slotProps.data.name"
+                                        @click="playVideo(slotProps.data.play_url)"
+                                />
+                            </template>
+                        </Column>
+                    </DataTable>
+
                 </Panel>
             </template>
         </template>
@@ -37,16 +48,23 @@
 
 <script>
 import Panel from 'primevue/panel'
-import LessonsListView from 'cmp/dataView/lessons/LessonsListView/LessonsListView'
+import Button from 'primevue/button'
+import Column from 'primevue/column';
+import DataTable from 'primevue/datatable';
 import CourseMaterials from  'cmp/dataView/courses/CourseMaterials/CourseMaterials'
+import LessonsListView from 'cmp/dataView/lessons/LessonsListView/LessonsListView'
+import api from 'api'
 
 export default {
     name: 'CourseContent',
 
     components: {
         Panel,
-        LessonsListView,
+        Button,
+        Column,
+        DataTable,
         CourseMaterials,
+        LessonsListView,
     },
 
     props: {
@@ -56,10 +74,28 @@ export default {
         },
     },
 
+    data() {
+        return {
+            videos: null,
+        };
+    },
+
     methods: {
         checkUser(callback) {
             if (!this.client) return null;
             return callback();
+        },
+        playVideo(video) {
+            console.log(video);
+        }
+    },
+
+    watch: {
+        client() {
+            api.video.list(this.course.videoCategory.code)
+                .then(resp => {
+                    this.videos = resp;
+                });
         }
     },
 
