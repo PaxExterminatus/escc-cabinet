@@ -16,6 +16,7 @@ const mutations = {
         store.list = list;
     },
     setTitle(store, title) {
+        console.log('SET title', title)
         store.title = title;
     },
     play(store, url) {

@@ -16,7 +16,7 @@
                             <template #body="slotProps">
                                 <Button class="p-button-secondary p-button-text" icon="pi pi-play"
                                         :label="slotProps.data.name"
-                                        @click="playVideo(slotProps.data.play_url)"
+                                        @click="playVideo(slotProps.data)"
                                 />
                             </template>
                         </Column>
@@ -47,13 +47,14 @@
 </template>
 
 <script>
+import api from 'api'
 import Panel from 'primevue/panel'
 import Button from 'primevue/button'
 import Column from 'primevue/column';
 import DataTable from 'primevue/datatable';
 import CourseMaterials from  'cmp/dataView/courses/CourseMaterials/CourseMaterials'
 import LessonsListView from 'cmp/dataView/lessons/LessonsListView/LessonsListView'
-import api from 'api'
+import VideoPlayer from 'cmp/VideoPlayer/VideoPlayer'
 
 export default {
     name: 'CourseContent',
@@ -65,6 +66,7 @@ export default {
         DataTable,
         CourseMaterials,
         LessonsListView,
+        VideoPlayer,
     },
 
     props: {
@@ -85,9 +87,12 @@ export default {
             if (!this.client) return null;
             return callback();
         },
-        playVideo(video) {
-            console.log(video);
-        }
+        playVideo({play_url, title}) {
+            this.$store.commit('video/play', play_url);
+            this.$store.commit('video/show');
+            this.$store.commit('video/setTitle', title);
+
+        },
     },
 
     watch: {

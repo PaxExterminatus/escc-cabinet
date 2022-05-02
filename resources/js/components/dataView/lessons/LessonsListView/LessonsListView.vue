@@ -10,10 +10,12 @@
 
                 <Column header="Аудио">
                     <template #body="slotProps" v-if="courseData.audioCategory()">
-                        <SplitButton icon="pi pi-play" class="p-button-secondary p-button-text"
+                        <SplitButton
+                            icon="pi pi-play"
+                            class="p-button-secondary p-button-text"
                             :model="slotProps.data.audioMenu"
                         >
-                            <i @click="getAudio(slotProps.data)" class="btn-ico pi pi-play" style="font-size: 2rem"/>
+                            <i @click="getAudio(slotProps.data)" class="btn-ico pi pi-play" style="font-size: 2rem" v-tooltip.left="'Аудио'"/>
                         </SplitButton>
                     </template>
                 </Column>

@@ -32,7 +32,8 @@ class VideoController extends MediaController
                     'play_url' => route('play_course_video_by_name', [
                         'course' => $course,
                         'name' => $file->getFilename(),
-                    ])
+                    ]),
+                    'title' => $file->getFilenameWithoutExtension(),
                 ];
 
                 $filesInfo->push($fileInfo);
