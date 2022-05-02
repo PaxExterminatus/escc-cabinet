@@ -4,11 +4,11 @@
             <h1>{{course.name}}</h1>
 
             <template v-if="course.videoCategory">
-                <Panel class="mb-2 mt-2">
+                <Panel class="mt-2">
                     <template #header>
-                        <div class="align-v-center-gap">
+                        <h2 class="align-v-center-gap">
                             <i class="pi pi-video"/> Видео
-                        </div>
+                        </h2>
                     </template>
                     Content
                 </Panel>
@@ -16,7 +16,15 @@
         </template>
 
        <template v-if="lessons">
-           <LessonsListView :lessons="lessons" :course="course"/>
+           <Panel class="panel-with-table">
+               <template #header>
+                   <h2 class="align-v-center-gap">
+                       <i class="pi pi-book"/> Уроки
+                   </h2>
+               </template>
+
+                <LessonsListView :lessons="lessons" :course="course"/>
+           </Panel>
        </template>
 
         <template v-if="client">
