@@ -21,9 +21,19 @@ class LessonData {
         this.audioCategoryCode = courseAudioCategoryCode;
     }
 
+    /**
+     * @returns {string|null}
+     */
     getAudioName()
     {
-        return this.name.match(/\d\d-\d\d/)[0] || '';
+        let matches = this.name.match(/\d\d-\d\d/);
+
+        if (!matches)
+        {
+            matches = this.name.match(/ДМ \d/);
+        }
+
+        return matches ? matches[0] : null;
     }
 
     get audioMenu()

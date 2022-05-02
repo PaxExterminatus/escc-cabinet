@@ -99,12 +99,23 @@ class AudioController extends MediaController
     function index(string $course, string $lesson): JsonResponse
     {
         $path = $this->getPathToLesson($course, $lesson);
+        $files = $this->storageFiles($path);
+        $filesInfo = Collection::make();
 
-        $filesInfo = $this->storageFilesInfo(
-            $this->storageFiles($path),
-            ['course' => $course, 'lesson' => $lesson],
-            'mp3',
-        );
+        foreach ($files as $file)
+        {
+            if ($file->isFile() && $file->getExtension() === 'mp3')
+            {
+                $fileInfo = [
+                    'course' => $course,
+                    'lesson' => $lesson,
+                    'name' => $file->getFilenameWithoutExtension(),
+                    'extension' => $file->getExtension(),
+                ];
+
+                $filesInfo->push($fileInfo);
+            }
+        }
 
         return $this->responseFilesInfo($filesInfo);
     }

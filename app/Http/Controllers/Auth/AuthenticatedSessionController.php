@@ -57,7 +57,8 @@ class AuthenticatedSessionController extends APIController
 
         $clientCode = (int)$user->code;
 
-        if ($clientCode) {
+        if ($clientCode)
+        {
             $client = $this->clients->find((int)$user->code);
             $data['client'] = $client;
         }

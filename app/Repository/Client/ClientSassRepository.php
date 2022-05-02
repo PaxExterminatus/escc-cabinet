@@ -19,15 +19,15 @@ class ClientSassRepository implements ClientRepository
         return "$this->host{$path}";
     }
 
-    function find(int $id): Client
+    function find(int $id): ?Client
     {
         $response = Http::get($this->url("client/{$id}"));
         $clientData = $response->json()['client'];
 
-        if ($clientData) {
-            return new Client($clientData);
+        if (!$clientData) {
+            return null;
         }
 
-        return new Client;
+        return new Client($clientData);
     }
 }

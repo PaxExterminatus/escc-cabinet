@@ -93,15 +93,27 @@ export default {
             this.$store.commit('video/setTitle', title);
 
         },
+        getVideos() {
+            if (this.course.videoCategory)
+            {
+                api.video.list(this.course.videoCategory.code)
+                    .then(resp => {
+                        this.videos = resp;
+                    });
+            }
+        }
+    },
+
+    mounted() {
+        if (this.client) {
+            this.getVideos();
+        }
     },
 
     watch: {
         client() {
-            api.video.list(this.course.videoCategory.code)
-                .then(resp => {
-                    this.videos = resp;
-                });
-        }
+            this.getVideos();
+        },
     },
 
     computed: {
