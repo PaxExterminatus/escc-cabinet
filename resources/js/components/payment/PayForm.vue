@@ -3,7 +3,9 @@
 
         <Toast />
 
-        <div class="pay-title-small">webpay</div>
+        <div class="pay-title-small">
+            <a class="pay-title-small" href="https://webpay.by/">webpay</a>
+        </div>
 
         <span class="p-float-label">
             <InputText id="code" type="text" v-model="input.code" :class="{'p-invalid': codeLabel.error}"/>
