@@ -3,6 +3,7 @@ import { LessonData } from 'api/structures/LessonData';
 class CourseData {
     /** @type {undefined|CourseCategory} */
     audioCategoryData = undefined;
+    videoCategoryData = undefined;
 
     /**
      * @param {ClientCourse} data
@@ -31,16 +32,34 @@ class CourseData {
     {
         if (this.audioCategoryData === undefined)
         {
-            this.categories.every((category) => {
+            for (let category of this.categories)
+            {
                 if (category.parent_code === 'AUDIO')
                 {
                     this.audioCategoryData = category;
-                    return false;
+                    break;
                 }
-            })
+            }
         }
 
         return this.audioCategoryData;
+    }
+
+    get videoCategory()
+    {
+        if (this.videoCategoryData === undefined)
+        {
+            for (let category of this.categories)
+            {
+                if (category.parent_code === 'VIDEO')
+                {
+                    this.videoCategoryData = category;
+                    break;
+                }
+            }
+        }
+
+        return this.videoCategoryData;
     }
 }
 

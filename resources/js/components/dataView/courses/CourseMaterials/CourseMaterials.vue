@@ -3,6 +3,9 @@
         <template v-if="clientCourse.audioCategory()">
             <InlineMessage class="course-materials-tag" severity="success">Аудио</InlineMessage>
         </template>
+        <template v-if="clientCourse.videoCategory">
+            <InlineMessage class="course-materials-tag" severity="success">Видео</InlineMessage>
+        </template>
     </span>
 </template>
 
@@ -29,4 +32,3 @@ export default {
     },
 }
 </script>
-
