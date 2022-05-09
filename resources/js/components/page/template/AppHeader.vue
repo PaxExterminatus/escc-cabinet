@@ -3,10 +3,7 @@
         <Toolbar>
             <template #start>
                 <div class="header-logo">
-                    ЕШКО
-                    <div class="text-xs">
-                        <a href="https://www.eshko.by/cabinet">старый кабинет</a>
-                    </div>
+                    <a href="https://www.eshko.by/cabinet">ЕШКО</a>
                 </div>
                 <slot></slot>
             </template>
