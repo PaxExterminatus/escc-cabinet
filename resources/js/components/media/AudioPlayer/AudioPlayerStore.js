@@ -14,12 +14,17 @@ const mutations = {
     revers(store) {
         store.show = !store.show;
     },
+
+    clearList() {
+        this.list = [];
+    },
+
     setList(store, list) {
         store.list = list;
     },
     setTitle(store, title) {
         store.title = title;
-    }
+    },
 }
 
 export default {

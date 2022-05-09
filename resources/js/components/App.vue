@@ -1,19 +1,19 @@
 <template>
     <div id="app" class="application">
         <router-view/>
-        <AudioPlayer/>
         <VideoPlayerDialog/>
+        <AudioPlayerDialog/>
     </div>
 </template>
 
 <script>
-import AudioPlayer from 'cmp/AudioPlayer/AudioPlayer'
 import VideoPlayerDialog from 'cmp/VideoPlayer/VideoPlayerDialog'
+import { AudioPlayerDialog } from 'cmp/media/AudioPlayer'
 
 export default {
     components: {
-        AudioPlayer,
         VideoPlayerDialog,
+        AudioPlayerDialog,
     },
     computed: {
         /** @returns {AuthUser} */

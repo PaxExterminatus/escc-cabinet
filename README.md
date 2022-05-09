@@ -12,5 +12,10 @@
 - [+] сортировка уроков по дате отправления (CB.ITEM_ID)
 
 **TODO V3**
-
 - сменить названия курсов и уроков на более читаемые
+
+# LIBS
+
+## Vue-APlayer
+- https://github.com/SevenOutman/vue-aplayer
+- https://github.com/SevenOutman/vue-aplayer/blob/develop/docs/README.md
