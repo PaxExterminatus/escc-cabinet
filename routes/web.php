@@ -34,7 +34,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
         Route::controller(AudioController::class)->prefix('audio/')->group(function () {
             Route::get('{course}/{lesson}', 'index');
-            Route::get('play/{course}/{lesson}/{name}/{extension}', 'play');
+            Route::get('play/course/{course}/lesson/{lesson}/name/{name}/extension/{extension}', 'play')->name('play_course_audio_by_name');
             Route::get('download/{course}/{lesson}', 'download');
         });
 

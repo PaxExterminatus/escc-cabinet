@@ -27,8 +27,19 @@ const mutations = {
     },
 }
 
+const getters = {
+    /**
+     * @param state
+     * @returns {CurseAudio[]}
+     */
+    list(state) {
+        return state.list;
+    }
+}
+
 export default {
     namespaced: true,
     state,
     mutations,
-};
+    getters,
+}

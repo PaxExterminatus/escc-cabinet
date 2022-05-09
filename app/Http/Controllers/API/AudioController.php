@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Services\Routes;
 use ZipArchive;
 use JetBrains\PhpStorm\ArrayShape;
 use Symfony\Component\Finder\SplFileInfo;
@@ -106,13 +107,15 @@ class AudioController extends MediaController
         {
             if ($file->isFile() && $file->getExtension() === 'mp3')
             {
+                $filename =  $file->getFilenameWithoutExtension();
+                $extension = $file->getExtension();
                 $fileInfo = [
                     'course' => $course,
                     'lesson' => $lesson,
-                    'name' => $file->getFilenameWithoutExtension(),
-                    'extension' => $file->getExtension(),
+                    'name' => $filename,
+                    'extension' => $extension,
+                    'play_url' => Routes::playCourseAudioByName($course, $lesson, $filename, $extension),
                 ];
-
                 $filesInfo->push($fileInfo);
             }
         }
@@ -126,7 +129,7 @@ class AudioController extends MediaController
      * @param string $name
      * @param string $extension
      * @return BinaryFileResponse
-     * @example GET /api/audio/play/AUDIO_ANN/01-02/Урок 01, Дорожка 02/mp3
+     * @example GET /api/audio/play/AUDIO_ANN/01-02/Урок 01, Дорожка 01/mp3
      */
     function play(string $course, string $lesson, string $name, string $extension): BinaryFileResponse
     {

@@ -2,7 +2,6 @@ import {ApplicationClient} from 'api/client';
 
 const endpoint = {
     audio: (course, lesson) => `/api/audio/${course}/${lesson}`,
-    play: (course, lesson, name, extension) => `/api/audio/play/${course}/${lesson}/${name}/${extension}`,
 }
 
 class AudioClient extends ApplicationClient
@@ -20,15 +19,6 @@ class AudioClient extends ApplicationClient
                 const data = response.data;
                 return data.files;
             })
-    }
-
-    /**
-     * @param data
-     * @returns string
-     */
-    play({course, lesson, name, extension})
-    {
-        return endpoint.play(course, lesson, name, extension);
     }
 }
 

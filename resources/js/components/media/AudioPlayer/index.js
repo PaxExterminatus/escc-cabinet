@@ -3,14 +3,13 @@ import AudioPlayer from './AudioPlayer'
 import AudioPlayerDialog from './AudioPlayerDialog'
 import AudioPlayerStoreAdapter from './AudioPlayerStoreAdapter'
 
-
-const audio = new AudioPlayerStoreAdapter(store);
+const audioPlayer = new AudioPlayerStoreAdapter(store);
 
 export {
     AudioPlayer,
     AudioPlayerDialog,
     AudioPlayerStoreAdapter,
-    audio,
+    audioPlayer,
 }
 
-export default audio;
+export default audioPlayer;

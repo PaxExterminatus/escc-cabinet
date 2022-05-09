@@ -12,7 +12,7 @@
             </template>
         </Toolbar>
 
-        <audio ref="audio" autoplay hidden style="vertical-align: middle" :src="audioSrc" type="audio/mp3"
+        <audio ref="audio" autoplay controls style="vertical-align: middle" :src="audioSrc" type="audio/mp3"
                @timeupdate="onAudioTimeUpdate" @play="onPlay" @pause="onPause"
         />
 
@@ -28,7 +28,8 @@
 </template>
 
 <script>
-import audio from './'
+import api from 'api'
+import audioPlayer from './'
 import List from 'primevue/listbox'
 import Dialog from 'primevue/dialog'
 import Toolbar from 'primevue/toolbar'
@@ -47,6 +48,7 @@ export default {
     data() {
         return {
             selected: null,
+            audioSrc: null,
         };
     },
 
@@ -58,11 +60,10 @@ export default {
             this.displaySmall = false;
             this.display = false;
 
-            audio.clear().hide();
+            audioPlayer.clear().hide();
         },
 
         play() {
-            if (!this.audioSrc) this.select({value: this.list[0]});
             this.$refs.audio.play();
         },
 
@@ -70,9 +71,9 @@ export default {
 
         },
 
-        onListChange(e)
-        {
-            console.log(e);
+        /** @param {CurseAudio} value */
+        onListChange({value}) {
+            this.audioSrc = value.play_url;
         },
 
         onAudioTimeUpdate() {
@@ -81,7 +82,6 @@ export default {
 
         viewListIcon(name)
         {
-            console.log(this.selected?.name === name, this.selected?.name)
             return {
                 'pi-play': this.selected?.name === name,
                 'pi-file': this.selected?.name !== name
@@ -90,14 +90,15 @@ export default {
     },
 
     computed: {
+        /** @returns {CurseAudio[]} */
         list() {
-            return audio.list;
+            return audioPlayer.list;
         },
 
-        audio()
-        {
+        /** @returns {HTMLAudioElement} */
+        audioHtmlElement() {
             return this.$refs.audio;
-        }
+        },
     },
 }
 </script>

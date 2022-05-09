@@ -6,7 +6,7 @@ mix
     .sass('resources/sass/app.sass', 'public/css')
     .version()
     .vue()
-    .browserSync('http://127.0.0.1:8000')
+    //.browserSync('http://127.0.0.1:8000')
     .webpackConfig({
         resolve: config.resolve,
     })

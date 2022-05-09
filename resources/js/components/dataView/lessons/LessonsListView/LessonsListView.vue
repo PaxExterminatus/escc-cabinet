@@ -34,6 +34,7 @@ import Message from 'primevue/message'
 import DataTable from 'primevue/datatable'
 import api from 'api'
 import SplitButton from 'primevue/splitbutton'
+import audioPlayer from 'cmp/media/AudioPlayer'
 
 export default {
     components: {
@@ -80,9 +81,7 @@ export default {
 
             api.audio.list({course, lesson})
                 .then(files => {
-                    this.$store.commit('audio/show');
-                    this.$store.commit('audio/setList', files);
-                    this.$store.commit('audio/setTitle', lesson.name);
+                    audioPlayer.show().listSet(files);
                 })
         },
     },
