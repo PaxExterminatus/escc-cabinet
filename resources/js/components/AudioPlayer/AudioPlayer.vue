@@ -14,19 +14,19 @@
             <Toolbar class="player-buttons">
                 <template #start>
                     <template v-if="paused">
-                        <i class="btn-ico pi pi-play" @click="play" v-tooltip.left="'Играть'"/>
+                        <i class="btn pi pi-play" @click="play" v-tooltip.left="'Играть'"/>
                     </template>
                     <template v-if="playing">
-                        <i class="btn-ico pi pi-pause" @click="pause"/>
+                        <i class="btn pi pi-pause" @click="pause"/>
                     </template>
                 </template>
 
                 <template #end>
 <!--                    <a href="">-->
-<!--                        <i class="btn-ico small pi pi-download" v-tooltip.left="'Скачать'"/>-->
+<!--                        <i class="btn small pi pi-download" v-tooltip.left="'Скачать'"/>-->
 <!--                    </a>-->
-                    <i class="btn-ico small pi pi-window-minimize" @click="showCompactPlayer" v-tooltip.left="'Компактный'"/>
-                    <i class="btn-ico small pi pi-power-off" @click="closePlayer" v-tooltip.left="'Закрыть'"/>
+                    <i class="btn small pi pi-window-minimize" @click="showCompactPlayer" v-tooltip.left="'Компактный'"/>
+                    <i class="btn small pi pi-power-off" @click="closePlayer" v-tooltip.left="'Закрыть'"/>
                 </template>
             </Toolbar>
 
@@ -42,16 +42,16 @@
         >
             <div class="player-buttons">
                 <template v-if="paused">
-                    <i class="btn-ico pi pi-play" @click="play"/>
+                    <i class="btn pi pi-play" @click="play"/>
                 </template>
                 <template v-if="playing">
-                    <i class="btn-ico pi pi-pause" @click="pause"/>
+                    <i class="btn pi pi-pause" @click="pause"/>
                 </template>
             </div>
 
             <div class="player-buttons">
-                <i class="btn-ico small pi pi-list" @click="showStandardPlayer" v-tooltip.left="'Список'"/>
-                <i class="btn-ico small pi pi-power-off" @click="closePlayer" v-tooltip.left="'Закрыть'"/>
+                <i class="btn small pi pi-list" @click="showStandardPlayer" v-tooltip.left="'Список'"/>
+                <i class="btn small pi pi-power-off" @click="closePlayer" v-tooltip.left="'Закрыть'"/>
             </div>
 
             <template #header></template>

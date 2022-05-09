@@ -14,12 +14,26 @@ class AudioPlayerStoreAdapter
         return this.$store.getters['audio/list'];
     }
 
+    /** @return {string} */
+    get downloadUrl() {
+        return this.$store.getters['audio/downloadUrl'];
+    }
+
     /**
      * @param {CurseAudio[]} audios
      * @return {AudioPlayerStoreAdapter}
      */
     listSet(audios) {
         this.$store.commit('audio/setList', audios);
+        return this;
+    }
+
+    /**
+     * @param {string} url
+     * @return {AudioPlayerStoreAdapter}
+     */
+    downloadUrlSet(url) {
+        this.$store.commit('audio/setDownloadUrl', url);
         return this;
     }
 

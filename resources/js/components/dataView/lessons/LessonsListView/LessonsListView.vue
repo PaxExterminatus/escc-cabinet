@@ -15,7 +15,7 @@
                             class="p-button-secondary p-button-text"
                             :model="slotProps.data.audioMenu"
                         >
-                            <i @click="getAudio(slotProps.data)" class="btn-ico pi pi-play" style="font-size: 2rem" v-tooltip.left="'Аудио'"/>
+                            <i @click="getAudio(slotProps.data)" class="btn pi pi-play" style="font-size: 2rem" v-tooltip.left="'Аудио'"/>
                         </SplitButton>
                     </template>
                 </Column>
@@ -80,9 +80,6 @@ export default {
             const lesson = lessonData.getAudioName();
 
             api.audio.list({course, lesson})
-                .then(files => {
-                    audioPlayer.show().listSet(files);
-                })
         },
     },
 }

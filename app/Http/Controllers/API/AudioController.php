@@ -114,13 +114,20 @@ class AudioController extends MediaController
                     'lesson' => $lesson,
                     'name' => $filename,
                     'extension' => $extension,
-                    'play_url' => Routes::playCourseAudioByName($course, $lesson, $filename, $extension),
+                    'play_url' => Routes::playLessonAudioByName($course, $lesson, $filename, $extension),
                 ];
                 $filesInfo->push($fileInfo);
             }
         }
 
-        return $this->responseFilesInfo($filesInfo);
+        if (!$filesInfo->count()) {
+            return $this->error(message: 'Файлы не найдены');
+        }
+
+        return $this->success(data: [
+            'download_url' => Routes::downloadLessonAudio($course, $lesson),
+            'files' => $filesInfo
+        ]);
     }
 
     /**

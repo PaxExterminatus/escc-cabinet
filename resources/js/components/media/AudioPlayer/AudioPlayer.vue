@@ -6,9 +6,12 @@
             </template>
 
             <template #end>
-                <i class="btn-ico small pi pi-download" v-tooltip.left="'Скачать'"/>
-                <i class="btn-ico small pi pi-window-minimize" @click="showCompactPlayer" v-tooltip.left="'Компактный'"/>
-                <i class="btn-ico small pi pi-power-off" @click="closePlayer" v-tooltip.left="'Закрыть'"/>
+                <a v-if="downloadUrl" :href="downloadUrl" class="btn">
+                    <i class="btn small pi pi-download" v-tooltip.left="'Скачать Весь Плейлист'"/>
+                </a>
+
+                <i class="btn small pi pi-window-minimize" @click="showCompactPlayer" v-tooltip.left="'Компактный'"/>
+                <i class="btn small pi pi-power-off" @click="closePlayer" v-tooltip.left="'Закрыть'"/>
             </template>
         </Toolbar>
 
@@ -28,7 +31,6 @@
 </template>
 
 <script>
-import api from 'api'
 import audioPlayer from './'
 import List from 'primevue/listbox'
 import Dialog from 'primevue/dialog'
@@ -98,6 +100,13 @@ export default {
         /** @returns {HTMLAudioElement} */
         audioHtmlElement() {
             return this.$refs.audio;
+        },
+
+        /**
+         * @return {string}
+         */
+        downloadUrl() {
+            return audioPlayer.downloadUrl;
         },
     },
 }

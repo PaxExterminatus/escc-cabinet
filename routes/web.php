@@ -6,6 +6,7 @@ use App\Http\Controllers\API\VideoController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SPA\SPAController;
 
+use App\Services\Routes;
 use Illuminate\Support\Facades\Route;
 
 // Public SPA ----------------------------------------------------------------------------------------------------------
@@ -34,8 +35,12 @@ Route::middleware('auth:sanctum')->group(function () {
 
         Route::controller(AudioController::class)->prefix('audio/')->group(function () {
             Route::get('{course}/{lesson}', 'index');
-            Route::get('play/course/{course}/lesson/{lesson}/name/{name}/extension/{extension}', 'play')->name('play_course_audio_by_name');
-            Route::get('download/{course}/{lesson}', 'download');
+
+            Route::get('play/course/{course}/lesson/{lesson}/name/{name}/extension/{extension}', 'play')
+                ->name(Routes::API_AUDIO_PLAY_LESSON_BY_NAME);
+
+            Route::get('download/course/{course}/lesson/{lesson}', 'download')
+                ->name(Routes::API_AUDIO_DOWNLOAD_LESSON_AUDIO);
         });
 
         Route::controller(VideoController::class)->prefix('video/')->group(function () {

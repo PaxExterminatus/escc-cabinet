@@ -6,7 +6,7 @@
             </template>
 
             <template #end>
-                <i class="btn-ico small pi pi-power-off" @click="close" v-tooltip.left="'Закрыть'"/>
+                <i class="btn small pi pi-power-off" @click="close" v-tooltip.left="'Закрыть'"/>
             </template>
         </Toolbar>
 

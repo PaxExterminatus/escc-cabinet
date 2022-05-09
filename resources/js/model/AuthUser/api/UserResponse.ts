@@ -1,8 +1,8 @@
-import {Response} from '../../../api/Response';
+import {APIResponse} from '../../../../contracts/APIResponse';
 import {UserData} from './UserData';
 import {ClientData} from './ClientData';
 
-interface UserResponse extends Response
+interface UserResponse extends APIResponse
 {
     data: UserResponseData,
 }

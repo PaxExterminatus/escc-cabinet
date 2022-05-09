@@ -1,9 +1,9 @@
 <template>
     <template v-if="playing">
-        <i class="btn-ico pi pi-pause" @click="pause"/>
+        <i class="btn pi pi-pause" @click="pause"/>
     </template>
     <template v-else>
-        <i class="btn-ico pi pi-play" @click="play" v-tooltip.left="'Играть'"/>
+        <i class="btn pi pi-play" @click="play" v-tooltip.left="'Играть'"/>
     </template>
 </template>
 

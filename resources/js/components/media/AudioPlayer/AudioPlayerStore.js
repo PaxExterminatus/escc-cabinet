@@ -2,6 +2,7 @@ const state = () => ({
     show: false,
     list: [],
     title: '',
+    downloadUrl: null,
 });
 
 const mutations = {
@@ -25,6 +26,9 @@ const mutations = {
     setTitle(store, title) {
         store.title = title;
     },
+    setDownloadUrl(store, url) {
+        store.downloadUrl = url;
+    },
 }
 
 const getters = {
@@ -34,7 +38,15 @@ const getters = {
      */
     list(state) {
         return state.list;
-    }
+    },
+
+    /**
+     * @param state
+     * @return {string}
+     */
+    downloadUrl(state) {
+        return state.downloadUrl;
+    },
 }
 
 export default {

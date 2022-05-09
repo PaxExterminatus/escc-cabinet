@@ -1,3 +1,5 @@
+export default
+
 interface CurseAudio {
     course: string
     lesson: string
