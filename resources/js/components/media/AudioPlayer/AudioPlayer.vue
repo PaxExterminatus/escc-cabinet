@@ -66,7 +66,7 @@ export default {
         },
 
         play() {
-            this.$refs.audio.play();
+            this.audioHtmlElement.play();
         },
 
         pause() {

@@ -15,7 +15,7 @@
                             class="p-button-secondary p-button-text"
                             :model="slotProps.data.audioMenu"
                         >
-                            <i @click="getAudio(slotProps.data)" class="btn pi pi-play" style="font-size: 2rem" v-tooltip.left="'Аудио'"/>
+                            <i @click="getAudio(slotProps.data)" class="btn pi pi-play" v-tooltip.left="'Аудио'"/>
                         </SplitButton>
                     </template>
                 </Column>
@@ -29,12 +29,11 @@
 </template>
 
 <script>
+import api from 'api'
 import Column from 'primevue/column'
 import Message from 'primevue/message'
 import DataTable from 'primevue/datatable'
-import api from 'api'
 import SplitButton from 'primevue/splitbutton'
-import audioPlayer from 'cmp/media/AudioPlayer'
 
 export default {
     components: {
