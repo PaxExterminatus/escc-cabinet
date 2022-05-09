@@ -42,9 +42,9 @@ class LessonData {
         if (this.audioCategoryCode) {
             return [
                 {
-                    label: 'Скачать аудио',
+                    label: 'Скачать Аудио',
                     icon: 'pi pi-download',
-                    url: `/api/audio/download/${this.audioCategoryCode}/${this.getAudioName()}`,
+                    url: `/api/audio/download/course/${this.audioCategoryCode}/lesson/${this.getAudioName()}`,
                 },
             ];
         }

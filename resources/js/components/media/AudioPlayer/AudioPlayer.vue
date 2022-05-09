@@ -102,9 +102,7 @@ export default {
             return this.$refs.audio;
         },
 
-        /**
-         * @return {string}
-         */
+        /** @return {string} */
         downloadUrl() {
             return audioPlayer.downloadUrl;
         },

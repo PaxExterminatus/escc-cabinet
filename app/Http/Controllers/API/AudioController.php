@@ -136,7 +136,7 @@ class AudioController extends MediaController
      * @param string $name
      * @param string $extension
      * @return BinaryFileResponse
-     * @example GET /api/audio/play/AUDIO_ANN/01-02/Урок 01, Дорожка 01/mp3
+     * @example GET /api/audio/play/course/AUDIO_ANN/lesson/01-02/name/Урок 01, Дорожка 01/extension/mp3
      */
     function play(string $course, string $lesson, string $name, string $extension): BinaryFileResponse
     {
@@ -154,7 +154,7 @@ class AudioController extends MediaController
      * @param string $course
      * @param string $lesson
      * @return BinaryFileResponse
-     * @example GET /api/audio/download/AUDIO_ANN/01-02
+     * @example GET /api/audio/download/course/AUDIO_ANN/lesson/01-02
      */
     function download(string $course, string $lesson): BinaryFileResponse
     {

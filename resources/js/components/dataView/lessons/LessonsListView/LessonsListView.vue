@@ -44,18 +44,6 @@ export default {
         SplitButton,
     },
 
-    data () {
-        return {
-            audioBtnMenu: [
-                {
-                    label: 'Скачать аудио',
-                    icon: 'pi pi-download',
-                    url: '/api/audio/download/AUDIO_ANN/01-02',
-                },
-            ],
-        };
-    },
-
     props: {
         lessons: {
             type: Array,
