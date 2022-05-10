@@ -1,12 +1,40 @@
-.audio-player-dialog
-    background-color: #fff
-    width: 30vw
+.audio-player
+    display: flex
+    flex-direction: column
+    & > *
+        margin-bottom: 1rem
     .player-buttons
-        top: 0
-        position: sticky
         z-index: 1
+    .player-buttons-mid
+        display: flex
+        align-items: center
+        margin: 10px 0
+    .player-buttons-top
+        display: flex
+        justify-content: flex-end
+    .player-buttons-down
+    .player-times
+        display: flex
+        justify-content: space-between
+    .player-timeline
+        margin: 0.5rem 0
+    .audio-player-volume
+        display: flex
+        flex-direction: column
+        align-content: center
+        align-items: center
+        width: 30px
+.audio-player-dialog
+    top: 0
+    right: 0
+    position: fixed
+    width: 30vw
+    height: calc(100vh - 8px)
+    background-color: #fff
+    padding: 0 1rem
     .p-dialog-content
         padding: 0
+        overflow: visible
     .p-listbox
         border: none
 .audio-player-dialog-small
@@ -19,3 +47,7 @@
         align-items: center
         height: 100%
         flex-direction: column
+
+.audio-player-dialog .p-listbox .p-listbox-list .p-listbox-item
+    margin: 0
+    padding: 0.5rem 5px

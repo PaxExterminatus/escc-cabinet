@@ -5,6 +5,7 @@
         :showHeader="false"
         position="topright"
         :style="{height: '100vh', maxHeight: 'calc(100% - 8px)', margin: '3px 0 3px 0'}"
+        style="overflow: visible !important;"
     >
         <AudioPlayer/>
     </Dialog>
