@@ -892,6 +892,13 @@
                         "course_id": 1264607,
                         "node_id": 30975,
                         "name": "WEB-версия ГИТW к урокам 03-04"
+                    },
+                    {
+                        "id": 76503192,
+                        "client_id": 2333,
+                        "course_id": 1264607,
+                        "node_id": 30976,
+                        "name": "WEB-версия ГИТW к урокам 05-06"
                     }
                 ],
                 "categories": [
@@ -900,6 +907,12 @@
                         "parent_code": "AUDIO",
                         "code": "AUDIO_GUITA",
                         "name": "Учимся играть на гитаре"
+                    },
+                    {
+                        "node_id": 30956,
+                        "parent_code": "VIDEO",
+                        "code": "VIDEO_GUITAR",
+                        "name": "Видео уроки к курсу учимся играть на гитаре"
                     }
                 ]
             }
