@@ -107,6 +107,7 @@ export default {
         },
 
         onAudioEnded() {
+            audioPlayer.pause();
             audioPlayer.playNext();
         },
     },
