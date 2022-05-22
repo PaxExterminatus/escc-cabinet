@@ -3,6 +3,8 @@ const state = () => ({
     list: [],
     title: '',
     downloadUrl: null,
+    compact: false,
+    src: null,
 });
 
 const mutations = {
@@ -11,6 +13,9 @@ const mutations = {
     },
     hide(store) {
         store.show = false;
+    },
+    compact(store, state = true) {
+        store.compact = state;
     },
     revers(store) {
         store.show = !store.show;
@@ -23,11 +28,20 @@ const mutations = {
     setList(store, list) {
         store.list = list;
     },
-    setTitle(store, title) {
-        store.title = title;
-    },
+
     setDownloadUrl(store, url) {
         store.downloadUrl = url;
+    },
+
+    setSrc(store, {src, title})
+    {
+        store.src = src;
+        store.title = title;
+    },
+
+    setTitle(store, title)
+    {
+        store.title = title;
     },
 }
 

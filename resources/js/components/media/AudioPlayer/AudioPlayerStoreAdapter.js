@@ -9,6 +9,20 @@ class AudioPlayerStoreAdapter
         return this.$store.state.audio.show;
     }
 
+    get compactState() {
+        return this.$store.state.audio.compact;
+    }
+
+    get src() {
+        return this.$store.state.audio.src;
+    }
+
+    setSrc({src, title})
+    {
+        this.$store.commit('audio/setSrc', {src, title});
+        return this;
+    }
+
     /** @returns {CurseAudio[]} */
     get list() {
         return this.$store.getters['audio/list'];
@@ -52,6 +66,15 @@ class AudioPlayerStoreAdapter
     /** @returns {AudioPlayerStoreAdapter} */
     hide() {
         this.$store.commit('audio/hide');
+        return this;
+    }
+
+    /**
+     * @param {boolean} state
+     * @return {AudioPlayerStoreAdapter}
+     */
+    compact(state = true) {
+        this.$store.commit('audio/compact', state);
         return this;
     }
 }

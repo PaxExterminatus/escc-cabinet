@@ -1,5 +1,5 @@
 <template>
-    <div class="audio-player" :class="{'compact-player': compactPlayer}">
+    <div class="audio-player">
         <div class="player-buttons">
 
             <div class="player-buttons-top">
@@ -9,7 +9,7 @@
 
                 <div class="flex-1"></div>
 
-                <i class="btn small pi pi-window-minimize" @click="showCompactPlayer" v-tooltip.left="'Компактный'"/>
+                <i class="btn small pi pi-window-minimize" @click="playerCompact" v-tooltip.left="'Компактный'"/>
                 <i class="btn small pi pi-power-off" @click="closePlayer" v-tooltip.left="'Закрыть'"/>
             </div>
 
@@ -34,15 +34,11 @@
                         {{currentTimeFormatted}}
                     </div>
                     <div class="player-times-duration">
-                        {{durationFormatted}}
+                        {{durationTimeFormatted}}
                     </div>
                 </div>
             </div>
         </div>
-
-        <audio ref="audio" hidden autoplay controls style="vertical-align: middle" :src="audioSrc" type="audio/mp3"
-               @timeupdate="onAudioTimeUpdate" @play="onPlay" @pause="onPause"
-        />
 
         <div class="player-list" ref="list">
             <ScrollPanel style="height: calc(100vh - 200px)" class="scroll-custom">
@@ -80,30 +76,36 @@ export default {
         ScrollPanel,
     },
 
+    props: {
+        audio: {},
+        currentTime: {
+            type: Number,
+            default: 0,
+        },
+        durationTime: {
+            type: Number,
+            default: 0,
+        },
+    },
+
     data() {
         return {
             selected: null,
-            audioSrc: null,
             volumeState: 100,
             timeState: 100,
-            durationFormatted: null,
             duration: 100,
             currentTimeState: 0,
-            currentTimeFormatted: null,
-            compactPlayer: false,
         };
     },
 
     methods: {
-        showCompactPlayer()
-        {
-            this.compactPlayer = true;
+        playerCompact() {
+            audioPlayer.compact();
         },
 
         closePlayer() {
             this.playing = false;
             this.paused = true;
-            this.audioSrc = null;
             this.displaySmall = false;
             this.display = false;
 
@@ -111,7 +113,7 @@ export default {
         },
 
         play() {
-            this.audioHtmlElement.play();
+            this.audio.play();
         },
 
         pause() {
@@ -120,33 +122,22 @@ export default {
 
         /** @param {CurseAudio} value */
         onListChange({value}) {
-            this.audioSrc = value.play_url;
-        },
-
-         /** @param {HTMLAudioElement} currentTarget */
-        onAudioTimeUpdate({currentTarget}) {
-            const {duration, currentTime} = currentTarget;
-
-            if (this.duration !== duration) {
-                this.duration = duration;
-            }
-            this.durationFormatted = this.timeFormat(duration);
-
-            this.timeChange(currentTime);
+            audioPlayer.setSrc({src: value.play_url, title: value.name});
         },
 
         onTimeSlideend({value})
         {
-            this.audioHtmlElement.currentTime = value;
-            this.audioHtmlElement.play();
+            this.audio.currentTime = value;
+            this.audio.play();
         },
 
         onTimeChange(value) {
-            this.audioHtmlElement.pause();
-            this.audioHtmlElement.currentTime = value;
+            this.audio.pause();
+            this.audio.currentTime = value;
         },
 
         timeFormat(sec) {
+            if (!sec) return null
             let sec_num = parseInt(sec, 10);
             let hours   = Math.floor(sec_num / 3600);
             let minutes = Math.floor((sec_num - (hours * 3600)) / 60);
@@ -167,7 +158,7 @@ export default {
         },
 
         volumeChange(volume) {
-            this.audioHtmlElement.volume = volume/100;
+            this.audio.volume = volume/100;
             this.volumeState = volume;
         },
 
@@ -178,14 +169,17 @@ export default {
     },
 
     computed: {
+        durationTimeFormatted() {
+            return this.timeFormat(this.durationTime);
+        },
+
+        currentTimeFormatted() {
+            return this.timeFormat(this.currentTime);
+        },
+
         /** @returns {CurseAudio[]} */
         list() {
             return audioPlayer.list;
-        },
-
-        /** @returns {HTMLAudioElement} */
-        audioHtmlElement() {
-            return this.$refs.audio;
         },
 
         /** @return {string} */
@@ -199,15 +193,6 @@ export default {
             },
             set(volume) {
                 this.volumeChange(volume);
-            }
-        },
-
-        currentTime: {
-            get() {
-                return this.currentTimeState;
-            },
-            set(volume) {
-                this.timeChange(volume);
             }
         },
     },
