@@ -5,6 +5,7 @@ const state = () => ({
     downloadUrl: null,
     compact: false,
     src: null,
+    paused: false,
 });
 
 const mutations = {

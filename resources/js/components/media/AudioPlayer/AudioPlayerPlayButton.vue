@@ -1,9 +1,10 @@
 <template>
-    <template v-if="playing">
-        <i class="btn pi pi-pause" @click="pause"/>
-    </template>
-    <template v-else>
+    <template v-if="paused">
         <i class="btn pi pi-play" @click="play" v-tooltip.left="'Играть'"/>
+    </template>
+
+    <template v-if="!paused">
+        <i class="btn pi pi-pause" @click="pause" v-tooltip.left="'Пауза'"/>
     </template>
 </template>
 
@@ -12,7 +13,7 @@ export default {
     name: 'AudioPlayerPlayButton',
 
     props: {
-        playing: {
+        paused: {
             type: Boolean,
             default: false,
         },

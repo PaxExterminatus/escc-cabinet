@@ -14,7 +14,7 @@
             </div>
 
             <div class="player-buttons-mid">
-                <AudioPlayerPlayButton @play="play" @pause="pause"/>
+                <AudioPlayerPlayButton :paused="audioElement.paused" @play="play" @pause="pause"/>
 
                 <div class="flex-1"></div>
 
@@ -113,11 +113,11 @@ export default {
         },
 
         play() {
-            this.audio.play();
+            this.audioElement.play();
         },
 
         pause() {
-
+            this.audioElement.pause();
         },
 
         /** @param {CurseAudio} value */
@@ -127,14 +127,13 @@ export default {
 
         onTimeSlideend({value})
         {
-            this.audio.currentTime = value;
-            this.audio.play();
+            this.audioElement.currentTime = value;
+            this.audioElement.play();
         },
 
         onTimeChange(value) {
-            this.audio.pause();
-            this.audio.currentTime = value;
-            this.audio.play();
+            this.audioElement.currentTime = value;
+            this.audioElement.play();
         },
 
         timeFormat(sec) {
@@ -159,7 +158,7 @@ export default {
         },
 
         volumeChange(volume) {
-            this.audio.volume = volume/100;
+            this.audioElement.volume = volume/100;
             this.volumeState = volume;
         },
 
@@ -170,6 +169,11 @@ export default {
     },
 
     computed: {
+        /** @return {HTMLAudioElement} */
+        audioElement() {
+            return this.audio;
+        },
+
         durationTimeFormatted() {
             return this.timeFormat(this.durationTime);
         },
