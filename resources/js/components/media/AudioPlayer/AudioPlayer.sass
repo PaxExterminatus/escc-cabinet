@@ -1,10 +1,13 @@
 .audio-player
     display: flex
     flex-direction: column
-    & > *
-        margin-bottom: 1rem
+    height: 100%
     .player-buttons
-        z-index: 1
+        z-index: 2
+        height: 190px
+        min-height: 190px
+        max-height: 190px
+        background-color: #fff
     .player-buttons-mid
         display: flex
         align-items: center
@@ -24,17 +27,31 @@
         align-content: center
         align-items: center
         width: 30px
+    .player-list
+        flex: 1
+        z-index: 1
+
+
 .audio-player-dialog
     top: 0
     right: 0
     position: fixed
     width: 30vw
-    height: calc(100vh - 8px)
+    height: calc(100vh - 55px)
     background-color: #fff
     padding: 0 1rem
+    @media (max-width: 1024px)
+        width: 50vw
+    @media (max-width: 560px)
+        width: 80vw
+    @media (max-width: 360px)
+        width: 90vw
     .p-dialog-content
         padding: 0
         overflow: visible
+        display: flex
+        flex-direction: column
+        height: 100%
     .p-listbox
         border: none
 .audio-player-dialog-small

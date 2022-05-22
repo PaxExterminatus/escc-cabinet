@@ -4,7 +4,7 @@
         v-model:visible="visible"
         :showHeader="false"
         position="topright"
-        :style="{height: '100vh', maxHeight: 'calc(100% - 8px)', margin: '3px 0 3px 0'}"
+        :style="{height: '100vh', maxHeight: 'calc(100vh - 10px)', margin: '5px 0 5px 0'}"
         style="overflow: visible !important;"
     >
         <AudioPlayer/>

@@ -1,5 +1,5 @@
 <template>
-    <div class="audio-player">
+    <div class="audio-player" :class="{'compact-player': compactPlayer}">
         <div class="player-buttons">
 
             <div class="player-buttons-top">
@@ -40,20 +40,22 @@
             </div>
         </div>
 
-        <audio ref="audio" autoplay controls style="vertical-align: middle" :src="audioSrc" type="audio/mp3"
+        <audio ref="audio" hidden autoplay controls style="vertical-align: middle" :src="audioSrc" type="audio/mp3"
                @timeupdate="onAudioTimeUpdate" @play="onPlay" @pause="onPause"
         />
 
-        <ScrollPanel style="height: calc(100vh - (1rem * 12))" class="scroll-custom">
-            <List v-model="selected" :options="list" optionLabel="name" @change="onListChange">
-                <template #option="slotProps">
-                    <div class="align-v-center-gap">
-                        <i class="pi" :class="viewListIcon(slotProps.option.name)"/>
-                        <div>{{slotProps.option.name}}</div>
-                    </div>
-                </template>
-            </List>
-        </ScrollPanel>
+        <div class="player-list" ref="list">
+            <ScrollPanel style="height: calc(100vh - 200px)" class="scroll-custom">
+                <List v-model="selected" :options="list" optionLabel="name" @change="onListChange">
+                    <template #option="slotProps">
+                        <div class="align-v-center-gap">
+                            <i class="pi" :class="viewListIcon(slotProps.option.name)"/>
+                            <div>{{slotProps.option.name}}</div>
+                        </div>
+                    </template>
+                </List>
+            </ScrollPanel>
+        </div>
     </div>
 </template>
 
@@ -88,10 +90,16 @@ export default {
             duration: 100,
             currentTimeState: 0,
             currentTimeFormatted: null,
+            compactPlayer: false,
         };
     },
 
     methods: {
+        showCompactPlayer()
+        {
+            this.compactPlayer = true;
+        },
+
         closePlayer() {
             this.playing = false;
             this.paused = true;

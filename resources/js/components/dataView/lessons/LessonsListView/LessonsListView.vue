@@ -8,7 +8,7 @@
                     </template>
                 </Column>
 
-                <Column header="Аудио">
+                <Column header="Аудио" style="min-width: 30vh">
                     <template #body="slotProps" v-if="courseData.audioCategory()">
                         <SplitButton
                             icon="pi pi-play"
