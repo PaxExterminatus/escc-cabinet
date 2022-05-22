@@ -20,19 +20,12 @@ export default {
         AudioPlayerPlayButton,
     },
 
-    props: {
-        paused: {
-            type: Boolean,
-            default: true,
-        },
-    },
-
     methods: {
         close() {
             audioPlayer.clear().hide();
         },
         full() {
-            audioPlayer.compact(false);
+            audioPlayer.full();
         },
     },
 }

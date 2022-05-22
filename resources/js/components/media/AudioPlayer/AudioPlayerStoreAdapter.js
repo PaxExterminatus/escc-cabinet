@@ -97,6 +97,11 @@ class AudioPlayerStoreAdapter
         this.$store.commit('audio/compact', state);
         return this;
     }
+
+    full() {
+        this.$store.commit('audio/compact', false);
+        return this;
+    }
 }
 
 export default AudioPlayerStoreAdapter;

@@ -18,7 +18,7 @@
         v-model:visible="visible"
         :style="{height: '120px', width: '100px', margin: '55px 0 5px 0'}"
     >
-        <AudioPlayerCompact :paused="paused"/>
+        <AudioPlayerCompact/>
     </Dialog>
 
     <audio ref="audio" hidden autoplay controls :src="src" type="audio/mp3" @timeupdate="onAudioTimeUpdate" @play="onAudioPlay"/>
@@ -60,10 +60,6 @@ export default {
         /** @return {string|null} */
         src() {
             return audioPlayer.src;
-        },
-        /** @return {boolean} */
-        paused() {
-            this.$refs.audio.paused;
         },
     },
 
