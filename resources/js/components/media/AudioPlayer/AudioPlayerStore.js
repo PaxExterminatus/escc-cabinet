@@ -5,21 +5,32 @@ const state = () => ({
     downloadUrl: null,
     compact: false,
     src: null,
-    paused: false,
+    paused: true,
 });
 
 const mutations = {
     show(store) {
         store.show = true;
     },
+
     hide(store) {
         store.show = false;
     },
+
     compact(store, state = true) {
         store.compact = state;
     },
+
     revers(store) {
         store.show = !store.show;
+    },
+
+    pause(store) {
+        store.paused = true;
+    },
+
+    play(store) {
+        store.paused = false;
     },
 
     clearList() {

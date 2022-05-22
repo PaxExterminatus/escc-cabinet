@@ -1,7 +1,6 @@
 <template>
     <div class="player-buttons">
-        <i class="btn pi pi-play" @click="play"/>
-        <i class="btn pi pi-pause" @click="pause"/>
+        <AudioPlayerPlayButton/>
     </div>
 
     <div class="player-buttons">
@@ -12,9 +11,21 @@
 
 <script>
 import audioPlayer from './'
+import AudioPlayerPlayButton from './AudioPlayerPlayButton'
 
 export default {
     name: 'AudioPlayerCompact',
+
+    components: {
+        AudioPlayerPlayButton,
+    },
+
+    props: {
+        paused: {
+            type: Boolean,
+            default: true,
+        },
+    },
 
     methods: {
         close() {

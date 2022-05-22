@@ -9,23 +9,24 @@
 </template>
 
 <script>
+import audioPlayer from './'
+
 export default {
     name: 'AudioPlayerPlayButton',
 
-    props: {
-        paused: {
-            type: Boolean,
-            default: false,
-        },
-    },
-
     methods: {
         play() {
-            this.$emit('play');
+            audioPlayer.play();
         },
 
         pause() {
-            this.$emit('pause');
+            audioPlayer.pause();
+        },
+    },
+
+    computed: {
+        paused() {
+            return audioPlayer.paused;
         },
     },
 }

@@ -14,7 +14,7 @@
             </div>
 
             <div class="player-buttons-mid">
-                <AudioPlayerPlayButton :paused="audioElement.paused" @play="play" @pause="pause"/>
+                <AudioPlayerPlayButton/>
 
                 <div class="flex-1"></div>
 
@@ -110,14 +110,6 @@ export default {
             this.display = false;
 
             audioPlayer.clear().hide();
-        },
-
-        play() {
-            this.audioElement.play();
-        },
-
-        pause() {
-            this.audioElement.pause();
         },
 
         /** @param {CurseAudio} value */

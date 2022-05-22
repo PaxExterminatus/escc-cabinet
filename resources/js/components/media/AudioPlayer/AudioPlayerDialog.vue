@@ -18,12 +18,10 @@
         v-model:visible="visible"
         :style="{height: '120px', width: '100px', margin: '55px 0 5px 0'}"
     >
-        <AudioPlayerCompact :audio="audio"/>
+        <AudioPlayerCompact :paused="paused"/>
     </Dialog>
 
-    <audio ref="audio" hidden autoplay controls style="vertical-align: middle" :src="src" type="audio/mp3"
-           @timeupdate="onAudioTimeUpdate" @play="onPlay" @pause="onPause"
-    />
+    <audio ref="audio" hidden autoplay controls :src="src" type="audio/mp3" @timeupdate="onAudioTimeUpdate" @play="onAudioPlay"/>
 </template>
 
 <script>
@@ -52,7 +50,6 @@ export default {
         visible() {
             return audioPlayer.display;
         },
-
         compact() {
             return audioPlayer.compactState;
         },
@@ -63,6 +60,23 @@ export default {
         /** @return {string|null} */
         src() {
             return audioPlayer.src;
+        },
+        /** @return {boolean} */
+        paused() {
+            this.$refs.audio.paused;
+        },
+    },
+
+    watch: {
+        '$store.state.audio.paused': {
+            immediate: true,
+            handler(paused) {
+                if (this.$refs.audio)
+                {
+                    if (paused) this.$refs.audio.pause();
+                    else this.$refs.audio.play();
+                }
+            },
         },
     },
 
@@ -76,6 +90,10 @@ export default {
             }
 
             this.currentTime = currentTime;
+        },
+
+        onAudioPlay() {
+            audioPlayer.play();
         },
     },
 }

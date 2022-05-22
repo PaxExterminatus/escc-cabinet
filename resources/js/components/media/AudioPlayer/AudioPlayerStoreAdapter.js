@@ -13,6 +13,8 @@ class AudioPlayerStoreAdapter
         return this.$store.state.audio.compact;
     }
 
+    // Audio src
+
     get src() {
         return this.$store.state.audio.src;
     }
@@ -20,6 +22,24 @@ class AudioPlayerStoreAdapter
     setSrc({src, title})
     {
         this.$store.commit('audio/setSrc', {src, title});
+        return this;
+    }
+
+    // Pause and Play --------------------------------------------------------------------------------------------------
+
+    get paused() {
+        return this.$store.state.audio.paused;
+    }
+
+    pause()
+    {
+        this.$store.commit('audio/pause');
+        return this;
+    }
+
+    play()
+    {
+        this.$store.commit('audio/play');
         return this;
     }
 
