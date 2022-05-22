@@ -18,6 +18,7 @@ class AudioPlayerStoreAdapter
     turnoff() {
         this.pause();
         this.setSrc({src: '', title: ''});
+        this.setSelected(null);
         this.hide();
         this.full();
     }
@@ -49,6 +50,21 @@ class AudioPlayerStoreAdapter
 
     setSelected(lesson) {
         this.$store.commit('audio/setSelected', lesson);
+    }
+
+    playNext() {
+        if (this.selected)
+        {
+            const currentIndex = this.list.findIndex(lesson => lesson.play_url === this.selected.play_url);
+
+            const nextIndex = currentIndex + 1;
+            const nextLesson = this.list[nextIndex];
+
+            if (nextLesson) {
+                this.setSrc({src: nextLesson.play_url, title: nextLesson.name});
+                this.setSelected(nextLesson);
+            }
+        }
     }
 
     // Pause and Play --------------------------------------------------------------------------------------------------

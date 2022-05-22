@@ -109,6 +109,7 @@ export default {
         /** @param {CurseAudio} value */
         onListChange({value}) {
             audioPlayer.setSrc({src: value.play_url, title: value.name});
+            audioPlayer.setSelected(value, 0);
         },
 
         onTimeSlideend({value})

@@ -21,7 +21,11 @@
         <AudioPlayerCompact/>
     </Dialog>
 
-    <audio ref="audio" hidden autoplay controls :src="src" type="audio/mp3" @timeupdate="onAudioTimeUpdate" @play="onAudioPlay"/>
+    <audio ref="audio" hidden autoplay controls :src="src" type="audio/mp3"
+           @timeupdate="onAudioTimeUpdate"
+           @play="onAudioPlay"
+           @ended="onAudioEnded"
+    />
 </template>
 
 <script>
@@ -100,6 +104,10 @@ export default {
 
         onAudioPlay() {
             audioPlayer.play();
+        },
+
+        onAudioEnded() {
+            audioPlayer.playNext();
         },
     },
 }
