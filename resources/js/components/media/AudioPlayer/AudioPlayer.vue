@@ -26,7 +26,7 @@
             <div class="player-buttons-down">
 
                 <div class="player-timeline">
-                    <Slider v-model="currentTime" :max="duration" @slideend="onTimeSlideend" @change="onTimeChange"/>
+                    <Slider v-model="currentTime" :max="durationTime" @slideend="onTimeSlideend" @change="onTimeChange"/>
                 </div>
 
                 <div class="player-times">
@@ -93,7 +93,6 @@ export default {
             selected: null,
             volumeState: 100,
             timeState: 100,
-            duration: 100,
             currentTimeState: 0,
         };
     },
@@ -104,12 +103,7 @@ export default {
         },
 
         closePlayer() {
-            this.playing = false;
-            this.paused = true;
-            this.displaySmall = false;
-            this.display = false;
-
-            audioPlayer.clear().hide();
+            audioPlayer.turnoff();
         },
 
         /** @param {CurseAudio} value */
@@ -158,6 +152,16 @@ export default {
             this.currentTimeFormatted = this.timeFormat(time);
             this.currentTimeState = time;
         }
+    },
+
+    watch: {
+        '$store.state.audio.selected': {
+            immediate: true,
+            handler(lesson) {
+                this.selected = lesson;
+            },
+        },
+
     },
 
     computed: {

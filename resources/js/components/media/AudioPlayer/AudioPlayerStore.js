@@ -6,9 +6,14 @@ const state = () => ({
     compact: false,
     src: null,
     paused: true,
+    selected: null,
 });
 
 const mutations = {
+    setSelected(store, lesson) {
+        store.selected = lesson;
+    },
+
     show(store) {
         store.show = true;
     },

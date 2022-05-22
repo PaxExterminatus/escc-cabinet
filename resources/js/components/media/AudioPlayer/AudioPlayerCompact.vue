@@ -22,7 +22,7 @@ export default {
 
     methods: {
         close() {
-            audioPlayer.clear().hide();
+            audioPlayer.turnoff();
         },
         full() {
             audioPlayer.full();
@@ -30,4 +30,3 @@ export default {
     },
 }
 </script>
-

@@ -13,7 +13,16 @@ class AudioPlayerStoreAdapter
         return this.$store.state.audio.compact;
     }
 
-    // Audio src
+    // Turnoff ---------------------------------------------------------------------------------------------------------
+
+    turnoff() {
+        this.pause();
+        this.setSrc({src: '', title: ''});
+        this.hide();
+        this.full();
+    }
+
+    // Audio src -------------------------------------------------------------------------------------------------------
 
     get src() {
         return this.$store.state.audio.src;
@@ -23,6 +32,23 @@ class AudioPlayerStoreAdapter
     {
         this.$store.commit('audio/setSrc', {src, title});
         return this;
+    }
+
+    setSrcFirstOnList()
+    {
+        if (this.list.length)
+        {
+            this.setSrc({src: this.list[0].play_url, title: this.list[0].name});
+            this.setSelected(this.list[0]);
+        }
+    }
+
+    get selected() {
+        return this.$store.state.audio.selected;
+    }
+
+    setSelected(lesson) {
+        this.$store.commit('audio/setSelected', lesson);
     }
 
     // Pause and Play --------------------------------------------------------------------------------------------------
@@ -39,6 +65,7 @@ class AudioPlayerStoreAdapter
 
     play()
     {
+        if (!this.src) this.setSrcFirstOnList();
         this.$store.commit('audio/play');
         return this;
     }

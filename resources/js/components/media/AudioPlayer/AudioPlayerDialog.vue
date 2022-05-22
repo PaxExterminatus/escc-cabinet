@@ -74,6 +74,16 @@ export default {
                 }
             },
         },
+
+        '$store.state.audio.src': {
+            immediate: true,
+            handler(src) {
+                if (this.$refs.audio && src)
+                {
+                    this.$refs.audio.src = src;
+                }
+            },
+        },
     },
 
     methods: {
