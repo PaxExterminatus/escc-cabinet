@@ -134,6 +134,7 @@ export default {
         onTimeChange(value) {
             this.audio.pause();
             this.audio.currentTime = value;
+            this.audio.play();
         },
 
         timeFormat(sec) {
