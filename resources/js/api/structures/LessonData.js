@@ -30,7 +30,7 @@ class LessonData {
 
         if (!matches)
         {
-            matches = this.name.match(/ДМ \d/);
+            matches = this.name.match(/ДМ([\s\S]+?)\d/);
         }
 
         return matches ? matches[0] : null;
