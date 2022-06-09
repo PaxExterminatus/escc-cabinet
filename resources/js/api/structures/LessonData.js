@@ -27,13 +27,15 @@ class LessonData {
     getAudioName()
     {
         let matches = this.name.match(/\d\d-\d\d/);
+        let name = matches ? matches[0] : null;
 
         if (!matches)
         {
             matches = this.name.match(/ДМ([\s\S]+?)\d/);
+            name = matches ? matches[0].replace(matches[1], ' ') : null;
         }
 
-        return matches ? matches[0] : null;
+        return matches ? name : null;
     }
 
     get audioMenu()
