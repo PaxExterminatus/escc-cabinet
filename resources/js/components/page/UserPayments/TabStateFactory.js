@@ -1,13 +1,13 @@
 import TabState from 'page/UserPayments/TabState';
 
-const data = {
+const state = () => ({
     router: null,
-};
+});
 
 class TabStateFactory {
 
     constructor() {
-        this.data = data;
+        this.state = state();
     }
 
     static get make()
@@ -22,7 +22,7 @@ class TabStateFactory {
      */
     router(router)
     {
-        this.data.router = router;
+        this.state.router = router;
         return this;
     }
 
@@ -33,12 +33,9 @@ class TabStateFactory {
      */
     tab(opt)
     {
-        console.log(opt.name)
-        const prop = this.data.router.resolve({
+        const prop = this.state.router.resolve({
             name: opt.name,
         });
-
-        console.log(prop.meta.label)
 
         const tab = new TabState();
 

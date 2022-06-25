@@ -1,14 +1,16 @@
-const data = () => ({
+import RespondedElement from './RespondedElement'
+
+const state = () => ({
     label: '',
-    loading: false,
     to: '',
     icon: '',
 })
 
-class TabState {
+class TabState extends RespondedElement {
 
     constructor() {
-        this.data = data();
+        super();
+        this.state = state();
     }
 
     /**
@@ -17,7 +19,7 @@ class TabState {
      */
     label(label)
     {
-        this.data.label = label;
+        this.state.label = label;
         return this;
     }
 
@@ -27,7 +29,7 @@ class TabState {
      */
     to(uri)
     {
-        this.data.to = uri;
+        this.state.to = uri;
         return this;
     }
 
@@ -37,16 +39,22 @@ class TabState {
      */
     icon(icons)
     {
-        this.data.icon = icons;
+        this.state.icon = icons;
         return this;
     }
 
     get tabMenu() {
-        const {label, to, icon} = this.data;
+        const {label, to, icon} = this.state;
 
         return {
             label, to, icon,
         }
+    }
+
+    wait() {
+        return super.wait(() => {
+            this.state.icon = 'pi pi-spin pi-spinner';
+        });
     }
 }
 
