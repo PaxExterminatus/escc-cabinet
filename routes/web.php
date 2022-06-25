@@ -29,6 +29,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/course/{any}', SPAController::class)->name('course');
     Route::get('/profile', SPAController::class)->name('profile');
     Route::get('/payments', SPAController::class)->name('payments');
+    Route::get('/payments/all', SPAController::class)->name('payments');
 
     Route::prefix('/api/')->group(function () {
         Route::get('user', [AuthenticatedSessionController::class, 'user']);

@@ -50,8 +50,8 @@ import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import CourseStateCell from './CourseStatus/CourseStatus'
 import CourseLink from './CourseLink/CourseLink'
-import LessonsListView from 'cmp/dataView/lessons/LessonsListView/LessonsListView'
-import CourseMaterials from  'cmp/dataView/courses/CourseMaterials/CourseMaterials'
+import LessonsListView from 'view/lessons/LessonsListView/LessonsListView'
+import CourseMaterials from  'view/courses/CourseMaterials/CourseMaterials'
 
 export default {
     components: {

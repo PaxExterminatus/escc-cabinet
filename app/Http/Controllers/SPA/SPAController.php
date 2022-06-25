@@ -11,6 +11,7 @@ class SPAController
 {
     function __invoke(Request $request): Factory|View|Application
     {
+        request();
         return view('spa');
     }
 }

@@ -4,7 +4,7 @@
         <Toast />
 
         <div class="pay-title-small">
-            <a class="pay-title-small" href="https://webpay.by/">webpay</a>
+            <a class="pay-title-small" href="https://webpay.by/" target="_blank">webpay</a>
         </div>
 
         <span class="p-float-label">

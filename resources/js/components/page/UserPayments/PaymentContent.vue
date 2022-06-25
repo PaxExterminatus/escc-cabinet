@@ -1,10 +1,16 @@
 <template>
     <div class="page-component page-payment">
         <h2>Новый платеж</h2>
+
         <div class="app-container">
             <PayForm :input="input.payment"/>
         </div>
+
         <h2>История операций</h2>
+
+        <template v-if="user">
+            <PaymentHistory :user-id="user.id"/>
+        </template>
     </div>
 </template>
 
@@ -14,9 +20,10 @@ import Card from 'primevue/card'
 import Button from 'primevue/button'
 import InputNumber from 'primevue/inputnumber'
 import Dialog from 'primevue/dialog'
-import AccountBalance from 'cmp/dataView/account/Balance'
+import AccountBalance from 'view/account/Balance'
 import { PayStructure } from 'api/structures'
 import { PayForm, PayFormInput } from 'cmp/payment'
+import PaymentHistory from './PaymentHistory'
 
 export default {
     components: {
@@ -26,6 +33,7 @@ export default {
         InputNumber,
         Dialog,
         PayForm,
+        PaymentHistory,
     },
 
     data() {
@@ -45,6 +53,10 @@ export default {
         };
     },
 
+    mounted() {
+        if (this.user) this.input.payment.fillFormAuthUser(this.user);
+    },
+
     methods: {
         makeBill() {
             this.state.loading.pay = true;
@@ -60,12 +72,9 @@ export default {
     },
 
     watch: {
-        user: {
-            deep: true,
-            handler: function () {
-                this.input.payment.fillFormAuthUser(this.user);
-            },
-        }
+        '$store.state.auth.user': function () {
+            this.input.payment.fillFormAuthUser(this.user);
+        },
     },
 
     computed: {

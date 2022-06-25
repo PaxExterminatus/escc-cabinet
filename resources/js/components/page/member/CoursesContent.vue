@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import CoursesTable from 'cmp/dataView/courses/CoursesListView'
+import CoursesTable from 'view/courses/CoursesListView'
 
 export default {
     components: {

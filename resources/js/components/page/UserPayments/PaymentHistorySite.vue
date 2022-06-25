@@ -1,11 +1,11 @@
 <template>
-    <div class="page-component page-auth">
-        <router-view/>
+    <div>
+        PaymentHistorySite
     </div>
 </template>
 
 <script>
 export default {
-
+    name: 'PaymentHistorySite'
 }
 </script>

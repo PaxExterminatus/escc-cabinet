@@ -18,23 +18,35 @@ export default [
             {
                 path: '/courses',
                 name: 'courses',
-                component: () => import(/* webpackChunkName: "chunk.page.member.courses" */ 'cmp/page/member/CoursesContent'),
+                component: () => import(/* webpackChunkName: "chunk.page.member.courses" */ 'page/member/CoursesContent'),
             },
             {
                 path: '/course/:courseId',
                 name: 'course',
-                component: () => import(/* webpackChunkName: "chunk.page.member.courses" */ 'cmp/page/member/CourseContent'),
+                component: () => import(/* webpackChunkName: "chunk.page.member.courses" */ 'page/member/CourseContent'),
                 props: true,
             },
             {
                 path: '/profile',
                 name: 'profile',
-                component: () => import(/* webpackChunkName: "chunk.page.member.profile" */ 'cmp/page/member/ProfileContent'),
+                component: () => import(/* webpackChunkName: "chunk.page.member.profile" */ 'page/member/ProfileContent'),
             },
             {
                 path: '/payments',
                 name: 'payments',
-                component: () => import(/* webpackChunkName: "chunk.page.member.payment" */ 'cmp/page/member/PaymentContent'),
+                component: () => import(/* webpackChunkName: "chunk.page.member.payment" */ 'page/UserPayments/PaymentContent'),
+                children: [
+                    {
+                        path: '/payments',
+                        name: 'payments.site',
+                        component: () => import(/* webpackChunkName: "chunk.page.member.payment.site" */ 'page/UserPayments/PaymentHistorySite'),
+                    },
+                    {
+                        path: '/payments/all',
+                        name: 'payments.all',
+                        component: () => import(/* webpackChunkName: "chunk.page.member.payment.all" */ 'page/UserPayments/PaymentHistoryAll'),
+                    },
+                ],
             },
         ],
     },

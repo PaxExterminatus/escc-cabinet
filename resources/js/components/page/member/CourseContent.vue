@@ -52,8 +52,8 @@ import Panel from 'primevue/panel'
 import Button from 'primevue/button'
 import Column from 'primevue/column';
 import DataTable from 'primevue/datatable';
-import CourseMaterials from  'cmp/dataView/courses/CourseMaterials/CourseMaterials'
-import LessonsListView from 'cmp/dataView/lessons/LessonsListView/LessonsListView'
+import CourseMaterials from  'view/courses/CourseMaterials/CourseMaterials'
+import LessonsListView from 'view/lessons/LessonsListView/LessonsListView'
 import VideoPlayer from 'cmp/VideoPlayer/VideoPlayer'
 
 export default {
