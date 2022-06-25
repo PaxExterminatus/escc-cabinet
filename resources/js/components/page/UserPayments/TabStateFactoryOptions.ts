@@ -1,0 +1,4 @@
+interface TabStateFactoryOptions
+{
+    name: string
+}

@@ -1,6 +1,6 @@
 <template>
     <div class="payment-history">
-        <TabMenu :model="tabs" />
+        <TabMenu :model="tabMenuModel" />
 
         <router-view/>
     </div>
@@ -8,6 +8,7 @@
 
 <script>
 import TabMenu from 'primevue/tabmenu'
+import TabStateFactory from './TabStateFactory';
 
 export default {
     name: 'PaymentHistory',
@@ -24,12 +25,26 @@ export default {
     },
 
     data() {
+        const tabs = TabStateFactory.make.router(this.$router);
+
         return {
-            tabs: [
-                {label: 'Сайт', icon: 'pi pi-fw pi-file', to: '/payments'},
-                {label: 'Все', icon: 'pi pi-fw pi-file', to: '/payments/all'},
-            ],
+            state: {
+                tabs: {
+                    all: tabs.tab({name: 'payments.all'}),
+                    site: tabs.tab({name: 'payments.site'}),
+                },
+            },
         };
+    },
+
+
+    computed: {
+        tabMenuModel() {
+            return [
+                this.state.tabs.site.tabMenu,
+                this.state.tabs.all.tabMenu,
+            ];
+        },
     },
 }
 </script>

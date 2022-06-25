@@ -40,11 +40,19 @@ export default [
                         path: '/payments',
                         name: 'payments.site',
                         component: () => import(/* webpackChunkName: "chunk.page.member.payment.site" */ 'page/UserPayments/PaymentHistorySite'),
+                        meta: {
+                            label: 'Сайт',
+                            icon: 'pi pi-fw pi-file',
+                        },
                     },
                     {
                         path: '/payments/all',
                         name: 'payments.all',
                         component: () => import(/* webpackChunkName: "chunk.page.member.payment.all" */ 'page/UserPayments/PaymentHistoryAll'),
+                        meta: {
+                            label: 'Все',
+                            icon: 'pi pi-fw pi-file',
+                        },
                     },
                 ],
             },
