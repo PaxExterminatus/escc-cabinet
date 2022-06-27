@@ -1,14 +1,30 @@
 <template>
 <div>
-    {{this.user.id}}
+    <PaymentsTable :payments="payments"/>
 </div>
 </template>
 
 <script>
-import { payments } from 'api'
+import api from 'api'
+import PaymentsTable from 'view/account/PaymentsTable'
 
 export default {
     name: 'PaymentHistoryAll',
+
+    components: {
+        PaymentsTable,
+    },
+
+    /** @returns {{payments: AuthUserPayment[]}}*/
+    data() {
+        return {
+            payments: [],
+        };
+    },
+
+    mounted() {
+
+    },
 
     computed: {
         /** @returns {UserData} */
@@ -18,4 +34,3 @@ export default {
     },
 }
 </script>
-

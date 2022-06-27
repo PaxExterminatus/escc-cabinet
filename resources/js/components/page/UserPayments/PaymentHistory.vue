@@ -2,7 +2,16 @@
     <div class="payment-history">
         <TabMenu :model="tabMenuModel" v-model:activeIndex="state.activeIndex"/>
 
-        <router-view :tab="state.tabs[state.activeIndex]"/>
+        <router-view v-slot="{ Component }">
+            <keep-alive>
+                <component
+                    :is="Component"
+                    :key="$route.fullPath"
+                    :tab="state.tabs[state.activeIndex]"
+                />
+            </keep-alive>
+        </router-view>
+
     </div>
 </template>
 

@@ -1,31 +1,18 @@
 <template>
     <div>
-        <DataTable :value="payments" responsiveLayout="scroll">
-            <Column field="student" header="Код студента"/>
-            <Column field="name" header="Имя"/>
-            <Column field="surname" header="Фамилия"/>
-            <Column field="phone" header="Телефон"/>
-            <Column field="email" header="Email"/>
-            <Column field="amount" header="Сума"/>
-            <Column field="status" header="Статус"/>
-            <Column field="created_at" header="Дата"/>
-        </DataTable>
-
-        {{}}
+        <PaymentsTable :payments="payments"/>
     </div>
 </template>
 
 <script>
-import api from 'api';
-import Column from 'primevue/column'
-import DataTable from 'primevue/datatable'
+import api from 'api'
+import PaymentsTable from 'view/account/PaymentsTable'
 
 export default {
     name: 'PaymentHistorySite',
 
     components: {
-        Column,
-        DataTable,
+        PaymentsTable,
     },
 
     props: {
@@ -35,10 +22,7 @@ export default {
         },
     },
 
-    /**
-     *
-     * @returns {{payments: AuthUserPayment[]}}
-     */
+    /** @returns {{payments: AuthUserPayment[]}}*/
     data() {
         return {
             payments: [],
