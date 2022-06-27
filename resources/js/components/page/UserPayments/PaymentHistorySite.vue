@@ -10,6 +10,8 @@
             <Column field="status" header="Статус"/>
             <Column field="created_at" header="Дата"/>
         </DataTable>
+
+        {{}}
     </div>
 </template>
 
@@ -26,6 +28,13 @@ export default {
         DataTable,
     },
 
+    props: {
+        tab: {
+            type: Object,
+            required: true,
+        },
+    },
+
     /**
      *
      * @returns {{payments: AuthUserPayment[]}}
@@ -37,15 +46,32 @@ export default {
     },
 
     mounted() {
-        api.payments.site().then(resp => {
-            this.payments = resp.data.payments;
-        })
+        this.getPayments();
+    },
+
+    methods: {
+        getPayments() {
+            console.log(this.currentTab);
+            this.currentTab.wait();
+            api.payments.site()
+                .then(resp => {
+                    this.payments = resp.data.payments;
+                })
+                .finally(() => {
+                    this.currentTab.ready();
+                });
+        },
     },
 
     computed: {
         /** @returns {UserData} */
         user() {
             return this.$store.state.auth.user;
+        },
+
+        /** @returns {TabState|Object} */
+        currentTab() {
+            return this.tab;
         },
     },
 }

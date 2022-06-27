@@ -43,7 +43,7 @@ class TabState extends RespondedElement {
         return this;
     }
 
-    get tabMenu() {
+    toTabMenuModel() {
         const {label, to, icon} = this.state;
 
         return {
@@ -51,7 +51,7 @@ class TabState extends RespondedElement {
         }
     }
 
-    wait() {
+    wait(fn = null) {
         return super.wait(() => {
             this.state.icon = 'pi pi-spin pi-spinner';
         });

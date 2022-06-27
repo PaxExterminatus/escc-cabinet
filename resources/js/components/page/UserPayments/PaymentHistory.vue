@@ -1,8 +1,8 @@
 <template>
     <div class="payment-history">
-        <TabMenu :model="tabMenuModel" />
+        <TabMenu :model="tabMenuModel" v-model:activeIndex="state.activeIndex"/>
 
-        <router-view/>
+        <router-view :tab="state.tabs[state.activeIndex]"/>
     </div>
 </template>
 
@@ -22,20 +22,20 @@ export default {
 
         return {
             state: {
-                tabs: {
-                    all: tabs.tab({name: 'payments.all'}),
-                    site: tabs.tab({name: 'payments.site'}),
-                },
+                tabs: [
+                    tabs.tab({name: 'payments.site'}),
+                    tabs.tab({name: 'payments.all'}),
+                ],
+                activeIndex: 0,
             },
         };
     },
 
     computed: {
         tabMenuModel() {
-            return [
-                this.state.tabs.site.tabMenu,
-                this.state.tabs.all.tabMenu,
-            ];
+            return this.state.tabs.map(tab => {
+                return tab.toTabMenuModel();
+            })
         },
     },
 }
