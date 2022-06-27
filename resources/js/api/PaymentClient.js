@@ -1,17 +1,15 @@
 import { ApplicationClient } from 'api/client'
 import { PayStructure } from 'api/structures'
 
-const endpoint = {
-    pay: '/api/payment/pay',
-}
-
 class PaymentClient extends ApplicationClient {
 
-    constructor() {
-        super({
-            withCredentials: true,
-        });
+    get endpoints()
+    {
+        return {
+            pay: '/api/payment/pay',
+        };
     }
+
     /**
      * @param {number} amount
      * @param {string} code
@@ -32,7 +30,7 @@ class PaymentClient extends ApplicationClient {
             surname: surname ?? null,
         };
 
-        return this.client.post(endpoint.pay, data)
+        return this.client.post(this.endpoints.pay, data)
             .then((response) => {
                 /** @type {PayData} */
                 const data = response.data;

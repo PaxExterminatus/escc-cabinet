@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\API\AudioController;
-use App\Http\Controllers\API\PaymentController;
+use App\Http\Controllers\API\PaymentsController;
+use App\Http\Controllers\API\PaymentsProviderController;
 use App\Http\Controllers\API\VideoController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SPA\SPAController;
@@ -18,12 +19,13 @@ Route::prefix('/auth/')->middleware('guest')->group(function () {
 Route::get('/pay/{any?}', SPAController::class)->where('any', '(.*)');
 
 Route::prefix('/api/')->group(function () {
-    Route::post('payment/pay', [PaymentController::class, 'pay']);
+    Route::post('payment/pay', [PaymentsProviderController::class, 'pay']);
 });
 
 // Protected SPA -------------------------------------------------------------------------------------------------------
 
 Route::middleware('auth:sanctum')->group(function () {
+
     Route::get('/', SPAController::class)->name('home');
     Route::get('/courses', SPAController::class)->name('courses');
     Route::get('/course/{any}', SPAController::class)->name('course');
@@ -47,6 +49,11 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::controller(VideoController::class)->prefix('video/')->group(function () {
             Route::get('{course}', 'index');
             Route::get('play/course/{course}/name/{name}', 'play')->name('play_course_video_by_name');
+        });
+
+        Route::controller(PaymentsController::class)->prefix('payments/')->group(function () {
+            Route::get('site', 'site');
+            Route::get('all', 'all');
         });
     });
 });

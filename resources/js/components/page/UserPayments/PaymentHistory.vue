@@ -17,13 +17,6 @@ export default {
         TabMenu,
     },
 
-    props: {
-        userId: {
-            type: Number,
-            default: null,
-        },
-    },
-
     data() {
         const tabs = TabStateFactory.make.router(this.$router);
 
@@ -36,7 +29,6 @@ export default {
             },
         };
     },
-
 
     computed: {
         tabMenuModel() {

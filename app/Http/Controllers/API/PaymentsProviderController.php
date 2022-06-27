@@ -11,7 +11,7 @@ use App\Services\Hutkigrosh\HutkigroshClient;
 use App\Services\Hutkigrosh\HutkigroshEndpoint;
 use Illuminate\Http\JsonResponse;
 
-class PaymentController
+class PaymentsProviderController
 {
     private HutkigroshClient $client;
 

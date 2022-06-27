@@ -1,5 +1,3 @@
-export default
-
 interface APIResponse {
     status: number
     message: string|null
@@ -9,3 +7,5 @@ interface APIResponse {
 export {
     APIResponse
 }
+
+export default APIResponse;
