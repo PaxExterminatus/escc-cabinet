@@ -1,0 +1,482 @@
+{
+    "client": {
+        "id": 2333,
+        "name": "\u0422\u0430\u0442\u044c\u044f\u043d\u0430",
+        "middle_name": "\u0411\u043e\u0440\u0438\u0441\u043e\u0432\u043d\u0430",
+        "last_name": "\u041d\u0435\u0431\u043e\u0440\u0441\u043a\u0430\u044f",
+        "total_deb": -58.48,
+        "courses": [
+            {
+                "id": 2599,
+                "node_id": 2672,
+                "client_id": 2333,
+                "status_id": 4,
+                "name": "\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u0441\u0432\u044f\u0437\u044f\u043c \u0441 \u043e\u0431\u0449\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0441\u0442\u044c\u044e",
+                "status": "finished",
+                "lessons": [
+                    {
+                        "id": 164753,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1049,
+                        "name": "\u0423\u0420. \u041f\u0418\u0420 01-02"
+                    },
+                    {
+                        "id": 164768,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1050,
+                        "name": "\u0423\u0420. \u041f\u0418\u0420 03-04"
+                    },
+                    {
+                        "id": 164770,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1051,
+                        "name": "\u0423\u0420. \u041f\u0418\u0420 05-06"
+                    },
+                    {
+                        "id": 164772,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1052,
+                        "name": "\u0423\u0420. \u041f\u0418\u0420 07-08"
+                    },
+                    {
+                        "id": 164774,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1053,
+                        "name": "\u0423\u0420. \u041f\u0418\u0420 09-10"
+                    },
+                    {
+                        "id": 164776,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1054,
+                        "name": "\u0423\u0420. \u041f\u0418\u0420 11-12"
+                    },
+                    {
+                        "id": 164778,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1055,
+                        "name": "\u0423\u0420. \u041f\u0418\u0420 13-14"
+                    },
+                    {
+                        "id": 164780,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1056,
+                        "name": "\u0423\u0420. \u041f\u0418\u0420 15-16"
+                    },
+                    {
+                        "id": 164782,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1057,
+                        "name": "\u0423\u0420. \u041f\u0418\u0420 17-18"
+                    },
+                    {
+                        "id": 164784,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1058,
+                        "name": "\u0423\u0420. \u041f\u0418\u0420 19-20"
+                    },
+                    {
+                        "id": 164786,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1059,
+                        "name": "\u0423\u0420. \u041f\u0418\u0420 21-22"
+                    },
+                    {
+                        "id": 164788,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1060,
+                        "name": "\u0423\u0420. \u041f\u0418\u0420 23-24"
+                    }
+                ],
+                "categories": []
+            },
+            {
+                "id": 1022667,
+                "node_id": 11561,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u0441\u0440\u0435\u0434\u043d\u0435\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f extra",
+                "status": "not active",
+                "lessons": [
+                    {
+                        "id": 13701260,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11522,
+                        "name": "\u0423\u0420. \u0410\u0421\u042d 05-06"
+                    },
+                    {
+                        "id": 13071033,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11520,
+                        "name": "\u0423\u0420. \u0410\u0421\u042d 01-02"
+                    },
+                    {
+                        "id": 13368384,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11521,
+                        "name": "\u0423\u0420. \u0410\u0421\u042d 03-04"
+                    },
+                    {
+                        "id": 14081012,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11523,
+                        "name": "\u0423\u0420. \u0410\u0421\u042d 07-08"
+                    },
+                    {
+                        "id": 14457546,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11524,
+                        "name": "\u0423\u0420. \u0410\u0421\u042d 09-10"
+                    },
+                    {
+                        "id": 15094579,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11521,
+                        "name": "\u0423\u0420. \u0410\u0421\u042d 03-04"
+                    },
+                    {
+                        "id": 14769435,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11525,
+                        "name": "\u0423\u0420. \u0410\u0421\u042d 11-12"
+                    },
+                    {
+                        "id": 15845413,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11527,
+                        "name": "\u0423\u0420. \u0410\u0421\u042d 15-16"
+                    },
+                    {
+                        "id": 16249771,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11528,
+                        "name": "\u0423\u0420. \u0410\u0421\u042d 17-18"
+                    },
+                    {
+                        "id": 16637281,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11529,
+                        "name": "\u0423\u0420. \u0410\u0421\u042d 19-20"
+                    },
+                    {
+                        "id": 17055399,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11530,
+                        "name": "\u0423\u0420. \u0410\u0421\u042d 21-22"
+                    },
+                    {
+                        "id": 17807740,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11531,
+                        "name": "\u0423\u0420. \u0410\u0421\u042d 23-24"
+                    },
+                    {
+                        "id": 15541549,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11526,
+                        "name": "\u0423\u0420. \u0410\u0421\u042d 13-14"
+                    },
+                    {
+                        "id": 20503106,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11532,
+                        "name": "\u0423\u0420. \u0410\u0421\u042d 25-26"
+                    }
+                ],
+                "categories": []
+            },
+            {
+                "id": 1065237,
+                "node_id": 17858,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445 extra  + online \u0432\u0435\u0440\u0441\u0438\u044f \u0443\u0440\u043e\u043a\u043e\u0432",
+                "status": "not active",
+                "lessons": [
+                    {
+                        "id": 48584265,
+                        "client_id": 2333,
+                        "course_id": 1065237,
+                        "node_id": 18226,
+                        "name": "\u0423\u0420. \u0410\u041d\u041d 03-04"
+                    },
+                    {
+                        "id": 48356169,
+                        "client_id": 2333,
+                        "course_id": 1065237,
+                        "node_id": 18225,
+                        "name": "\u0423\u0420. \u0410\u041d\u041d 01-02"
+                    },
+                    {
+                        "id": 49101506,
+                        "client_id": 2333,
+                        "course_id": 1065237,
+                        "node_id": 18227,
+                        "name": "\u0423\u0420. \u0410\u041d\u041d 05-06"
+                    },
+                    {
+                        "id": 53156777,
+                        "client_id": 2333,
+                        "course_id": 1065237,
+                        "node_id": 18227,
+                        "name": "\u0423\u0420. \u0410\u041d\u041d 05-06"
+                    }
+                ],
+                "categories": [
+                    {
+                        "node_id": 29155,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_DAE",
+                        "name": "\u0414\u0435\u043b\u043e\u0432\u043e\u0439 \u0430\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 extra"
+                    }
+                ]
+            },
+            {
+                "id": 1079614,
+                "node_id": 20684,
+                "client_id": 2333,
+                "status_id": 4,
+                "name": "\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445 extra  + online",
+                "status": "finished",
+                "lessons": [],
+                "categories": []
+            },
+            {
+                "id": 1072278,
+                "node_id": 2710,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "\u041a\u0438\u0442\u0430\u0439\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445",
+                "status": "not active",
+                "lessons": [
+                    {
+                        "id": 55160734,
+                        "client_id": 2333,
+                        "course_id": 1072278,
+                        "node_id": 957,
+                        "name": "\u0423\u0420. \u041a\u0422\u041d 01-02"
+                    }
+                ],
+                "categories": []
+            },
+            {
+                "id": 1072357,
+                "node_id": 18986,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "\u0422\u0443\u0440\u0435\u0446\u043a\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445 + online \u0432\u0435\u0440\u0441\u0438\u044f \u0443\u0440\u043e\u043a\u043e\u0432",
+                "status": "not active",
+                "lessons": [],
+                "categories": []
+            },
+            {
+                "id": 1081313,
+                "node_id": 20763,
+                "client_id": 2333,
+                "status_id": 6,
+                "name": "\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u0441\u0440\u0435\u0434\u043d\u0435\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f extra  + online",
+                "status": "finishing",
+                "lessons": [],
+                "categories": []
+            },
+            {
+                "id": 1081624,
+                "node_id": 21197,
+                "client_id": 2333,
+                "status_id": 4,
+                "name": "\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445 extra ( \u0443\u0440\u043e\u0432\u0435\u043d\u044c \u0441\u043b\u043e\u0436\u043d\u043e\u0441\u0442\u0438 a1)",
+                "status": "finished",
+                "lessons": [],
+                "categories": [
+                    {
+                        "node_id": 21197,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_ANN",
+                        "name": "\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445 extra"
+                    }
+                ]
+            },
+            {
+                "id": 1099204,
+                "node_id": 22154,
+                "client_id": 2333,
+                "status_id": 4,
+                "name": "\u041f\u043e\u043b\u044c\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445  ( \u0443\u0440\u043e\u0432\u0435\u043d\u044c \u0441\u043b\u043e\u0436\u043d\u043e\u0441\u0442\u0438 a1)",
+                "status": "finished",
+                "lessons": [],
+                "categories": [
+                    {
+                        "node_id": 22154,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_POL",
+                        "name": "\u041f\u043e\u043b\u044c\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445"
+                    }
+                ]
+            },
+            {
+                "id": 1099884,
+                "node_id": 22194,
+                "client_id": 2333,
+                "status_id": 4,
+                "name": "\u041f\u043e\u043b\u044c\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445  ( \u0443\u0440\u043e\u0432\u0435\u043d\u044c \u0441\u043b\u043e\u0436\u043d\u043e\u0441\u0442\u0438 a2)",
+                "status": "finished",
+                "lessons": [],
+                "categories": [
+                    {
+                        "node_id": 22194,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_POL",
+                        "name": "\u041f\u043e\u043b\u044c\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445"
+                    }
+                ]
+            },
+            {
+                "id": 1168828,
+                "node_id": 25934,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "\u042f\u043f\u043e\u043d\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445+ online \u0432\u0435\u0440\u0441\u0438\u044f \u0443\u0440\u043e\u043a\u043e\u0432",
+                "status": "not active",
+                "lessons": [],
+                "categories": []
+            },
+            {
+                "id": 1230528,
+                "node_id": 29114,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445 extra(ow)",
+                "status": "not active",
+                "lessons": [],
+                "categories": [
+                    {
+                        "node_id": 29114,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_ANN",
+                        "name": "\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445 extra"
+                    }
+                ]
+            },
+            {
+                "id": 1232292,
+                "node_id": 29335,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "\u041f\u043e\u043b\u044c\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445 (ow)",
+                "status": "not active",
+                "lessons": [],
+                "categories": [
+                    {
+                        "node_id": 29335,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_POL",
+                        "name": "\u041f\u043e\u043b\u044c\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445"
+                    }
+                ]
+            },
+            {
+                "id": 1232590,
+                "node_id": 29294,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u0441\u0440\u0435\u0434\u043d\u0435\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f extra (ow)",
+                "status": "not active",
+                "lessons": [],
+                "categories": [
+                    {
+                        "node_id": 29294,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_ASE",
+                        "name": "\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u0441\u0440\u0435\u0434\u043d\u0435\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f extra"
+                    }
+                ]
+            },
+            {
+                "id": 1232591,
+                "node_id": 29355,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "\u041f\u043e\u043b\u044c\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u0441\u0440\u0435\u0434\u043d\u0435\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f (ow)",
+                "status": "not active",
+                "lessons": [],
+                "categories": [
+                    {
+                        "node_id": 29355,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_PS",
+                        "name": "\u041f\u043e\u043b\u044c\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u0441\u0440\u0435\u0434\u043d\u0435\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f"
+                    }
+                ]
+            },
+            {
+                "id": 1232589,
+                "node_id": 29155,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "\u0414\u0435\u043b\u043e\u0432\u043e\u0439 \u0430\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 extra (on+web)",
+                "status": "not active",
+                "lessons": [],
+                "categories": [
+                    {
+                        "node_id": 29155,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_DAE",
+                        "name": "\u0414\u0435\u043b\u043e\u0432\u043e\u0439 \u0430\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 extra"
+                    }
+                ]
+            },
+            {
+                "id": 1252030,
+                "node_id": 29775,
+                "client_id": 2333,
+                "status_id": 4,
+                "name": "\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u0434\u0435\u0442\u0435\u0439 + online  (ow)",
+                "status": "finished",
+                "lessons": [],
+                "categories": [
+                    {
+                        "node_id": 29775,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_ADD",
+                        "name": "\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u0434\u0435\u0442\u0435\u0439"
+                    }
+                ]
+            },
+            {
+                "id": 1251988,
+                "node_id": 31954,
+                "client_id": 2333,
+                "status_id": 4,
+                "name": "\u041a\u0438\u0442\u0430\u0439\u0441\u043a\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0449\u0438\u0445 (onl) a1",
+                "status": "finished",
+                "lessons": [],
+                "categories": []
+            }
+        ]
+    }
+}
