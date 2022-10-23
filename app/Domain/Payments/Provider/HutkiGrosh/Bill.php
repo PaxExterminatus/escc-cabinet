@@ -2,7 +2,7 @@
 
 namespace App\Domain\Payments\Provider\HutkiGrosh;
 
-use App\Domain\Payments\Models\Payment;
+use App\Models\Payment;
 use App\Models\User;
 
 class Bill extends BillStructure

@@ -3,7 +3,7 @@
 namespace App\Domain\Payments\Controllers;
 
 use App\Http\Controllers\APIController;
-use App\Domain\Payments\Models\Payment;
+use App\Models\Payment;
 use App\Models\User;
 use App\Repository\Payments\UserPaymentsSiteDatabase;
 use Illuminate\Contracts\Auth\Authenticatable;

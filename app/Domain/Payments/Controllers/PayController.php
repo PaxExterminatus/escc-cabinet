@@ -5,7 +5,7 @@ namespace App\Domain\Payments\Controllers;
 use App\Http\Controllers\APIController;
 use App\Http\Requests\Payments\Callback\PaymentsCallbackRequest;
 use App\Domain\Payments\Requests\PayRequest;
-use App\Domain\Payments\Models\Payment;
+use App\Models\Payment;
 use App\Models\User;
 use App\Domain\Payments\Provider\HutkiGrosh\Bill;
 use App\Domain\Payments\Provider\HutkiGrosh\HutkiGroshClient;
