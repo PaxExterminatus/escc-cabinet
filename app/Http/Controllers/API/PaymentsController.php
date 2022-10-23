@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\APIController;
 use App\Models\Payment;
 use App\Models\User;
-use App\Repository\Payments\PaymentsSite;
+use App\Repository\Payments\UserPaymentsSiteDatabase;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\JsonResponse;
 
@@ -27,15 +27,20 @@ class PaymentsController extends APIController
      */
     function site(): JsonResponse
     {
-        $payments = PaymentsSite::make()
-            ->setUserId($this->user->id)
-            ->setClientId($this->user->code)
+        $user_id = $this->user->id;
+        $client_id = (int)$this->user->code;
+
+        $payments = UserPaymentsSiteDatabase::make()
+            ->user_id->set($user_id)
+            ->client_id->set($client_id)
             ->query()
             ->get();
 
         return $this->success(
             data: [
                 'payments' => $payments,
+                'user_id' => $user_id,
+                'client_id' => $client_id,
             ],
         );
     }
