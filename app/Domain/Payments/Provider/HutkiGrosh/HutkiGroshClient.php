@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Services\Hutkigrosh;
+namespace App\Domain\Payments\Provider\HutkiGrosh;
 
 use GuzzleHttp\Promise\PromiseInterface;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
-class HutkigroshClient
+class HutkiGroshClient
 {
-    protected HutkigroshEndpoint $endpoint;
+    protected HutkiGroshEndpoint $endpoint;
     protected string $callback;
 
     protected array $headers = [
@@ -17,7 +17,7 @@ class HutkigroshClient
 
     function __construct()
     {
-        $this->endpoint = HutkigroshEndpoint::api();
+        $this->endpoint = HutkiGroshEndpoint::api();
         $this->callback = url('/api/payments/callback');
     }
 

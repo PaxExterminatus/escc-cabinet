@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Payments\Pay;
+namespace App\Domain\Payments\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PaymentsPayRequest extends FormRequest
+class PayRequest extends FormRequest
 {
     function authorize(): bool
     {
@@ -31,8 +31,8 @@ class PaymentsPayRequest extends FormRequest
         ];
     }
 
-    function params(): PaymentsPayParams
+    function params(): PayParams
     {
-        return new PaymentsPayParams($this);
+        return new PayParams($this);
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\Hutkigrosh;
+namespace App\Domain\Payments\Provider\HutkiGrosh;
 
-class HutkigroshEndpoint
+class HutkiGroshEndpoint
 {
     protected string $url;
 
@@ -11,13 +11,13 @@ class HutkigroshEndpoint
         $this->url = $url;
     }
 
-    static function api(): HutkigroshEndpoint
+    static function api(): HutkiGroshEndpoint
     {
         $api = config('app.env') === 'production'
             ? 'https://www.hutkigrosh.by/api/v1/'
             : 'https://trial.hgrosh.by/api/v1/';
 
-        return new HutkigroshEndpoint($api);
+        return new HutkiGroshEndpoint($api);
     }
 
     function login(): string

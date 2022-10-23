@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Hutkigrosh;
+namespace App\Domain\Payments\Provider\HutkiGrosh;
 
 abstract class BillStructure
 {

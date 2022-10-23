@@ -1,39 +1,41 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Domain\Payments\Controllers;
 
+use App\Http\Controllers\APIController;
 use App\Http\Requests\Payments\Callback\PaymentsCallbackRequest;
-use App\Http\Requests\Payments\Pay\PaymentsPayRequest;
-use App\Models\Payment;
+use App\Domain\Payments\Requests\PayRequest;
+use App\Domain\Payments\Models\Payment;
 use App\Models\User;
-use App\Services\Hutkigrosh\Bill;
-use App\Services\Hutkigrosh\HutkigroshClient;
-use App\Services\Hutkigrosh\HutkigroshEndpoint;
+use App\Domain\Payments\Provider\HutkiGrosh\Bill;
+use App\Domain\Payments\Provider\HutkiGrosh\HutkiGroshClient;
+use App\Domain\Payments\Provider\HutkiGrosh\HutkiGroshEndpoint;
 use Illuminate\Http\JsonResponse;
 
-class PaymentsProviderController
+class PayController extends APIController
 {
-    private HutkigroshClient $client;
+    private HutkiGroshClient $client;
 
-    public function __construct(HutkigroshClient $client)
+    function __construct(HutkiGroshClient $client)
     {
         $this->client = $client;
     }
 
     /**
      * Here the client makes payment.
-     * @param PaymentsPayRequest $request
+     * @param PayRequest $request
      * @return JsonResponse
      */
-    function pay(PaymentsPayRequest $request): JsonResponse
+    function pay(PayRequest $request): JsonResponse
     {
         /** @var User $user */
 
         $params = $request->params();
         $user = $request->user();
 
-        if ($params->code) {
-            $payment = Payment::create([
+        if ($params->code)
+        {
+            $payment = Payment::query()->create([
                 'client_id' => $params->code,
                 'code' =>  (int)substr($params->code.microtime(true), 0, 30),
                 'iname' => $params->name ?? '',
@@ -43,8 +45,9 @@ class PaymentsProviderController
                 'price_total' => $params->amount,
             ]);
         }
-        elseif ($user) {
-            $payment = Payment::create([
+        elseif ($user)
+        {
+            $payment = Payment::query()->create([
                 'user_id' => $user->id,
                 'code' =>  (int)substr($user->id.microtime(true), 0, 30),
                 'iname' => $user->iname,
@@ -54,7 +57,8 @@ class PaymentsProviderController
                 'price_total' => $params->amount,
             ]);
         }
-        else {
+        else
+        {
             return response()->json([
                 'success' => false,
                 'message' => 'Unauthorized'
@@ -89,7 +93,7 @@ class PaymentsProviderController
 
         return response()->json([
             'success' => true,
-            'goto' => HutkigroshEndpoint::webPayPay($billID),
+            'goto' => HutkiGroshEndpoint::webPayPay($billID),
             'payment' => $payment,
         ]);
     }

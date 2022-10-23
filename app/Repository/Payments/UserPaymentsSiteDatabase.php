@@ -2,7 +2,7 @@
 
 namespace App\Repository\Payments;
 
-use App\Models\Payment;
+use App\Domain\Payments\Models\Payment;
 use App\Entities\MakeStaticTrait;
 use Illuminate\Database\Eloquent\Builder;
 
