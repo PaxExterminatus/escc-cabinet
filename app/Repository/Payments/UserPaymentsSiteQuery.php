@@ -26,18 +26,6 @@ class UserPaymentsSiteQuery
         return $this;
     }
 
-    protected array $columns = [
-        'client_id as student',
-        'iname as name',
-        'fname as surname',
-        'phone',
-        'email',
-        'price_total as amount',
-        'created_at',
-        'updated_at',
-        'bill_id',
-        'bill_status as status',
-    ];
 
     /**
      * @return EloquentBuilder
@@ -46,15 +34,15 @@ class UserPaymentsSiteQuery
     {
         $query = Payment::whereUserId($this->userId);
 
-        $query->select($this->columns);
+        $query->orderBy('payments.created_at', 'desc');
 
-        if ($this->clientId) $query->orWhere('client_id', $this->clientId);
+        if ($this->clientId) $query->orWhere('payments.client_id', $this->clientId);
 
         return $query;
     }
 
     /**
-     * @return Collection<UserPaymentInterface>
+     * @return Collection<Payment>
      */
     function get(): Collection
     {

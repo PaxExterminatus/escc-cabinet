@@ -21,7 +21,7 @@ class HutkiGroshClient
     {
         $this->endpoint = HutkiGroshEndpoint::api();
         $this->callback = url('/api/payments/callback');
-        $this->http = Http::withOptions(['verify' => false]);
+        $this->http = Http::withOptions(['verify' => false])->withHeaders($this->headers);
     }
 
     protected function login(): Response

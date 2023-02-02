@@ -3,6 +3,7 @@
 namespace App\Domain\Payments\Provider;
 
 use App\Domain\Payments\Provider\HutkiGrosh\HutkiGroshClient;
+use App\Domain\Payments\Provider\HutkiGrosh\InvoiceResponseData;
 
 class PaymentProvider
 {
@@ -13,13 +14,10 @@ class PaymentProvider
         $this->provider = new HutkiGroshClient;
     }
 
-    function getInvoice(string $id): array|null
+    function getInvoice(string $id): InvoiceResponseData
     {
         $response = $this->provider->getInvoice($id);
         $data = $response->json();
-
-
-
-        return $data;
+        return InvoiceResponseData::make($data);
     }
 }

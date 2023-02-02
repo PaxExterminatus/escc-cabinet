@@ -36,9 +36,6 @@ class PaymentsController extends APIController
         $user_id = $this->user->id;
         $client_id = (int)$this->user->code;
 
-        /**
-         * @var UserPaymentInterface[] $payments
-         */
         $payments = UserPaymentsSiteQuery::make()
             ->setUserId($user_id)
             ->setClientId($client_id)
@@ -46,11 +43,19 @@ class PaymentsController extends APIController
 
         foreach ($payments as $payment)
         {
-            if ($payment->status === 0 && $payment->bill_id)
+            if ($payment->bill_status < 5 && $payment->bill_id)
             {
-                Log::info($payment->bill_id);
                 $data = $this->provider->getInvoice($payment->bill_id);
-                Log::info(json_encode($data));
+
+                if ($data->bill && $payment->bill_status !== $data->bill->statusEnum)
+                {
+                    $payment->bill_status = $data->bill->statusEnum;
+                }
+                else
+                {
+                    //$payment->bill_status = 6;
+                }
+                $payment->save();
             }
         }
 
