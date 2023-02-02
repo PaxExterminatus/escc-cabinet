@@ -7,7 +7,7 @@ use App\Http\Controllers\APIController;
 use App\Models\Payment;
 use App\Models\User;
 use App\Repository\Payments\UserPaymentInterface;
-use App\Repository\Payments\UserPaymentsSiteDatabase;
+use App\Repository\Payments\UserPaymentsSiteQuery;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
@@ -39,10 +39,9 @@ class PaymentsController extends APIController
         /**
          * @var UserPaymentInterface[] $payments
          */
-        $payments = UserPaymentsSiteDatabase::make()
-            ->user_id->set($user_id)
-            ->client_id->set($client_id)
-            ->query()
+        $payments = UserPaymentsSiteQuery::make()
+            ->setUserId($user_id)
+            ->setClientId($client_id)
             ->get();
 
         foreach ($payments as $payment)

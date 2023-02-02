@@ -2,14 +2,12 @@
 
 namespace App\Domain\Payments\Provider\HutkiGrosh;
 
-use App\Domain\Payments\Provider\PaymentProviderInterface;
-use GuzzleHttp\Client as GuzzleHttpClient;
 use GuzzleHttp\Promise\PromiseInterface;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
-class HutkiGroshClient implements PaymentProviderInterface
+class HutkiGroshClient
 {
     protected PendingRequest $http;
     protected HutkiGroshEndpoint $endpoint;
@@ -60,14 +58,14 @@ class HutkiGroshClient implements PaymentProviderInterface
 
     function getInvoice(string $id): Response|null
     {
-        $loginResponse = $this->login();
-        $authorized = $loginResponse->body() === 'true';
+        $login = $this->login();
+        $authorized = $login->body() === 'true';
 
         if ($authorized)
         {
             return $this->http
                 ->withOptions([
-                    'cookies' => $loginResponse->cookies(),
+                    'cookies' => $login->cookies(),
                 ])
                 ->get($this->endpoint->getBill($id));
         }

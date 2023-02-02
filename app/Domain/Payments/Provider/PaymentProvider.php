@@ -2,19 +2,23 @@
 
 namespace App\Domain\Payments\Provider;
 
-class PaymentProvider implements PaymentProviderInterface
-{
-    protected PaymentProviderInterface $provider;
+use App\Domain\Payments\Provider\HutkiGrosh\HutkiGroshClient;
 
-    function __construct(PaymentProviderInterface $provider)
+class PaymentProvider
+{
+    protected HutkiGroshClient $provider;
+
+    function __construct()
     {
-        $this->provider = $provider;
+        $this->provider = new HutkiGroshClient;
     }
 
     function getInvoice(string $id): array|null
     {
         $response = $this->provider->getInvoice($id);
         $data = $response->json();
+
+
 
         return $data;
     }
