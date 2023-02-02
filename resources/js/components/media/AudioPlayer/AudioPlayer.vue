@@ -26,7 +26,7 @@
             <div class="player-buttons-down">
 
                 <div class="player-timeline">
-                    <Slider v-model="currentTime" :max="durationTime" @slideend="onTimeSlideend" @change="onTimeChange"/>
+                    <Slider v-bind="currentTime" :max="durationTime" @slideend="onTimeSlideend" @change="onTimeChange"/>
                 </div>
 
                 <div class="player-times">

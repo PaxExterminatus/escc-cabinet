@@ -16,6 +16,6 @@ class PaymentProvider implements PaymentProviderInterface
         $response = $this->provider->getInvoice($id);
         $data = $response->json();
 
-        return [];
+        return $data;
     }
 }

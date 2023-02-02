@@ -3,12 +3,15 @@
 namespace App\Domain\Payments\Provider\HutkiGrosh;
 
 use App\Domain\Payments\Provider\PaymentProviderInterface;
+use GuzzleHttp\Client as GuzzleHttpClient;
 use GuzzleHttp\Promise\PromiseInterface;
+use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
 class HutkiGroshClient implements PaymentProviderInterface
 {
+    protected PendingRequest $http;
     protected HutkiGroshEndpoint $endpoint;
     protected string $callback;
 
@@ -20,6 +23,7 @@ class HutkiGroshClient implements PaymentProviderInterface
     {
         $this->endpoint = HutkiGroshEndpoint::api();
         $this->callback = url('/api/payments/callback');
+        $this->http = Http::withOptions(['verify' => false]);
     }
 
     protected function login(): Response
@@ -29,10 +33,11 @@ class HutkiGroshClient implements PaymentProviderInterface
             'pwd' => config('escc.hg-pass'),
         ];
 
-        return Http::post($this->endpoint->login(), $params);
+        return $this->http->post($this->endpoint->login(), $params);
     }
 
-    function logout() {
+    function logout()
+    {
         Http::post($this->endpoint->logout());
     }
 
@@ -43,7 +48,7 @@ class HutkiGroshClient implements PaymentProviderInterface
 
         if ($authorized)
         {
-            return Http::acceptJson()
+            return $this->http
                 ->withOptions([
                     'cookies' => $loginResponse->cookies(),
                 ])
@@ -60,7 +65,11 @@ class HutkiGroshClient implements PaymentProviderInterface
 
         if ($authorized)
         {
-            return Http::post($this->endpoint->getBill($id));
+            return $this->http
+                ->withOptions([
+                    'cookies' => $loginResponse->cookies(),
+                ])
+                ->get($this->endpoint->getBill($id));
         }
 
         return null;

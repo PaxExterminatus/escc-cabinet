@@ -1,4 +1,3 @@
-import {AxiosResponse} from 'axios'
 import {ApplicationClient} from 'api/client'
 
 class PaymentsClient extends ApplicationClient

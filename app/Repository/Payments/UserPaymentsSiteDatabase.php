@@ -24,6 +24,7 @@ class UserPaymentsSiteDatabase
         'price_total as amount',
         'created_at',
         'updated_at',
+        'bill_id',
         'bill_status as status',
     ];
 

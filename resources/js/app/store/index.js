@@ -1,6 +1,16 @@
 import { createStore } from 'vuex'
-import { storeOptions } from './storeOptions';
+import auth from 'app/store/authModule';
+import audio from 'cmp/media/AudioPlayer/AudioPlayerStore';
+import video from 'cmp/VideoPlayer/VideoPlayerStore';
 
-const store = createStore(storeOptions);
+const store = createStore({
+    modules: {
+        auth,
+        audio,
+        video,
+    },
+    state: {},
+    mutations: {},
+});
 
 export default store;

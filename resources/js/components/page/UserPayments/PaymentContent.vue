@@ -6,7 +6,7 @@
             <PayForm :input="input.payment"/>
         </div>
 
-        <h2>История операций</h2>
+        <h2>История платежей</h2>
 
         <template v-if="user">
             <PaymentHistory :user-id="user.id"/>
@@ -21,8 +21,8 @@ import Button from 'primevue/button'
 import InputNumber from 'primevue/inputnumber'
 import Dialog from 'primevue/dialog'
 import AccountBalance from 'view/account/Balance'
-import { PayStructure } from 'api/structures'
-import { PayForm, PayFormInput } from 'cmp/payment'
+import {PayStructure} from 'api/structures'
+import {PayForm, PayFormInput} from 'cmp/payment'
 import PaymentHistory from './PaymentHistory'
 
 export default {
