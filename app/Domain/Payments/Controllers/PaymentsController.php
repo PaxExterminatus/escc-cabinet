@@ -53,7 +53,7 @@ class PaymentsController extends APIController
                 }
                 else
                 {
-                    //$payment->bill_status = 6;
+                    //$payment->bill_status = $data->status;
                 }
                 $payment->save();
             }
