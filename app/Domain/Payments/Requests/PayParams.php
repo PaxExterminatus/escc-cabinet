@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Payments\Pay;
+namespace App\Domain\Payments\Requests;
 
-class PaymentsPayParams
+class PayParams
 {
     public string $code;
     public float $amount;
@@ -11,7 +11,7 @@ class PaymentsPayParams
     public ?string $email;
     public ?string $phone;
 
-    public function __construct(PaymentsPayRequest $request)
+    public function __construct(PayRequest $request)
     {
         $all = $request->all();
 

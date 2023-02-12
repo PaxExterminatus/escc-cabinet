@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\API\PaymentsProviderController;
+use App\Domain\Payments\Controllers\PayController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 

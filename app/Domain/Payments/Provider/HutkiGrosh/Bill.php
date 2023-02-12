@@ -1,16 +1,13 @@
 <?php
 
-namespace App\Services\Hutkigrosh;
+namespace App\Domain\Payments\Provider\HutkiGrosh;
 
 use App\Models\Payment;
 use App\Models\User;
 
 class Bill extends BillStructure
 {
-    function __construct(private Payment $payment)
-    {
-
-    }
+    function __construct(private Payment $payment) {}
 
     function getEripId(): int
     {

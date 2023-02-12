@@ -7,7 +7,7 @@ import ToastService from 'primevue/toastservice'
 import Toast from 'primevue/toast'
 
 // Components ----------------------------------------------------------------------------------------------------------
-import App from 'cmp/App'
+import App from 'cmp/App.vue'
 
 // Options -------------------------------------------------------------------------------------------------------------
 import router from 'app/router'

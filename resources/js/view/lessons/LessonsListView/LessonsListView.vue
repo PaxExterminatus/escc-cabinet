@@ -10,13 +10,12 @@
 
                 <Column header="Аудио" style="min-width: 30vh">
                     <template #body="slotProps" v-if="courseData.audioCategory()">
-                        <SplitButton
-                            icon="pi pi-play"
-                            class="p-button-secondary p-button-text"
-                            :model="slotProps.data.audioMenu"
-                        >
+                        <div class="audio-actions">
                             <i @click="getAudio(slotProps.data)" class="btn pi pi-play" v-tooltip.left="'Аудио'"/>
-                        </SplitButton>
+                            <div class="audio-sub-actions">
+                                <i @click="getAudio(slotProps.data)" class="btn small pi pi-download" v-tooltip.left="'Скачать аудио'"/>
+                            </div>
+                        </div>
                     </template>
                 </Column>
             </DataTable>

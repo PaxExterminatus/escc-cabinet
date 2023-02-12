@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Payment\AuthPaymentsScope;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -60,11 +59,7 @@ class Payment extends Model
 
     protected $dateFormat = 'Y-m-d H:i:s';
 
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at',
-    ];
+    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
 
     // Accessors -------------------------------------------------------------------------------------------------------

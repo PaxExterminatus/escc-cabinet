@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\API\AudioController;
-use App\Http\Controllers\API\PaymentsController;
-use App\Http\Controllers\API\PaymentsProviderController;
 use App\Http\Controllers\API\VideoController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SPA\SPAController;
+use App\Domain\Payments\Controllers\PaymentsController;
+use App\Domain\Payments\Controllers\PayController;
 
 use App\Services\Routes;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +19,7 @@ Route::prefix('/auth/')->middleware('guest')->group(function () {
 Route::get('/pay/{any?}', SPAController::class)->where('any', '(.*)');
 
 Route::prefix('/api/')->group(function () {
-    Route::post('payment/pay', [PaymentsProviderController::class, 'pay']);
+    Route::post('payment/pay', [PayController::class, 'pay']);
 });
 
 // Protected SPA -------------------------------------------------------------------------------------------------------
