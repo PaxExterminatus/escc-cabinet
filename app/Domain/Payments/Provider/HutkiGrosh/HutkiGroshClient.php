@@ -12,6 +12,7 @@ class HutkiGroshClient
     protected PendingRequest $http;
     protected HutkiGroshEndpoint $endpoint;
     protected string $callback;
+    protected PromiseInterface|Response $login;
 
     protected array $headers = [
         'Accept' => 'application/json',
@@ -24,31 +25,30 @@ class HutkiGroshClient
         $this->http = Http::withOptions(['verify' => false])->withHeaders($this->headers);
     }
 
-    protected function login(): Response
+    protected function login(): bool
     {
         $params = [
             'user' => config('escc.hg-user'),
             'pwd' => config('escc.hg-pass'),
         ];
 
-        return $this->http->post($this->endpoint->login(), $params);
+        $this->login = $this->http->post($this->endpoint->login(), $params);
+
+        return $this->login->body() === 'true';
     }
 
-    function logout()
+    protected function logout(): void
     {
         Http::post($this->endpoint->logout());
     }
 
     function makeBill(BillStructure $bill): PromiseInterface|Response|null
     {
-        $loginResponse = $this->login();
-        $authorized = $loginResponse->body() === 'true';
-
-        if ($authorized)
+        if ($this->login())
         {
             return $this->http
                 ->withOptions([
-                    'cookies' => $loginResponse->cookies(),
+                    'cookies' => $this->login->cookies(),
                 ])
                 ->post($this->endpoint->bill(), $bill->toArray());
         }
@@ -58,16 +58,27 @@ class HutkiGroshClient
 
     function getInvoice(string $id): Response|null
     {
-        $login = $this->login();
-        $authorized = $login->body() === 'true';
-
-        if ($authorized)
+        if ($this->login())
         {
             return $this->http
                 ->withOptions([
-                    'cookies' => $login->cookies(),
+                    'cookies' => $this->login->cookies(),
                 ])
                 ->get($this->endpoint->getBill($id));
+        }
+
+        return null;
+    }
+
+    function getInvoiceStatus($id): Response|null
+    {
+        if ($this->login())
+        {
+            return $this->http
+                ->withOptions([
+                    'cookies' => $this->login->cookies(),
+                ])
+                ->get($this->endpoint->billStatus($id));
         }
 
         return null;

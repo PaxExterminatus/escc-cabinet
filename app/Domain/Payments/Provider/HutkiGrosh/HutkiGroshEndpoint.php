@@ -40,6 +40,11 @@ class HutkiGroshEndpoint
         return $this->url . "Invoicing/Bill($id)";
     }
 
+    function billStatus(string $id): string
+    {
+        return $this->url . "Invoicing/BillStatus($id)";
+    }
+
     static function webPayPay(int $billId): string
     {
         return config('app.env') === 'production'

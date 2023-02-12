@@ -3,14 +3,11 @@
 namespace App\Domain\Payments\Controllers;
 
 use App\Domain\Payments\Provider\PaymentProvider;
-use App\Http\Controllers\APIController;
-use App\Models\Payment;
 use App\Models\User;
-use App\Repository\Payments\UserPaymentInterface;
+use App\Http\Controllers\APIController;
 use App\Repository\Payments\UserPaymentsSiteQuery;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Log;
 
 class PaymentsController extends APIController
 {
@@ -43,19 +40,15 @@ class PaymentsController extends APIController
 
         foreach ($payments as $payment)
         {
-            if ($payment->bill_status < 5 && $payment->bill_id)
+            if ($payment->bill_status <= 1 && $payment->bill_id)
             {
-                $data = $this->provider->getInvoice($payment->bill_id);
+                $data = $this->provider->getInvoiceStatus($payment->bill_id);
 
-                if ($data->bill && $payment->bill_status !== $data->bill->statusEnum)
+                if ($data->purchase && $payment->bill_status !== $data->purchase)
                 {
-                    $payment->bill_status = $data->bill->statusEnum;
+                    $payment->bill_status = $data->purchase;
+                    $payment->save();
                 }
-                else
-                {
-                    //$payment->bill_status = $data->status;
-                }
-                $payment->save();
             }
         }
 
