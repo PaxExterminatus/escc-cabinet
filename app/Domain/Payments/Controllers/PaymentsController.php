@@ -42,7 +42,7 @@ class PaymentsController extends APIController
         {
             if ($payment->bill_status <= 1 && $payment->bill_id)
             {
-                $data = $this->provider->getInvoiceStatus($payment->bill_id);
+                $data = $this->provider->getInvoiceStatus($payment->id);
 
                 if ($data->purchase && $payment->bill_status !== $data->purchase)
                 {

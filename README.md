@@ -1,6 +1,20 @@
 /opt/php80/bin/php -f /usr/local/bin/composer install
 /opt/php80/bin/php -f /usr/local/bin/composer dump-autoload
 
+USE NVM
+
+`nvm install v16.14.2`
+
+`export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"`
+
+`[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"`
+
+`source ~/.bashrc`
+
+`nvm use 16.14.2`
+
+`npm run build`
+
 **V2**
 - [+] в аудио пплаере сделать панель с кнопками липкой, что бы не уходила при скроле большого списка
 - [+] добавить возможность скачивания аудио уроков
