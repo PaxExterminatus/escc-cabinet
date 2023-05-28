@@ -11,9 +11,7 @@
                 <Column header="Урок">
                     <template #body="slotProps" v-if="courseData.webLessonsCategory">
                         <div class="audio-actions">
-                            <i @click="getWebLesson(slotProps.data)" class="btn pi pi-file" v-tooltip.left="'Открыть Урок'">
-                                <i class="pi pi-folder-open" style="font-size: 10px"></i>
-                            </i>
+                            <i @click="getWebLesson(slotProps.data)" class="btn pi pi-file-pdf" v-tooltip.left="'Открыть Урок'"/>
                         </div>
                     </template>
                 </Column>

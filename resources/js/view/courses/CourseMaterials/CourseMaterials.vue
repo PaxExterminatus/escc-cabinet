@@ -2,7 +2,7 @@
     <span class="course-materials">
         <template v-if="clientCourse.webLessonsCategory">
             <InlineMessage class="course-materials-tag" severity="success">
-                <span class="align-v-center-gap"><i class="pi pi-file"></i>Урок</span>
+                <span class="align-v-center-gap"><i class="pi pi-file-pdf"></i>Урок</span>
             </InlineMessage>
         </template>
 
