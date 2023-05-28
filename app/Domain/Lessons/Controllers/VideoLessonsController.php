@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Domain\Lessons\Controllers;
 
 use App\Http\Controllers\MediaController;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
 
-class VideoController extends MediaController
+class VideoLessonsController extends MediaController
 {
     protected string $disk = DISK_VIDEO;
 

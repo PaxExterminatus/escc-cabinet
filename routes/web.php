@@ -1,13 +1,12 @@
 <?php
 
+use App\Domain\Lessons\Controllers\AudioLessonsController;
+use App\Domain\Lessons\Controllers\VideoLessonsController;
 use App\Domain\Lessons\Controllers\WebLessonsController;
-use App\Http\Controllers\API\AudioController;
-use App\Http\Controllers\API\VideoController;
+use App\Domain\Payments\Controllers\PayController;
+use App\Domain\Payments\Controllers\PaymentsController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SPA\SPAController;
-use App\Domain\Payments\Controllers\PaymentsController;
-use App\Domain\Payments\Controllers\PayController;
-
 use App\Services\Routes;
 use Illuminate\Support\Facades\Route;
 
@@ -37,7 +36,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('/api/')->group(function () {
         Route::get('user', [AuthenticatedSessionController::class, 'user']);
 
-        Route::controller(AudioController::class)->prefix('audio/')->group(function () {
+        Route::controller(AudioLessonsController::class)->prefix('audio/')->group(function () {
             Route::get('{course}/{lesson}', 'index');
 
             Route::get('play/course/{course}/lesson/{lesson}/name/{name}/extension/{extension}', 'play')
@@ -47,13 +46,14 @@ Route::middleware('auth:sanctum')->group(function () {
                 ->name(Routes::API_AUDIO_DOWNLOAD_LESSON_AUDIO);
         });
 
-        Route::controller(VideoController::class)->prefix('video/')->group(function () {
+        Route::controller(VideoLessonsController::class)->prefix('video/')->group(function () {
             Route::get('{course}', 'index');
             Route::get('play/course/{course}/name/{name}', 'play')->name('play_course_video_by_name');
         });
 
         Route::controller(WebLessonsController::class)->prefix('lessons/web/')->group(function () {
             Route::get('show/course/{course}/lesson/{lesson}', 'show');
+            Route::get('open/source/{source}', 'open')->name(ROUTE_NAME_OPEN_WEB_LESSON);
         });
 
         Route::controller(PaymentsController::class)->prefix('payments/')->group(function () {

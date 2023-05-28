@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Domain\Lessons\Controllers;
 
+use App\Http\Controllers\MediaController;
 use App\Services\Routes;
-use ZipArchive;
-use JetBrains\PhpStorm\ArrayShape;
-use Symfony\Component\Finder\SplFileInfo;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\MediaController;
+use JetBrains\PhpStorm\ArrayShape;
+use Symfony\Component\Finder\SplFileInfo;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use ZipArchive;
 
-class AudioController extends MediaController
+class AudioLessonsController extends MediaController
 {
     protected string $disk = DISK_AUDIO;
 
