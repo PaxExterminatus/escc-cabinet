@@ -1,5 +1,6 @@
 <?php
 
+use App\Domain\Lessons\Controllers\WebLessonsController;
 use App\Http\Controllers\API\AudioController;
 use App\Http\Controllers\API\VideoController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -49,6 +50,10 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::controller(VideoController::class)->prefix('video/')->group(function () {
             Route::get('{course}', 'index');
             Route::get('play/course/{course}/name/{name}', 'play')->name('play_course_video_by_name');
+        });
+
+        Route::controller(WebLessonsController::class)->prefix('lessons/web/')->group(function () {
+            Route::get('show/course/{course}/lesson/{lesson}', 'show');
         });
 
         Route::controller(PaymentsController::class)->prefix('payments/')->group(function () {

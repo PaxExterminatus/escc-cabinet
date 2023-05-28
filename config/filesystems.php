@@ -45,6 +45,11 @@ return [
             'root' => storage_path('app/video') ,
         ],
 
+        DISK_LESSONS_PDF => [
+            'driver' => 'local',
+            'root' => storage_path('app/lessons-pdf') ,
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
