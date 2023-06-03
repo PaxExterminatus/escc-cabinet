@@ -1,5 +1,4 @@
 import { ApplicationClient } from 'api/client';
-import { reader } from 'cmp/media/LessonReader';
 
 const endpoint = {
     show: (course, lesson) => `/api/lessons/web/show/course/${course}/lesson/${lesson}`,
@@ -13,13 +12,14 @@ class WebLessonsClient  extends ApplicationClient
         });
     }
 
+    /**
+     * @param course
+     * @param lesson
+     * @returns {Promise<axios.AxiosResponse<any>>}
+     */
     show({course, lesson})
     {
-        return this.client.get(endpoint.show(course, lesson))
-            .then(response => {
-                console.log(response);
-                reader.show();
-            });
+        return this.client.get(endpoint.show(course, lesson));
     }
 }
 

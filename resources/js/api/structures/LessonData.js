@@ -55,23 +55,7 @@ class LessonData {
         return matches ? name : null;
     }
 
-    get audioMenu()
-    {
-        //todo move template to class
-        if (this.audioCategoryCode) {
-            return [
-                {
-                    label: 'Скачать Аудио',
-                    icon: 'pi pi-download',
-                    url: `/api/audio/download/course/${this.audioCategoryCode}/lesson/${this.getAudioName()}`,
-                },
-            ];
-        }
-        return null;
-    }
-
-    get downloadAudioUrl()
-    {
+    get downloadAudioUrl() {
         return `/api/audio/download/course/${this.audioCategoryCode}/lesson/${this.getAudioName()}`;
     }
 }
