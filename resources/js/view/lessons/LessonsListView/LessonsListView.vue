@@ -91,8 +91,8 @@ export default {
             api.webLessons
                 .show({course, lesson})
                 .then(response => {
-                    console.log(response);
-                    reader.show();
+                    console.log(lessonData.name);
+                    reader.setTitle(lessonData.name).show();
                 });
         },
     },

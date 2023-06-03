@@ -15,6 +15,9 @@ const mutations = {
     hide(store) {
         store.show = false;
     },
+    setTitle(store, title) {
+      store.title = title;
+    },
 };
 
 export default {
