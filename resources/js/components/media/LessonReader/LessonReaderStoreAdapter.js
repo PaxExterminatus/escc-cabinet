@@ -12,6 +12,10 @@ class LessonReaderStoreAdapter
         return this.$store.state.reader.title;
     }
 
+    get src() {
+        return this.$store.state.reader.src;
+    }
+
     /** @returns {LessonReaderStoreAdapter} */
     show() {
         this.$store.commit('reader/show');
@@ -26,6 +30,11 @@ class LessonReaderStoreAdapter
 
     setTitle(title) {
         this.$store.commit('reader/setTitle', title);
+        return this;
+    }
+
+    setSrc(src) {
+        this.$store.commit('reader/setSrc', src);
         return this;
     }
 }

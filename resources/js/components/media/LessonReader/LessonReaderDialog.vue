@@ -6,7 +6,7 @@
         :header="title"
         position="left"
     >
-
+        {{src}}
     </Dialog>
 </template>
 
@@ -25,6 +25,9 @@ export default {
         },
         title() {
             return reader.title;
+        },
+        src() {
+            return reader.src;
         },
     },
 }

@@ -18,6 +18,9 @@ const mutations = {
     setTitle(store, title) {
       store.title = title;
     },
+    setSrc(store, src) {
+        store.src = src;
+    },
 };
 
 export default {
