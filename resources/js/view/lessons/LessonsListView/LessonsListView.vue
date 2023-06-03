@@ -19,10 +19,10 @@
                 <Column header="Аудио" style="min-width: 30vh">
                     <template #body="slotProps" v-if="courseData.audioCategory">
                         <div class="audio-actions">
-                            <i @click="getAudio(slotProps.data)" class="btn pi pi-play" v-tooltip.left="'Открыть Аудио'"/>
-                            <div class="audio-sub-actions">
-                                <i @click="getAudio(slotProps.data)" class="btn small pi pi-download" v-tooltip.left="'Скачать Аудио'"/>
-                            </div>
+                            <i @click="getAudio()" class="btn pi pi-play" v-tooltip.left="'Открыть Аудио'"/>
+                            <a :href="slotProps.data.downloadAudioUrl" class="btn audio-sub-actions">
+                                <i class="btn small pi pi-download" v-tooltip.left="'Скачать Аудио'"/>
+                            </a>
                         </div>
                     </template>
                 </Column>

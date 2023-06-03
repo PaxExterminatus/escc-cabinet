@@ -1,6 +1,5 @@
 <template>
     <div id="app" class="application">
-        {{reader}}
         <router-view/>
         <VideoPlayerDialog/>
         <AudioPlayerDialog/>
@@ -9,9 +8,9 @@
 </template>
 
 <script>
-import VideoPlayerDialog from 'cmp/VideoPlayer/VideoPlayerDialog'
-import { AudioPlayerDialog } from 'cmp/media/AudioPlayer'
-import { LessonReaderDialog, reader } from 'cmp/media/LessonReader'
+import {VideoPlayerDialog} from 'cmp/media/VideoPlayer'
+import {AudioPlayerDialog} from 'cmp/media/AudioPlayer'
+import {LessonReaderDialog} from 'cmp/media/LessonReader'
 
 export default {
     components: {
@@ -24,9 +23,6 @@ export default {
         user() {
             return this.$store.state.auth.user;
         },
-        reader() {
-            return reader.display;
-        }
     },
 }
 </script>

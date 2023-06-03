@@ -260,6 +260,12 @@
                         "parent_code": "AUDIO",
                         "code": "AUDIO_ANN",
                         "name": "Английский для начинающих extra"
+                    },
+                    {
+                        "node_id": 17858,
+                        "parent_code": "LESSON",
+                        "code": "ANN",
+                        "name": "Pdf lessons itne"
                     }
                 ]
             },

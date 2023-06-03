@@ -69,6 +69,11 @@ class LessonData {
         }
         return null;
     }
+
+    get downloadAudioUrl()
+    {
+        return `/api/audio/download/course/${this.audioCategoryCode}/lesson/${this.getAudioName()}`;
+    }
 }
 
 export {
