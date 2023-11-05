@@ -5,13 +5,13 @@ const state = () => ({
     downloadUrl: null,
     compact: false,
     src: null,
+    loading: false,
 });
 
 const mutations = {
     show(store) {
         store.show = true;
     },
-
     hide(store) {
         store.show = false;
     },
@@ -20,6 +20,9 @@ const mutations = {
     },
     setSrc(store, src) {
         store.src = src;
+    },
+    loading(store, state = true) {
+        store.loading = state;
     },
 };
 

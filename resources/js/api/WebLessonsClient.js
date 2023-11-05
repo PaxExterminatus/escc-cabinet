@@ -7,19 +7,27 @@ const endpoint = {
 class WebLessonsClient  extends ApplicationClient
 {
     constructor() {
-        super({
-            withCredentials: true,
-        });
+        super({withCredentials: true});
     }
 
     /**
      * @param course
      * @param lesson
-     * @returns {Promise<axios.AxiosResponse<any>>}
+     * @returns {Promise<AxiosResponse<any>>}
      */
     show({course, lesson})
     {
         return this.client.get(endpoint.show(course, lesson));
+    }
+
+    /**
+     * @param course
+     * @param lesson
+     * @returns {string}
+     */
+    src({course, lesson})
+    {
+        return endpoint.show(course, lesson);
     }
 }
 

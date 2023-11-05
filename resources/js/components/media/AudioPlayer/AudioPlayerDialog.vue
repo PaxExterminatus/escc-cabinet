@@ -16,7 +16,7 @@
         class="audio-player-dialog-small"
         position="topright"
         v-model:visible="visible"
-        :style="{height: '120px', width: '100px', margin: '55px 0 5px 0'}"
+        :style="{height: '120px', width: '100px', margin: '85px 0 5px 0'}"
     >
         <AudioPlayerCompact/>
     </Dialog>

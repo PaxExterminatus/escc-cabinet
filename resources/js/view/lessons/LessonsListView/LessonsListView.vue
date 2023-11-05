@@ -45,7 +45,7 @@ import Column from 'primevue/column'
 import Message from 'primevue/message'
 import DataTable from 'primevue/datatable'
 import SplitButton from 'primevue/splitbutton'
-import {reader} from "cmp/media/LessonReader";
+import {reader} from 'cmp/media/LessonReader';
 
 export default {
     components: {
@@ -88,14 +88,15 @@ export default {
             const course = this.course.webLessonsCategory?.code;
             const lesson = lessonData.getPdfName();
 
-            api.webLessons
-                .show({course, lesson})
-                .then(response => {
-                    console.log(response);
-                    reader.setTitle(lessonData.name)
-                        .setSrc(response.data)
-                        .show();
-                });
+            reader.setTitle(lessonData.name)
+                .show()
+                .setSrc(api.webLessons.src({course, lesson}));
+
+            // api.webLessons
+            //     .show({course, lesson})
+            //     .then(response => {
+            //         reader.setSrc(response.data);
+            //     });
         },
     },
 }

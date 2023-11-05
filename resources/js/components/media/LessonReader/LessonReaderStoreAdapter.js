@@ -37,6 +37,11 @@ class LessonReaderStoreAdapter
         this.$store.commit('reader/setSrc', src);
         return this;
     }
+
+    loading(state = true) {
+        this.$store.commit('reader/loading', state);
+        return this;
+    }
 }
 
 export default LessonReaderStoreAdapter;
