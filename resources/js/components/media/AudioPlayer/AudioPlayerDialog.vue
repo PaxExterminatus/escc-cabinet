@@ -1,5 +1,7 @@
 <template>
     <Dialog
+        :base-z-index="10"
+        :auto-z-index="false"
         v-if="!compact"
         class="audio-player-dialog"
         v-model:visible="visible"
@@ -12,6 +14,8 @@
     </Dialog>
 
     <Dialog
+        :base-z-index="10"
+        :auto-z-index="false"
         v-if="compact"
         class="audio-player-dialog-small"
         position="topright"
