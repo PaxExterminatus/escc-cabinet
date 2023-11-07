@@ -6,7 +6,7 @@
             </template>
 
             <template #content v-if="auth.user">
-                <div>{{ auth.user.iname }} {{ auth.user.fname }}</div>
+                <div>{{ firstname }} {{ lastname }}</div>
                 <div>Студенческий номер: <strong>{{ auth.user.code }}</strong></div>
             </template>
 
@@ -80,6 +80,14 @@ export default {
         /** @returns {AuthState} */
         auth() {
             return this.$store.state.auth;
+        },
+        firstname() {
+            const str = this.auth.user.iname;
+            return str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
+        },
+        lastname() {
+            const str = this.auth.user.fname;
+            return str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
         },
     },
 }
