@@ -33,10 +33,10 @@
 </template>
 
 <script>
-import audioPlayer from './'
-import Dialog from 'primevue/dialog'
-import AudioPlayer from './AudioPlayer'
-import AudioPlayerCompact from './AudioPlayerCompact'
+import audioPlayer from './';
+import Dialog from 'primevue/dialog';
+import AudioPlayer from './AudioPlayer';
+import AudioPlayerCompact from './AudioPlayerCompact';
 
 export default {
     name: 'AudioPlayerDialog',

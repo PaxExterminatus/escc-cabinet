@@ -113,8 +113,7 @@ export default {
             audioPlayer.setSelected(value, 0);
         },
 
-        onTimeSlideend({value})
-        {
+        onTimeSlideend({value}) {
             this.audioElement.currentTime = value;
             this.audioElement.play();
         },
@@ -149,11 +148,6 @@ export default {
             this.audioElement.volume = volume/100;
             this.volumeState = volume;
         },
-
-        timeChange(time) {
-            this.currentTimeFormatted = this.timeFormat(time);
-            this.currentTimeState = time;
-        }
     },
 
     watch: {
@@ -163,7 +157,7 @@ export default {
                 this.selected = lesson;
             },
         },
-        currentTime() {
+        time() {
             this.currentTime = this.time;
         },
     },
