@@ -91,12 +91,6 @@ export default {
             reader.setTitle(lessonData.name)
                 .show()
                 .setSrc(api.webLessons.src({course, lesson}));
-
-            // api.webLessons
-            //     .show({course, lesson})
-            //     .then(response => {
-            //         reader.setSrc(response.data);
-            //     });
         },
     },
 }

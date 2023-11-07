@@ -7,31 +7,22 @@
       maximizable
       :header="title"
       position="left"
-      @click="dialogOnClick"
   >
-    <LessonReader :src="src"/>
+    <LessonsView :src="src"/>
   </Dialog>
 </template>
 
 <script>
-import LessonReader from './LessonReader.vue'
-import Dialog from 'primevue/dialog'
-import {reader} from './'
+import {reader} from './';
+import Dialog from 'primevue/dialog';
+import LessonsView from './LessonViewMozillaViewer.vue';
 
 export default {
   name: 'LessonReaderDialog',
-
   components: {
     Dialog,
-    LessonReader,
+      LessonsView,
   },
-
-  methods: {
-    dialogOnClick(event) {
-      //event.target.style.zIndex = Number(event.target.style.zIndex) + 1;
-    },
-  },
-
   computed: {
     visible: {
       get: () => reader.display,

@@ -1,0 +1,28 @@
+.pdfview {
+    width: 100%;
+}
+
+.pdfview iframe {
+    width: 100%;
+    height: 720px;
+    border: none;
+}
+
+/*.border {*/
+    /*display: none;*/
+/*}*/
+
+/*.border_header {*/
+    /*display: none;*/
+/*}*/
+
+/*.field {*/
+    /*display: none;*/
+/*}*/
+
+/*.student_style {*/
+    /*width: 100%;*/
+/*}*/
+/*.border_all {*/
+    /*width: 100%;*/
+/*}*/

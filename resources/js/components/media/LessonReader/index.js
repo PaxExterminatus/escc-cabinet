@@ -1,5 +1,5 @@
 import store from 'app/store';
-import LessonReader from './LessonReader';
+import LessonReader from './LessonViewFrame.vue';
 import LessonReaderDialog from './LessonReaderDialog';
 import LessonReaderStoreAdapter from './LessonReaderStoreAdapter';
 

@@ -15,9 +15,8 @@ class WebLessonsClient  extends ApplicationClient
      * @param lesson
      * @returns {Promise<AxiosResponse<any>>}
      */
-    show({course, lesson})
-    {
-        return this.client.get(endpoint.show(course, lesson));
+    show({course, lesson}) {
+        return this.client.get(this.src({course, lesson}));
     }
 
     /**
@@ -25,8 +24,7 @@ class WebLessonsClient  extends ApplicationClient
      * @param lesson
      * @returns {string}
      */
-    src({course, lesson})
-    {
+    src({course, lesson}) {
         return endpoint.show(course, lesson);
     }
 }
