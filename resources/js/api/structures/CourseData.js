@@ -4,6 +4,7 @@ class CourseData {
     /** @type {undefined|CourseCategory} */
     audioCategoryData = undefined;
     videoCategoryData = undefined;
+    lessonsPDFCategoryData = undefined;
 
     /**
      * @param {ClientCourse} data
@@ -15,7 +16,7 @@ class CourseData {
         this.status = data.status ?? null;
         this.state = this.statusToState(data.status)
         this.categories = data.categories;
-        this.lessons = (data.lessons ?? []).map(lessonResponseData => new LessonData(lessonResponseData, this.audioCategory()?.code))
+        this.lessons = (data.lessons ?? []).map(lessonResponseData => new LessonData(lessonResponseData, this.audioCategory?.code))
     }
 
     statusToState(status) {
@@ -28,7 +29,7 @@ class CourseData {
         if (status === 'error') return 'stop';
     }
 
-    audioCategory()
+    get audioCategory()
     {
         if (this.audioCategoryData === undefined)
         {
@@ -60,6 +61,23 @@ class CourseData {
         }
 
         return this.videoCategoryData;
+    }
+
+    get webLessonsCategory()
+    {
+        if (this.lessonsPDFCategoryData === undefined)
+        {
+            for (let category of this.categories)
+            {
+                if (category.parent_code === 'LESSON')
+                {
+                    this.lessonsPDFCategoryData = category;
+                    break;
+                }
+            }
+        }
+
+        return this.lessonsPDFCategoryData;
     }
 }
 

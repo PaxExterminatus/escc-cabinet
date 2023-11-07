@@ -1,13 +1,20 @@
 <template>
     <span class="course-materials">
-        <template v-if="clientCourse.audioCategory()">
+        <template v-if="clientCourse.webLessonsCategory">
             <InlineMessage class="course-materials-tag" severity="success">
-                <span class="align-v-center-gap"><i class="pi pi-play"></i> Аудио</span>
+                <span class="align-v-center-gap"><i class="pi pi-file-pdf"></i>Уроки</span>
             </InlineMessage>
         </template>
+
+        <template v-if="clientCourse.audioCategory">
+            <InlineMessage class="course-materials-tag" severity="success">
+                <span class="align-v-center-gap"><i class="pi pi-play"></i>Аудио</span>
+            </InlineMessage>
+        </template>
+
         <template v-if="clientCourse.videoCategory">
             <InlineMessage class="course-materials-tag" severity="success">
-                <span class="align-v-center-gap"><i class="pi pi-video"></i> Видео</span>
+                <span class="align-v-center-gap"><i class="pi pi-video"></i>Видео</span>
             </InlineMessage>
         </template>
     </span>

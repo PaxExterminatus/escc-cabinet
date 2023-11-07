@@ -1,22 +1,26 @@
 <template>
     <Dialog
+        :base-z-index="10"
+        :auto-z-index="false"
         v-if="!compact"
         class="audio-player-dialog"
         v-model:visible="visible"
         :showHeader="false"
         position="topright"
-        :style="{height: '100vh', maxHeight: 'calc(100vh - 10px)', margin: '5px 0 5px 0'}"
+        :style="{height: '100vh', maxHeight: '100vh', margin: '5px 0 5px 0'}"
         style="overflow: visible !important;"
     >
-        <AudioPlayer :audio="audio" :current-time="currentTime" :duration-time="durationTime"/>
+        <AudioPlayer :audio="audio" :time="currentTime" :duration="durationTime"/>
     </Dialog>
 
     <Dialog
+        :base-z-index="10"
+        :auto-z-index="false"
         v-if="compact"
         class="audio-player-dialog-small"
         position="topright"
         v-model:visible="visible"
-        :style="{height: '120px', width: '100px', margin: '55px 0 5px 0'}"
+        :style="{height: '120px', width: '100px', margin: '70px 0 5px 0'}"
     >
         <AudioPlayerCompact/>
     </Dialog>
@@ -29,10 +33,10 @@
 </template>
 
 <script>
-import audioPlayer from './'
-import Dialog from 'primevue/dialog'
-import AudioPlayer from './AudioPlayer'
-import AudioPlayerCompact from './AudioPlayerCompact'
+import audioPlayer from './';
+import Dialog from 'primevue/dialog';
+import AudioPlayer from './AudioPlayer';
+import AudioPlayerCompact from './AudioPlayerCompact';
 
 export default {
     name: 'AudioPlayerDialog',

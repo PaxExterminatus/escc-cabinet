@@ -23,7 +23,7 @@ class AuthAPI extends ApplicationClient {
      */
     login (credentials)
     {
-        const loginData = {
+        const credentialsAdapter = {
             email: credentials.login,
             password: credentials.password,
         };
@@ -31,12 +31,18 @@ class AuthAPI extends ApplicationClient {
         return new Promise((resolve, reject) => {
             this.client.get(endpoint.sanctumCsrf)
                 .then(() => {
-                    return this.client.post(endpoint.login, loginData)
+                    return this.client.post(endpoint.login, credentialsAdapter)
                         .then(r => {
                             resolve(r);
+                        })
+                        .catch(error => {
+                            reject(error);
                         });
+                })
+                .catch(error => {
+                    reject(error);
                 });
-        })
+        });
     }
 
     logout()

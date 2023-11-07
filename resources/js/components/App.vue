@@ -3,17 +3,20 @@
         <router-view/>
         <VideoPlayerDialog/>
         <AudioPlayerDialog/>
+        <LessonReaderDialog/>
     </div>
 </template>
 
 <script>
-import VideoPlayerDialog from 'cmp/VideoPlayer/VideoPlayerDialog'
-import { AudioPlayerDialog } from 'cmp/media/AudioPlayer'
+import {VideoPlayerDialog} from 'cmp/media/VideoPlayer'
+import {AudioPlayerDialog} from 'cmp/media/AudioPlayer'
+import {LessonReaderDialog} from 'cmp/media/LessonReader'
 
 export default {
     components: {
         VideoPlayerDialog,
         AudioPlayerDialog,
+        LessonReaderDialog,
     },
     computed: {
         /** @returns {AuthUser} */

@@ -23,8 +23,10 @@
         "vue-template-compiler": "^2.7.14"
     },
     "dependencies": {
+        "@unhead/vue": "^1.8.3",
         "@vitejs/plugin-vue": "^4.0.0",
         "node.js": "0.0.1-security",
+        "pdfjs-dist": "^4.0.189",
         "primeflex": "^3.3.0",
         "primeicons": "^6.0.1",
         "primevue": "^3.21.0",

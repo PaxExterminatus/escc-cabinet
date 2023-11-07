@@ -16,6 +16,8 @@ import store from 'app/store'
 // Application ---------------------------------------------------------------------------------------------------------
 const app = createApp(App)
 
+app.config.devtools = true
+
 app.use(PrimeVue)
 app.use(ToastService)
 app.use(router)

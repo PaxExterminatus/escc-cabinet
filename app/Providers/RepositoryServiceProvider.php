@@ -9,16 +9,13 @@ use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
-    function register()
+    function register(): void
     {
         if (REPOSITORY_USE_DEV)
-        {
             $this->app->bind(ClientRepository::class, ClientDevRepository::class);
-        }
         else
-        {
             $this->app->bind(ClientRepository::class, ClientSassRepository::class);
-        }
+
     }
 
     function boot()

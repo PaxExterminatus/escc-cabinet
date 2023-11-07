@@ -54,7 +54,7 @@ import Column from 'primevue/column'
 import DataTable from 'primevue/datatable'
 import CourseMaterials from  'view/courses/CourseMaterials/CourseMaterials'
 import LessonsListView from 'view/lessons/LessonsListView/LessonsListView'
-import VideoPlayer from 'cmp/VideoPlayer/VideoPlayer'
+import VideoPlayer from 'cmp/media/VideoPlayer/VideoPlayer'
 
 export default {
     name: 'CourseContent',

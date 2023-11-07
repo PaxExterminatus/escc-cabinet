@@ -38,19 +38,25 @@ class LessonData {
         return matches ? name : null;
     }
 
-    get audioMenu()
+    /**
+     * @returns {string|null}
+     */
+    getPdfName()
     {
-        //todo move template to class
-        if (this.audioCategoryCode) {
-            return [
-                {
-                    label: 'Скачать Аудио',
-                    icon: 'pi pi-download',
-                    url: `/api/audio/download/course/${this.audioCategoryCode}/lesson/${this.getAudioName()}`,
-                },
-            ];
+        let matches = this.name.match(/\d\d-\d\d/);
+        let name = matches ? matches[0] : null;
+
+        if (!matches)
+        {
+            matches = this.name.match(/ДМ([\s\S]+?)\d/);
+            name = matches ? matches[0].replace(matches[1], ' ') : null;
         }
-        return null;
+
+        return matches ? name : null;
+    }
+
+    get downloadAudioUrl() {
+        return `/api/audio/download/course/${this.audioCategoryCode}/lesson/${this.getAudioName()}`;
     }
 }
 

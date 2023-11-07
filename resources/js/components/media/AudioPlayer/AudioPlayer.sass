@@ -4,17 +4,15 @@
     height: 100%
     .player-buttons
         z-index: 2
-        height: 190px
-        min-height: 190px
-        max-height: 190px
         background-color: #fff
     .player-buttons-mid
         display: flex
         align-items: center
-        margin: 10px 0
+        margin: 15px 0
     .player-buttons-top
         display: flex
         justify-content: flex-end
+        border-bottom: solid 1px #f4f4f4
     .player-times
         display: flex
         justify-content: space-between
@@ -51,8 +49,15 @@
         flex-direction: column
         height: 100%
     .p-listbox
-        border: none
+        border: solid 1px #f4f4f4
+        border-right: none
+        border-radius: 0
+
+.p-listbox .p-listbox-list
+    padding: 0
+
 .audio-player-dialog-small
+    margin: 85px 0 5px
     .p-dialog-header
         display: none
     .p-dialog-content

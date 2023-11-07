@@ -45,6 +45,11 @@ return [
             'root' => storage_path('app/video') ,
         ],
 
+        DISK_WEB_LESSONS => [
+            'driver' => 'local',
+            'root' => storage_path('app/lessons/web/') ,
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

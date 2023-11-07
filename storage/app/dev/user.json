@@ -1,99 +1,1271 @@
 {
-  "client": {
-    "id": 1542215,
-    "name": "Алеся",
-    "middle_name": "Александровна",
-    "last_name": "Ляшук",
-    "total_deb": 0,
-    "courses": [
-      {
-        "id": 1266187,
-        "node_id": 29434,
-        "client_id": 1542215,
-        "status_id": 4,
-        "name": "Английский для среднего уровня extra  английский для среднего уровня extra (ow) b1",
-        "status": "finished",
-        "lessons": [
-          {
-            "id": 76487454,
-            "client_id": 1542215,
-            "course_id": 1266187,
-            "node_id": 22894,
-            "name": "WEB-версия АСЭ к урокам 01-02"
-          },
-          {
-            "id": 76487466,
-            "client_id": 1542215,
-            "course_id": 1266187,
-            "node_id": 22895,
-            "name": "WEB-версия АСЭ к урокам 03-04"
-          },
-          {
-            "id": 76487468,
-            "client_id": 1542215,
-            "course_id": 1266187,
-            "node_id": 22914,
-            "name": "WEB-версия АСЭ к урокам 05-06"
-          },
-          {
-            "id": 76487470,
-            "client_id": 1542215,
-            "course_id": 1266187,
-            "node_id": 22915,
-            "name": "WEB-версия АСЭ к урокам 07-08"
-          },
-          {
-            "id": 76487472,
-            "client_id": 1542215,
-            "course_id": 1266187,
-            "node_id": 22934,
-            "name": "WEB-версия АСЭ к урокам 09-10"
-          },
-          {
-            "id": 76487474,
-            "client_id": 1542215,
-            "course_id": 1266187,
-            "node_id": 22935,
-            "name": "WEB-версия АСЭ к урокам 11-12"
-          },
-          {
-            "id": 76487476,
-            "client_id": 1542215,
-            "course_id": 1266187,
-            "node_id": 22936,
-            "name": "WEB-версия АСЭ к урокам 13-14"
-          },
-          {
-            "id": 76487478,
-            "client_id": 1542215,
-            "course_id": 1266187,
-            "node_id": 22937,
-            "name": "WEB-версия АСЭ к урокам 15-16"
-          },
-          {
-            "id": 76487480,
-            "client_id": 1542215,
-            "course_id": 1266187,
-            "node_id": 22938,
-            "name": "WEB-версия АСЭ к урокам 17-18"
-          },
-          {
-            "id": 76487482,
-            "client_id": 1542215,
-            "course_id": 1266187,
-            "node_id": 22939,
-            "name": "WEB-версия АСЭ к урокам 19-20"
-          }
-        ],
-        "categories": [
-          {
-            "node_id": 29434,
-            "parent_code": "AUDIO",
-            "code": "AUDIO_ASE",
-            "name": "Английский для среднего уровня extra"
-          }
+    "client": {
+        "id": 2333,
+        "name": "Татьяна",
+        "middle_name": "Борисовна",
+        "last_name": "Неборская",
+        "total_deb": -46.78,
+        "courses": [
+            {
+                "id": 2599,
+                "node_id": 2672,
+                "client_id": 2333,
+                "status_id": 4,
+                "name": "Менеджер по связям с общественностью",
+                "status": "finished",
+                "lessons": [
+                    {
+                        "id": 164753,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1049,
+                        "name": "УР. ПИР 01-02"
+                    },
+                    {
+                        "id": 164768,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1050,
+                        "name": "УР. ПИР 03-04"
+                    },
+                    {
+                        "id": 164770,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1051,
+                        "name": "УР. ПИР 05-06"
+                    },
+                    {
+                        "id": 164772,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1052,
+                        "name": "УР. ПИР 07-08"
+                    },
+                    {
+                        "id": 164774,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1053,
+                        "name": "УР. ПИР 09-10"
+                    },
+                    {
+                        "id": 164776,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1054,
+                        "name": "УР. ПИР 11-12"
+                    },
+                    {
+                        "id": 164778,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1055,
+                        "name": "УР. ПИР 13-14"
+                    },
+                    {
+                        "id": 164780,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1056,
+                        "name": "УР. ПИР 15-16"
+                    },
+                    {
+                        "id": 164782,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1057,
+                        "name": "УР. ПИР 17-18"
+                    },
+                    {
+                        "id": 164784,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1058,
+                        "name": "УР. ПИР 19-20"
+                    },
+                    {
+                        "id": 164786,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1059,
+                        "name": "УР. ПИР 21-22"
+                    },
+                    {
+                        "id": 164788,
+                        "client_id": 2333,
+                        "course_id": 2599,
+                        "node_id": 1060,
+                        "name": "УР. ПИР 23-24"
+                    }
+                ],
+                "categories": []
+            },
+            {
+                "id": 1022667,
+                "node_id": 11561,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "Английский для среднего уровня extra",
+                "status": "not active",
+                "lessons": [
+                    {
+                        "id": 13071033,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11520,
+                        "name": "УР. АСЭ 01-02"
+                    },
+                    {
+                        "id": 13368384,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11521,
+                        "name": "УР. АСЭ 03-04"
+                    },
+                    {
+                        "id": 13701260,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11522,
+                        "name": "УР. АСЭ 05-06"
+                    },
+                    {
+                        "id": 14081012,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11523,
+                        "name": "УР. АСЭ 07-08"
+                    },
+                    {
+                        "id": 14457546,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11524,
+                        "name": "УР. АСЭ 09-10"
+                    },
+                    {
+                        "id": 14769435,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11525,
+                        "name": "УР. АСЭ 11-12"
+                    },
+                    {
+                        "id": 15094579,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11521,
+                        "name": "УР. АСЭ 03-04"
+                    },
+                    {
+                        "id": 15541549,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11526,
+                        "name": "УР. АСЭ 13-14"
+                    },
+                    {
+                        "id": 15845413,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11527,
+                        "name": "УР. АСЭ 15-16"
+                    },
+                    {
+                        "id": 16249771,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11528,
+                        "name": "УР. АСЭ 17-18"
+                    },
+                    {
+                        "id": 16637281,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11529,
+                        "name": "УР. АСЭ 19-20"
+                    },
+                    {
+                        "id": 17055399,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11530,
+                        "name": "УР. АСЭ 21-22"
+                    },
+                    {
+                        "id": 17807740,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11531,
+                        "name": "УР. АСЭ 23-24"
+                    },
+                    {
+                        "id": 20503106,
+                        "client_id": 2333,
+                        "course_id": 1022667,
+                        "node_id": 11532,
+                        "name": "УР. АСЭ 25-26"
+                    }
+                ],
+                "categories": [
+                    {
+                        "node_id": 11561,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_ASE",
+                        "name": "Английский для среднего уровня extra"
+                    }
+                ]
+            },
+            {
+                "id": 1065237,
+                "node_id": 17858,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "Английский для начинающих extra  + online версия уроков",
+                "status": "not active",
+                "lessons": [
+                    {
+                        "id": 48356169,
+                        "client_id": 2333,
+                        "course_id": 1065237,
+                        "node_id": 18225,
+                        "name": "УР. АНН 01-02"
+                    },
+                    {
+                        "id": 48584265,
+                        "client_id": 2333,
+                        "course_id": 1065237,
+                        "node_id": 18226,
+                        "name": "УР. АНН 03-04"
+                    },
+                    {
+                        "id": 49101506,
+                        "client_id": 2333,
+                        "course_id": 1065237,
+                        "node_id": 18227,
+                        "name": "УР. АНН 05-06"
+                    },
+                    {
+                        "id": 53156777,
+                        "client_id": 2333,
+                        "course_id": 1065237,
+                        "node_id": 18227,
+                        "name": "УР. АНН 05-06"
+                    }
+                ],
+                "categories": [
+                    {
+                        "node_id": 17858,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_ANN",
+                        "name": "Английский для начинающих extra"
+                    },
+                    {
+                        "node_id": 17858,
+                        "parent_code": "LESSON",
+                        "code": "ANN",
+                        "name": "Pdf lessons itne"
+                    }
+                ]
+            },
+            {
+                "id": 1079614,
+                "node_id": 20684,
+                "client_id": 2333,
+                "status_id": 4,
+                "name": "Английский для начинающих extra  + online",
+                "status": "finished",
+                "lessons": [],
+                "categories": []
+            },
+            {
+                "id": 1072278,
+                "node_id": 2710,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "Китайский для начинающих",
+                "status": "not active",
+                "lessons": [
+                    {
+                        "id": 55160734,
+                        "client_id": 2333,
+                        "course_id": 1072278,
+                        "node_id": 957,
+                        "name": "УР. КТН 01-02"
+                    }
+                ],
+                "categories": [
+                    {
+                        "node_id": 2710,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_KTN",
+                        "name": "Китайский для начинающих"
+                    }
+                ]
+            },
+            {
+                "id": 1072357,
+                "node_id": 18986,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "Турецкий для начинающих + online версия уроков",
+                "status": "not active",
+                "lessons": [],
+                "categories": [
+                    {
+                        "node_id": 18986,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_TN",
+                        "name": "Турецкий для начинающих"
+                    }
+                ]
+            },
+            {
+                "id": 1081313,
+                "node_id": 20763,
+                "client_id": 2333,
+                "status_id": 6,
+                "name": "Английский для среднего уровня extra  + online",
+                "status": "finishing",
+                "lessons": [],
+                "categories": []
+            },
+            {
+                "id": 1081624,
+                "node_id": 21197,
+                "client_id": 2333,
+                "status_id": 4,
+                "name": "Английский для начинающих extra ( уровень сложности a1)",
+                "status": "finished",
+                "lessons": [
+                    {
+                        "id": 68899830,
+                        "client_id": 2333,
+                        "course_id": 1081624,
+                        "node_id": 21198,
+                        "name": "WEB-версия АНН A1 к урокам 01-02"
+                    },
+                    {
+                        "id": 68899832,
+                        "client_id": 2333,
+                        "course_id": 1081624,
+                        "node_id": 21199,
+                        "name": "WEB-версия АНН A1 к урокам 03-04"
+                    },
+                    {
+                        "id": 68899834,
+                        "client_id": 2333,
+                        "course_id": 1081624,
+                        "node_id": 21200,
+                        "name": "WEB-версия АНН A1 к урокам 05-06"
+                    },
+                    {
+                        "id": 68899836,
+                        "client_id": 2333,
+                        "course_id": 1081624,
+                        "node_id": 21201,
+                        "name": "WEB-версия АНН A1 к урокам 07-08"
+                    },
+                    {
+                        "id": 68899838,
+                        "client_id": 2333,
+                        "course_id": 1081624,
+                        "node_id": 21202,
+                        "name": "WEB-версия АНН A1 к урокам 09-10"
+                    },
+                    {
+                        "id": 68899840,
+                        "client_id": 2333,
+                        "course_id": 1081624,
+                        "node_id": 21203,
+                        "name": "WEB-версия АНН A1 к урокам 11-12"
+                    },
+                    {
+                        "id": 68899842,
+                        "client_id": 2333,
+                        "course_id": 1081624,
+                        "node_id": 21204,
+                        "name": "WEB-версия АНН A1 к урокам 13-14"
+                    },
+                    {
+                        "id": 68899844,
+                        "client_id": 2333,
+                        "course_id": 1081624,
+                        "node_id": 21205,
+                        "name": "WEB-версия АНН A1 к урокам 15-16"
+                    },
+                    {
+                        "id": 68899846,
+                        "client_id": 2333,
+                        "course_id": 1081624,
+                        "node_id": 21206,
+                        "name": "WEB-версия АНН A1 к урокам 17-18"
+                    },
+                    {
+                        "id": 68899848,
+                        "client_id": 2333,
+                        "course_id": 1081624,
+                        "node_id": 21207,
+                        "name": "WEB-версия АНН A1 к урокам 19-20"
+                    }
+                ],
+                "categories": [
+                    {
+                        "node_id": 21197,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_ANN",
+                        "name": "Английский для начинающих extra"
+                    }
+                ]
+            },
+            {
+                "id": 1099204,
+                "node_id": 22154,
+                "client_id": 2333,
+                "status_id": 4,
+                "name": "Польский для начинающих  ( уровень сложности a1)",
+                "status": "finished",
+                "lessons": [
+                    {
+                        "id": 71652025,
+                        "client_id": 2333,
+                        "course_id": 1099204,
+                        "node_id": 22114,
+                        "name": "WEB-версия ПОЛЦ к урокам 01-02( А1)"
+                    },
+                    {
+                        "id": 71652027,
+                        "client_id": 2333,
+                        "course_id": 1099204,
+                        "node_id": 22134,
+                        "name": "WEB-версия ПОЛЦ к урокам 03-04 (А1)"
+                    },
+                    {
+                        "id": 71652029,
+                        "client_id": 2333,
+                        "course_id": 1099204,
+                        "node_id": 22174,
+                        "name": "WEB-версия ПОЛЦ к урокам 05-06 (А1)"
+                    },
+                    {
+                        "id": 71652031,
+                        "client_id": 2333,
+                        "course_id": 1099204,
+                        "node_id": 22175,
+                        "name": "WEB-версия ПОЛЦ к урокам 07-08 (А1)"
+                    },
+                    {
+                        "id": 71652033,
+                        "client_id": 2333,
+                        "course_id": 1099204,
+                        "node_id": 22188,
+                        "name": "WEB-версия ПОЛЦ к ДМ 1 (А1)"
+                    },
+                    {
+                        "id": 71652035,
+                        "client_id": 2333,
+                        "course_id": 1099204,
+                        "node_id": 22176,
+                        "name": "WEB-версия ПОЛЦ к урокам 09-10 (А1)"
+                    },
+                    {
+                        "id": 71652037,
+                        "client_id": 2333,
+                        "course_id": 1099204,
+                        "node_id": 22177,
+                        "name": "WEB-версия ПОЛЦ к урокам 11-12 (А1)"
+                    },
+                    {
+                        "id": 71652039,
+                        "client_id": 2333,
+                        "course_id": 1099204,
+                        "node_id": 22178,
+                        "name": "WEB-версия ПОЛЦ к урокам 13-14 ( А1)"
+                    },
+                    {
+                        "id": 71652041,
+                        "client_id": 2333,
+                        "course_id": 1099204,
+                        "node_id": 22179,
+                        "name": "WEB-версия ПОЛЦ к урокам 15-16 (А1)"
+                    },
+                    {
+                        "id": 71652043,
+                        "client_id": 2333,
+                        "course_id": 1099204,
+                        "node_id": 22189,
+                        "name": "WEB-версия ПОЛЦ к ДМ 2 (А1)"
+                    }
+                ],
+                "categories": [
+                    {
+                        "node_id": 22154,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_POL",
+                        "name": "Польский для начинающих"
+                    }
+                ]
+            },
+            {
+                "id": 1099884,
+                "node_id": 22194,
+                "client_id": 2333,
+                "status_id": 4,
+                "name": "Польский для начинающих  ( уровень сложности a2)",
+                "status": "finished",
+                "lessons": [
+                    {
+                        "id": 71665155,
+                        "client_id": 2333,
+                        "course_id": 1099884,
+                        "node_id": 22180,
+                        "name": "WEB-версия ПОЛЦ к урокам 17-18 (А2)"
+                    },
+                    {
+                        "id": 71665157,
+                        "client_id": 2333,
+                        "course_id": 1099884,
+                        "node_id": 22181,
+                        "name": "WEB-версия ПОЛЦ к урокам 19-20 (А2)"
+                    },
+                    {
+                        "id": 71665159,
+                        "client_id": 2333,
+                        "course_id": 1099884,
+                        "node_id": 22182,
+                        "name": "WEB-версия ПОЛЦ к урокам 21-22 (А2)"
+                    },
+                    {
+                        "id": 71665161,
+                        "client_id": 2333,
+                        "course_id": 1099884,
+                        "node_id": 22183,
+                        "name": "WEB-версия ПОЛЦ к урокам 23-24 (А2)"
+                    },
+                    {
+                        "id": 71665163,
+                        "client_id": 2333,
+                        "course_id": 1099884,
+                        "node_id": 22190,
+                        "name": "WEB-версия ПОЛЦ к ДМ 3 (А2)"
+                    },
+                    {
+                        "id": 71665165,
+                        "client_id": 2333,
+                        "course_id": 1099884,
+                        "node_id": 22184,
+                        "name": "WEB-версия ПОЛЦ к урокам 25-26 (А2)"
+                    },
+                    {
+                        "id": 71665167,
+                        "client_id": 2333,
+                        "course_id": 1099884,
+                        "node_id": 22185,
+                        "name": "WEB-версия ПОЛЦ к урокам 27-28 (А2)"
+                    },
+                    {
+                        "id": 71665169,
+                        "client_id": 2333,
+                        "course_id": 1099884,
+                        "node_id": 22186,
+                        "name": "WEB-версия ПОЛЦ к урокам 29-30 (А2)"
+                    },
+                    {
+                        "id": 71665171,
+                        "client_id": 2333,
+                        "course_id": 1099884,
+                        "node_id": 22187,
+                        "name": "WEB-версия ПОЛЦ к урокам 31-32 (А2)"
+                    },
+                    {
+                        "id": 71665173,
+                        "client_id": 2333,
+                        "course_id": 1099884,
+                        "node_id": 22191,
+                        "name": "WEB-версия ПОЛЦ к ДМ 4 (А2)"
+                    }
+                ],
+                "categories": [
+                    {
+                        "node_id": 22194,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_POL",
+                        "name": "Польский для начинающих"
+                    }
+                ]
+            },
+            {
+                "id": 1168828,
+                "node_id": 25934,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "Японский для начинающих+ online версия уроков",
+                "status": "not active",
+                "lessons": [],
+                "categories": [
+                    {
+                        "node_id": 25934,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_JAP",
+                        "name": "Японский для начинающих"
+                    }
+                ]
+            },
+            {
+                "id": 1230528,
+                "node_id": 29114,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "Английский для начинающих extra(ow)",
+                "status": "not active",
+                "lessons": [
+                    {
+                        "id": 75262140,
+                        "client_id": 2333,
+                        "course_id": 1230528,
+                        "node_id": 22415,
+                        "name": "WEB-версия АНН к урокам 01-02"
+                    },
+                    {
+                        "id": 75262853,
+                        "client_id": 2333,
+                        "course_id": 1230528,
+                        "node_id": 22416,
+                        "name": "WEB-версия АНН к урокам 03-04"
+                    },
+                    {
+                        "id": 75262855,
+                        "client_id": 2333,
+                        "course_id": 1230528,
+                        "node_id": 22417,
+                        "name": "WEB-версия АНН к урокам 05-06"
+                    },
+                    {
+                        "id": 75262857,
+                        "client_id": 2333,
+                        "course_id": 1230528,
+                        "node_id": 22418,
+                        "name": "WEB-версия АНН к урокам 07-08"
+                    },
+                    {
+                        "id": 75262859,
+                        "client_id": 2333,
+                        "course_id": 1230528,
+                        "node_id": 22419,
+                        "name": "WEB-версия АНН к урокам 09-10"
+                    },
+                    {
+                        "id": 75269845,
+                        "client_id": 2333,
+                        "course_id": 1230528,
+                        "node_id": 22420,
+                        "name": "WEB-версия АНН к урокам 11-12"
+                    }
+                ],
+                "categories": [
+                    {
+                        "node_id": 29114,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_ANN",
+                        "name": "Английский для начинающих extra"
+                    }
+                ]
+            },
+            {
+                "id": 1232292,
+                "node_id": 29335,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "Польский для начинающих (ow)",
+                "status": "not active",
+                "lessons": [
+                    {
+                        "id": 75365327,
+                        "client_id": 2333,
+                        "course_id": 1232292,
+                        "node_id": 23360,
+                        "name": "WEB-версия ПОЛЦ к урокам 01-02"
+                    }
+                ],
+                "categories": [
+                    {
+                        "node_id": 29335,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_POL",
+                        "name": "Польский для начинающих"
+                    }
+                ]
+            },
+            {
+                "id": 1232590,
+                "node_id": 29294,
+                "client_id": 2333,
+                "status_id": 3,
+                "name": "Английский для среднего уровня extra (ow)",
+                "status": "error",
+                "lessons": [
+                    {
+                        "id": 75387036,
+                        "client_id": 2333,
+                        "course_id": 1232590,
+                        "node_id": 22894,
+                        "name": "WEB-версия АСЭ к урокам 01-02"
+                    },
+                    {
+                        "id": 76806753,
+                        "client_id": 2333,
+                        "course_id": 1232590,
+                        "node_id": 22895,
+                        "name": "WEB-версия АСЭ к урокам 03-04"
+                    },
+                    {
+                        "id": 76814008,
+                        "client_id": 2333,
+                        "course_id": 1232590,
+                        "node_id": 22914,
+                        "name": "WEB-версия АСЭ к урокам 05-06"
+                    },
+                    {
+                        "id": 76847678,
+                        "client_id": 2333,
+                        "course_id": 1232590,
+                        "node_id": 22915,
+                        "name": "WEB-версия АСЭ к урокам 07-08"
+                    },
+                    {
+                        "id": 76847680,
+                        "client_id": 2333,
+                        "course_id": 1232590,
+                        "node_id": 22934,
+                        "name": "WEB-версия АСЭ к урокам 09-10"
+                    }
+                ],
+                "categories": [
+                    {
+                        "node_id": 29294,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_ASE",
+                        "name": "Английский для среднего уровня extra"
+                    }
+                ]
+            },
+            {
+                "id": 1232591,
+                "node_id": 29355,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "Польский для среднего уровня (ow)",
+                "status": "not active",
+                "lessons": [
+                    {
+                        "id": 75387040,
+                        "client_id": 2333,
+                        "course_id": 1232591,
+                        "node_id": 23794,
+                        "name": "WEB-версия ПС к урокам 01-02"
+                    }
+                ],
+                "categories": [
+                    {
+                        "node_id": 29355,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_PS",
+                        "name": "Польский для среднего уровня"
+                    }
+                ]
+            },
+            {
+                "id": 1232589,
+                "node_id": 29155,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "Деловой английский extra (on+web)",
+                "status": "not active",
+                "lessons": [
+                    {
+                        "id": 75386958,
+                        "client_id": 2333,
+                        "course_id": 1232589,
+                        "node_id": 29175,
+                        "name": "WEB-версия ДАЭ(OW)  к урокам 01-02"
+                    }
+                ],
+                "categories": [
+                    {
+                        "node_id": 29155,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_DAE",
+                        "name": "Деловой английский extra"
+                    }
+                ]
+            },
+            {
+                "id": 1271107,
+                "node_id": 30134,
+                "client_id": 2333,
+                "status_id": 4,
+                "name": "Немецкий для начинающих extra + online (ow)",
+                "status": "finished",
+                "lessons": [
+                    {
+                        "id": 76593554,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23254,
+                        "name": "WEB-версия ННЭ  к урокам 01-02"
+                    },
+                    {
+                        "id": 76593556,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23255,
+                        "name": "WEB-версия ННЭ  к урокам 03-04"
+                    },
+                    {
+                        "id": 76593558,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23256,
+                        "name": "WEB-версия ННЭ  к урокам 05-06"
+                    },
+                    {
+                        "id": 76593560,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23274,
+                        "name": "WEB-версия ННЭ  к урокам 07-08"
+                    },
+                    {
+                        "id": 76593562,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23294,
+                        "name": "WEB-версия ННЭ  к урокам 09-10"
+                    },
+                    {
+                        "id": 76593564,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23295,
+                        "name": "WEB-версия ННЭ  к урокам 11-12"
+                    },
+                    {
+                        "id": 76593566,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23296,
+                        "name": "WEB-версия ННЭ  к урокам 13-14"
+                    },
+                    {
+                        "id": 76593568,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23297,
+                        "name": "WEB-версия ННЭ  к урокам 15-16"
+                    },
+                    {
+                        "id": 76593570,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23298,
+                        "name": "WEB-версия ННЭ  к урокам 17-18"
+                    },
+                    {
+                        "id": 76593572,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23299,
+                        "name": "WEB-версия ННЭ  к урокам 19-20"
+                    },
+                    {
+                        "id": 76593574,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23300,
+                        "name": "WEB-версия ННЭ  к урокам 21-22"
+                    },
+                    {
+                        "id": 76593576,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23301,
+                        "name": "WEB-версия ННЭ  к урокам 23-24"
+                    },
+                    {
+                        "id": 76593578,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23302,
+                        "name": "WEB-версия ННЭ  к урокам 25-26"
+                    },
+                    {
+                        "id": 76593580,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23303,
+                        "name": "WEB-версия ННЭ  к урокам 27-28"
+                    },
+                    {
+                        "id": 76593582,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23304,
+                        "name": "WEB-версия ННЭ  к урокам 29-30"
+                    },
+                    {
+                        "id": 76593584,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23305,
+                        "name": "WEB-версия ННЭ  к урокам 31-32"
+                    },
+                    {
+                        "id": 76593586,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23306,
+                        "name": "WEB-версия ННЭ  к урокам 33-34"
+                    },
+                    {
+                        "id": 76593588,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23307,
+                        "name": "WEB-версия ННЭ  к урокам 35-36"
+                    },
+                    {
+                        "id": 76593590,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23308,
+                        "name": "WEB-версия ННЭ  к урокам 37-38"
+                    },
+                    {
+                        "id": 76593592,
+                        "client_id": 2333,
+                        "course_id": 1271107,
+                        "node_id": 23309,
+                        "name": "WEB-версия ННЭ  к урокам 39-40"
+                    }
+                ],
+                "categories": [
+                    {
+                        "node_id": 30134,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_NNE",
+                        "name": "Немецкий для начинающих extra"
+                    }
+                ]
+            },
+            {
+                "id": 1284588,
+                "node_id": 30174,
+                "client_id": 2333,
+                "status_id": 4,
+                "name": "Итальянский для начинающих extra  + online(ow)",
+                "status": "finished",
+                "lessons": [
+                    {
+                        "id": 76917946,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29654,
+                        "name": "WEB-версия ИТЭ  к урокам 01-02"
+                    },
+                    {
+                        "id": 76917949,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29674,
+                        "name": "WEB-версия ИТЭ  к урокам 03-04"
+                    },
+                    {
+                        "id": 76917952,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29675,
+                        "name": "WEB-версия ИТЭ  к урокам 05-06"
+                    },
+                    {
+                        "id": 76917955,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29676,
+                        "name": "WEB-версия ИТЭ  к урокам 07-08"
+                    },
+                    {
+                        "id": 76917958,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29677,
+                        "name": "WEB-версия ИТЭ  к урокам 09-10"
+                    },
+                    {
+                        "id": 76917961,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29678,
+                        "name": "WEB-версия ИТЭ  к урокам 11-12"
+                    },
+                    {
+                        "id": 76917964,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29679,
+                        "name": "WEB-версия ИТЭ  к урокам 13-14"
+                    },
+                    {
+                        "id": 76917967,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29680,
+                        "name": "WEB-версия ИТЭ  к урокам 15-16"
+                    },
+                    {
+                        "id": 76917970,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29681,
+                        "name": "WEB-версия ИТЭ  к урокам 17-18"
+                    },
+                    {
+                        "id": 76917973,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29682,
+                        "name": "WEB-версия ИТЭ  к урокам 19-20"
+                    },
+                    {
+                        "id": 76917976,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29694,
+                        "name": "WEB-версия ИТЭ  к урокам 21-22"
+                    },
+                    {
+                        "id": 76917979,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29695,
+                        "name": "WEB-версия ИТЭ  к урокам 23-24"
+                    },
+                    {
+                        "id": 76917982,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29696,
+                        "name": "WEB-версия ИТЭ  к урокам 25-26"
+                    },
+                    {
+                        "id": 76917985,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29697,
+                        "name": "WEB-версия ИТЭ  к урокам 27-28"
+                    },
+                    {
+                        "id": 76917988,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29698,
+                        "name": "WEB-версия ИТЭ  к урокам 29-30"
+                    },
+                    {
+                        "id": 76917991,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29699,
+                        "name": "WEB-версия ИТЭ  к урокам 31-32"
+                    },
+                    {
+                        "id": 76917994,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29700,
+                        "name": "WEB-версия ИТЭ  к урокам 33-34"
+                    },
+                    {
+                        "id": 76917997,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29701,
+                        "name": "WEB-версия ИТЭ  к урокам 35-36"
+                    },
+                    {
+                        "id": 76918000,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29702,
+                        "name": "WEB-версия ИТЭ  к урокам 37-38"
+                    },
+                    {
+                        "id": 76918003,
+                        "client_id": 2333,
+                        "course_id": 1284588,
+                        "node_id": 29703,
+                        "name": "WEB-версия ИТЭ  к урокам 39-40"
+                    }
+                ],
+                "categories": [
+                    {
+                        "node_id": 30174,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_ITNE",
+                        "name": "Итальянский для начинающих extra"
+                    },
+                    {
+                        "node_id": 30174,
+                        "parent_code": "LESSON",
+                        "code": "ITNE",
+                        "name": "Pdf lessons itne"
+                    }
+                ]
+            },
+            {
+                "id": 1252030,
+                "node_id": 29775,
+                "client_id": 2333,
+                "status_id": 4,
+                "name": "Английский для детей + online  (ow)",
+                "status": "finished",
+                "lessons": [
+                    {
+                        "id": 75959993,
+                        "client_id": 2333,
+                        "course_id": 1252030,
+                        "node_id": 23095,
+                        "name": "WEB-версия АДД к урокам 01-02"
+                    },
+                    {
+                        "id": 75960006,
+                        "client_id": 2333,
+                        "course_id": 1252030,
+                        "node_id": 23114,
+                        "name": "WEB-версия АДД к урокам 03-04"
+                    },
+                    {
+                        "id": 75960009,
+                        "client_id": 2333,
+                        "course_id": 1252030,
+                        "node_id": 23115,
+                        "name": "WEB-версия АДД к урокам 05-06"
+                    },
+                    {
+                        "id": 75960012,
+                        "client_id": 2333,
+                        "course_id": 1252030,
+                        "node_id": 23116,
+                        "name": "WEB-версия АДД к урокам 07-08"
+                    },
+                    {
+                        "id": 75960015,
+                        "client_id": 2333,
+                        "course_id": 1252030,
+                        "node_id": 23117,
+                        "name": "WEB-версия АДД к урокам 09-10"
+                    },
+                    {
+                        "id": 75960018,
+                        "client_id": 2333,
+                        "course_id": 1252030,
+                        "node_id": 23118,
+                        "name": "WEB-версия АДД к урокам 11-12"
+                    },
+                    {
+                        "id": 75960021,
+                        "client_id": 2333,
+                        "course_id": 1252030,
+                        "node_id": 23119,
+                        "name": "WEB-версия АДД к урокам 13-14"
+                    },
+                    {
+                        "id": 75960024,
+                        "client_id": 2333,
+                        "course_id": 1252030,
+                        "node_id": 23120,
+                        "name": "WEB-версия АДД к урокам 15-16"
+                    },
+                    {
+                        "id": 75960027,
+                        "client_id": 2333,
+                        "course_id": 1252030,
+                        "node_id": 23121,
+                        "name": "WEB-версия АДД к урокам 17-18"
+                    },
+                    {
+                        "id": 75960030,
+                        "client_id": 2333,
+                        "course_id": 1252030,
+                        "node_id": 23122,
+                        "name": "WEB-версия АДД к урокам 19-20"
+                    }
+                ],
+                "categories": [
+                    {
+                        "node_id": 29775,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_ADD",
+                        "name": "Английский для детей"
+                    }
+                ]
+            },
+            {
+                "id": 1251988,
+                "node_id": 31954,
+                "client_id": 2333,
+                "status_id": 4,
+                "name": "Китайский для начинающих (onl) a1",
+                "status": "finished",
+                "lessons": [],
+                "categories": [
+                    {
+                        "node_id": 31954,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_KTN",
+                        "name": "Китайский для начинающих"
+                    }
+                ]
+            },
+            {
+                "id": 1264607,
+                "node_id": 30956,
+                "client_id": 2333,
+                "status_id": 2,
+                "name": "Учимся играть на гитаре (web)",
+                "status": "not active",
+                "lessons": [
+                    {
+                        "id": 76444834,
+                        "client_id": 2333,
+                        "course_id": 1264607,
+                        "node_id": 30974,
+                        "name": "WEB-версия ГИТW к урокам 01-02"
+                    },
+                    {
+                        "id": 76454648,
+                        "client_id": 2333,
+                        "course_id": 1264607,
+                        "node_id": 30975,
+                        "name": "WEB-версия ГИТW к урокам 03-04"
+                    },
+                    {
+                        "id": 76503192,
+                        "client_id": 2333,
+                        "course_id": 1264607,
+                        "node_id": 30976,
+                        "name": "WEB-версия ГИТW к урокам 05-06"
+                    }
+                ],
+                "categories": [
+                    {
+                        "node_id": 30956,
+                        "parent_code": "AUDIO",
+                        "code": "AUDIO_GUITA",
+                        "name": "Учимся играть на гитаре"
+                    }
+                ]
+            }
         ]
-      }
-    ]
-  }
+    }
 }
