@@ -102,6 +102,7 @@ class AudioPlayerStoreAdapter
      */
     listSet(audios) {
         this.$store.commit('audio/setList', audios);
+        this.setSrcFirstOnList();
         return this;
     }
 
