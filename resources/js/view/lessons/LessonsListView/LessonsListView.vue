@@ -74,8 +74,7 @@ export default {
 
     methods: {
         /** @param {LessonData} lessonData */
-        getAudio(lessonData)
-        {
+        getAudio(lessonData) {
             const course = this.course.audioCategory?.code;
             const lesson = lessonData.getAudioName();
 
@@ -83,8 +82,7 @@ export default {
         },
 
         /** @param {LessonData} lessonData */
-        showWebLesson(lessonData)
-        {
+        showWebLesson(lessonData) {
             const course = this.course.webLessonsCategory?.code;
             const lesson = lessonData.getPdfName();
 

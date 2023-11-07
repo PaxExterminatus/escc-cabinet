@@ -26,6 +26,7 @@ class AudioClient extends ApplicationClient
      */
     distributeListData(data)
     {
+        audioPlayer.turnoff();
         audioPlayer
             .listSet(data.files)
             .downloadUrlSet(data.download_url)

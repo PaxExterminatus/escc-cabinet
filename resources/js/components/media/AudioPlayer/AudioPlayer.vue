@@ -26,7 +26,7 @@
             <div class="player-buttons-down">
 
                 <div class="player-timeline">
-                    <Slider v-bind="currentTime" :max="durationTime" @slideend="onTimeSlideend" @change="onTimeChange"/>
+                    <Slider v-model="currentTime" :max="duration" @slideend="onTimeSlideend" @change="onTimeChange"/>
                 </div>
 
                 <div class="player-times">
@@ -41,7 +41,7 @@
         </div>
 
         <div class="player-list" ref="list">
-            <ScrollPanel style="height: calc(100vh - 200px)" class="scroll-custom">
+            <ScrollPanel style="height: calc(100vh - 220px)" class="scroll-custom">
                 <List v-model="selected" :options="list" optionLabel="name" @change="onListChange">
                     <template #option="slotProps">
                         <div class="align-v-center-gap">
@@ -78,11 +78,11 @@ export default {
 
     props: {
         audio: {},
-        currentTime: {
+        time: {
             type: Number,
             default: 0,
         },
-        durationTime: {
+        duration: {
             type: Number,
             default: 0,
         },
@@ -90,6 +90,7 @@ export default {
 
     data() {
         return {
+            currentTime: 0,
             selected: null,
             volumeState: 100,
             timeState: 100,
@@ -124,7 +125,7 @@ export default {
         },
 
         timeFormat(sec) {
-            if (!sec) return null
+            if (!sec) return '00:00:00'
             let sec_num = parseInt(sec, 10);
             let hours   = Math.floor(sec_num / 3600);
             let minutes = Math.floor((sec_num - (hours * 3600)) / 60);
@@ -162,7 +163,9 @@ export default {
                 this.selected = lesson;
             },
         },
-
+        currentTime() {
+            this.currentTime = this.time;
+        },
     },
 
     computed: {
@@ -171,12 +174,12 @@ export default {
             return this.audio;
         },
 
-        durationTimeFormatted() {
-            return this.timeFormat(this.durationTime);
+        currentTimeFormatted() {
+            return this.timeFormat(this.time);
         },
 
-        currentTimeFormatted() {
-            return this.timeFormat(this.currentTime);
+        durationTimeFormatted() {
+            return this.timeFormat(this.duration);
         },
 
         /** @returns {CurseAudio[]} */

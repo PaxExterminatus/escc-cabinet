@@ -7,10 +7,10 @@
         v-model:visible="visible"
         :showHeader="false"
         position="topright"
-        :style="{height: '100vh', maxHeight: 'calc(100vh - 10px)', margin: '5px 0 5px 0'}"
+        :style="{height: '100vh', maxHeight: '100vh', margin: '5px 0 5px 0'}"
         style="overflow: visible !important;"
     >
-        <AudioPlayer :audio="audio" :current-time="currentTime" :duration-time="durationTime"/>
+        <AudioPlayer :audio="audio" :time="currentTime" :duration="durationTime"/>
     </Dialog>
 
     <Dialog
